@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class DashboardController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,9 @@ class HomeController extends Controller
     public function index()
     {
         if (session()->exists("users")) {
-            return redirect("/dashboard");
+            return view('admin.dashboard');
         } else {
-            return view('landing');
+            return redirect("/");
         }
     }
 

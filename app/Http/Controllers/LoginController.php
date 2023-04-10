@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class LoginController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +16,7 @@ class HomeController extends Controller
         if (session()->exists("users")) {
             return redirect("/dashboard");
         } else {
-            return view('landing');
+            return redirect("/");
         }
     }
 
@@ -38,7 +38,23 @@ class HomeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        if (isset($request->btnLogin)) {
+            $email = $request->email;
+            $password = $request->password;
+
+            if ($email == "admin@demo.com" && $password == "admin123") {
+                session()->put("successLogin", true);
+                $users = ['email' => $email, 'password' => $password];
+                session()->put("users", $users);
+            } else {
+                session()->put("errorLogin", true);
+            }
+            return redirect("/");
+        } else {
+            session()->put("errorLogin", true);
+            return redirect("/");
+        }
     }
 
     /**

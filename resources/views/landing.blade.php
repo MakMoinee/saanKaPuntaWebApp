@@ -20,6 +20,7 @@
 
     <link rel="stylesheet" href="css/flaticon.css">
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -72,7 +73,7 @@
                     <li class="nav-item active"><a href="/" class="nav-link">Home</a></li>
                     <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
                     <li class="nav-item"><a href="#" class="nav-link" data-target="#loginModal"
-                            data-toggle="modal">Login</a></li>
+                            data-toggle="modal" onclick="loginClick()">Login</a></li>
                 </ul>
             </div>
         </div>
@@ -238,7 +239,7 @@
                                         name="password" id="pw" placeholder="Password">
                                 </div>
                                 <div class="form-group">
-                                    <a href="#" style="margin-left: -50px;">Create Account</a>
+                                    {{-- <a href="#" style="margin-left: -50px;">Create Account</a> --}}
                                     <a href="#" style="float: right;">Forgot Password?</a>
                                 </div>
                             </center>
@@ -247,7 +248,8 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary" style="background-color: #ff589e">Login</button>
+                    <button type="submit" class="btn btn-primary" style="background-color: #ff589e" name="btnLogin"
+                        value="yes">Login</button>
                 </div>
                 </form>
             </div>
@@ -268,7 +270,44 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
     <script src="js/google-map.js"></script>
     <script src="js/main.js"></script>
+    <script>
+        function loginClick() {
+            let un = document.getElementById('un');
+            un.value = "";
 
+            let pw = document.getElementById('pw');
+            pw.value = "";
+        }
+    </script>
+    @if (session()->pull('successLogin'))
+        <script>
+            setTimeout(() => {
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Successfully Login',
+                    showConfirmButton: false,
+                    timer: 800
+                });
+            }, 500);
+        </script>
+        {{ session()->forget('successLogin') }}
+    @endif
+
+    @if (session()->pull('errorLogin'))
+        <script>
+            setTimeout(() => {
+                Swal.fire({
+                    position: 'center',
+                    icon: 'warning',
+                    title: 'Wrong Email or Password',
+                    showConfirmButton: false,
+                    timer: 800
+                });
+            }, 500);
+        </script>
+        {{ session()->forget('errorLogin') }}
+    @endif
 </body>
 
 </html>
