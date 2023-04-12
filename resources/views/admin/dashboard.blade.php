@@ -12,32 +12,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0,
       shrink-to-fit=no">
     <title>Admin Dashboard</title>
-    <link rel="apple-touch-icon" sizes="57x57"
-        href="https://coreui.io/demos/bootstrap/4.2/free/assets/favicon/apple-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60"
-        href="https://coreui.io/demos/bootstrap/4.2/free/assets/favicon/apple-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72"
-        href="https://coreui.io/demos/bootstrap/4.2/free/assets/favicon/apple-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76"
-        href="https://coreui.io/demos/bootstrap/4.2/free/assets/favicon/apple-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114"
-        href="https://coreui.io/demos/bootstrap/4.2/free/assets/favicon/apple-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120"
-        href="https://coreui.io/demos/bootstrap/4.2/free/assets/favicon/apple-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144"
-        href="https://coreui.io/demos/bootstrap/4.2/free/assets/favicon/apple-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152"
-        href="https://coreui.io/demos/bootstrap/4.2/free/assets/favicon/apple-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180"
-        href="https://coreui.io/demos/bootstrap/4.2/free/assets/favicon/apple-icon-180x180.png">
-    <link rel="icon" type="image/png" sizes="192x192"
-        href="https://coreui.io/demos/bootstrap/4.2/free/assets/favicon/android-icon-192x192.png">
-    <link rel="icon" type="image/png" sizes="32x32"
-        href="https://coreui.io/demos/bootstrap/4.2/free/assets/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="96x96"
-        href="https://coreui.io/demos/bootstrap/4.2/free/assets/favicon/favicon-96x96.png">
-    <link rel="icon" type="image/png" sizes="16x16"
-        href="https://coreui.io/demos/bootstrap/4.2/free/assets/favicon/favicon-16x16.png">
     <link rel="manifest" href="https://coreui.io/demos/bootstrap/4.2/free/assets/favicon/manifest.json">
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="assets/favicon/ms-icon-144x144.png">
@@ -99,230 +73,62 @@
                         <div class="simplebar-content-wrapper" tabindex="0" role="region"
                             aria-label="scrollable content" style="height: 100%; overflow: hidden scroll;">
                             <div class="simplebar-content" style="padding: 0px;">
-                                <li class="nav-item"><a class="nav-link active"
+                                <li class="nav-item">
+                                    <a class="nav-link active"
                                         href="https://coreui.io/demos/bootstrap/4.2/free/index.html">
-                                        <svg class="nav-icon">
-                                            <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-speedometer"></use>
-                                        </svg> Dashboard<span
-                                            class="badge badge-sm bg-info
-                        ms-auto">NEW</span></a>
+                                        <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="16"
+                                            height="16" fill="currentColor" class="bi bi-speedometer2"
+                                            viewBox="0 0 16 16">
+                                            <path
+                                                d="M8 4a.5.5 0 0 1 .5.5V6a.5.5 0 0 1-1 0V4.5A.5.5 0 0 1 8 4zM3.732 5.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707zM2 10a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 10zm9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5zm.754-4.246a.389.389 0 0 0-.527-.02L7.547 9.31a.91.91 0 1 0 1.302 1.258l3.434-4.297a.389.389 0 0 0-.029-.518z" />
+                                            <path fill-rule="evenodd"
+                                                d="M0 10a8 8 0 1 1 15.547 2.661c-.442 1.253-1.845 1.602-2.932 1.25C11.309 13.488 9.475 13 8 13c-1.474 0-3.31.488-4.615.911-1.087.352-2.49.003-2.932-1.25A7.988 7.988 0 0 1 0 10zm8-7a7 7 0 0 0-6.603 9.329c.203.575.923.876 1.68.63C4.397 12.533 6.358 12 8 12s3.604.532 4.923.96c.757.245 1.477-.056 1.68-.631A7 7 0 0 0 8 3z" />
+                                        </svg> Dashboard
+                                    </a>
                                 </li>
-                                <li class="nav-title">Theme</li>
+                                <li class="nav-title">Content Management</li>
                                 <li class="nav-item"><a class="nav-link"
                                         href="https://coreui.io/demos/bootstrap/4.2/free/colors.html">
-                                        <svg class="nav-icon">
-                                            <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-drop"></use>
-                                        </svg> Colors</a></li>
+                                        <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="16"
+                                            height="16" fill="currentColor" class="bi bi-buildings-fill"
+                                            viewBox="0 0 16 16">
+                                            <path
+                                                d="M15 .5a.5.5 0 0 0-.724-.447l-8 4A.5.5 0 0 0 6 4.5v3.14L.342 9.526A.5.5 0 0 0 0 10v5.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V14h1v1.5a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5V.5ZM2 11h1v1H2v-1Zm2 0h1v1H4v-1Zm-1 2v1H2v-1h1Zm1 0h1v1H4v-1Zm9-10v1h-1V3h1ZM8 5h1v1H8V5Zm1 2v1H8V7h1ZM8 9h1v1H8V9Zm2 0h1v1h-1V9Zm-1 2v1H8v-1h1Zm1 0h1v1h-1v-1Zm3-2v1h-1V9h1Zm-1 2h1v1h-1v-1Zm-2-4h1v1h-1V7Zm3 0v1h-1V7h1Zm-2-2v1h-1V5h1Zm1 0h1v1h-1V5Z" />
+                                        </svg> Buildings</a></li>
                                 <li class="nav-item"><a class="nav-link"
                                         href="https://coreui.io/demos/bootstrap/4.2/free/typography.html">
-                                        <svg class="nav-icon">
-                                            <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-pencil"></use>
-                                        </svg> Typography</a></li>
-                                <li class="nav-title">Components</li>
-                                <li class="nav-group"><a class="nav-link nav-group-toggle"
-                                        href="https://coreui.io/demos/bootstrap/4.2/free/#">
-                                        <svg class="nav-icon">
-                                            <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-puzzle"></use>
-                                        </svg> Base</a>
-                                    <ul class="nav-group-items">
-                                        <li class="nav-item"><a class="nav-link"
-                                                href="https://coreui.io/demos/bootstrap/4.2/free/base/accordion.html"><span
-                                                    class="nav-icon"></span> Accordion</a></li>
-                                        <li class="nav-item"><a class="nav-link"
-                                                href="https://coreui.io/demos/bootstrap/4.2/free/base/breadcrumb.html"><span
-                                                    class="nav-icon"></span> Breadcrumb</a></li>
-                                        <li class="nav-item"><a class="nav-link"
-                                                href="https://coreui.io/demos/bootstrap/4.2/free/base/cards.html"><span
-                                                    class="nav-icon"></span> Cards</a></li>
-                                        <li class="nav-item"><a class="nav-link"
-                                                href="https://coreui.io/demos/bootstrap/4.2/free/base/carousel.html"><span
-                                                    class="nav-icon"></span> Carousel</a></li>
-                                        <li class="nav-item"><a class="nav-link"
-                                                href="https://coreui.io/demos/bootstrap/4.2/free/base/collapse.html"><span
-                                                    class="nav-icon"></span> Collapse</a></li>
-                                        <li class="nav-item"><a class="nav-link"
-                                                href="https://coreui.io/demos/bootstrap/4.2/free/base/list-group.html"><span
-                                                    class="nav-icon"></span> List group</a></li>
-                                        <li class="nav-item"><a class="nav-link"
-                                                href="https://coreui.io/demos/bootstrap/4.2/free/base/navs-tabs.html"><span
-                                                    class="nav-icon"></span> Navs &amp; Tabs</a></li>
-                                        <li class="nav-item"><a class="nav-link"
-                                                href="https://coreui.io/demos/bootstrap/4.2/free/base/pagination.html"><span
-                                                    class="nav-icon"></span> Pagination</a></li>
-                                        <li class="nav-item"><a class="nav-link"
-                                                href="https://coreui.io/demos/bootstrap/4.2/free/base/placeholders.html"><span
-                                                    class="nav-icon"></span> Placeholders</a></li>
-                                        <li class="nav-item"><a class="nav-link"
-                                                href="https://coreui.io/demos/bootstrap/4.2/free/base/popovers.html"><span
-                                                    class="nav-icon"></span> Popovers</a></li>
-                                        <li class="nav-item"><a class="nav-link"
-                                                href="https://coreui.io/demos/bootstrap/4.2/free/base/progress.html"><span
-                                                    class="nav-icon"></span> Progress</a></li>
-                                        <li class="nav-item"><a class="nav-link"
-                                                href="https://coreui.io/demos/bootstrap/4.2/free/base/scrollspy.html"><span
-                                                    class="nav-icon"></span> Scrollspy</a></li>
-                                        <li class="nav-item"><a class="nav-link"
-                                                href="https://coreui.io/demos/bootstrap/4.2/free/base/spinners.html"><span
-                                                    class="nav-icon"></span> Spinners</a></li>
-                                        <li class="nav-item"><a class="nav-link"
-                                                href="https://coreui.io/demos/bootstrap/4.2/free/base/tables.html"><span
-                                                    class="nav-icon"></span> Tables</a></li>
-                                        <li class="nav-item"><a class="nav-link"
-                                                href="https://coreui.io/demos/bootstrap/4.2/free/base/tooltips.html"><span
-                                                    class="nav-icon"></span> Tooltips</a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-group"><a class="nav-link nav-group-toggle"
-                                        href="https://coreui.io/demos/bootstrap/4.2/free/#">
-                                        <svg class="nav-icon">
-                                            <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-cursor"></use>
-                                        </svg> Buttons</a>
-                                    <ul class="nav-group-items">
-                                        <li class="nav-item"><a class="nav-link"
-                                                href="https://coreui.io/demos/bootstrap/4.2/free/buttons/buttons.html"><span
-                                                    class="nav-icon"></span> Buttons</a></li>
-                                        <li class="nav-item"><a class="nav-link"
-                                                href="https://coreui.io/demos/bootstrap/4.2/free/buttons/button-group.html"><span
-                                                    class="nav-icon"></span> Buttons Group</a></li>
-                                        <li class="nav-item"><a class="nav-link"
-                                                href="https://coreui.io/demos/bootstrap/4.2/free/buttons/dropdowns.html"><span
-                                                    class="nav-icon"></span> Dropdowns</a></li>
-                                    </ul>
-                                </li>
+                                        <svg class="nav-icon" width="16" height="16" viewBox="0 0 24 24"
+                                            version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink">
+                                            <title>group_line</title>
+                                            <g id="页面-1" stroke="none" stroke-width="1" fill="#FFFFFF"
+                                                fill-rule="evenodd">
+                                                <g id="Development" transform="translate(-768.000000, 0.000000)">
+                                                    <g id="group_line" transform="translate(768.000000, 0.000000)">
+                                                        <path
+                                                            d="M24,0 L24,24 L0,24 L0,0 L24,0 Z M12.5934901,23.257841 L12.5819402,23.2595131 L12.5108777,23.2950439 L12.4918791,23.2987469 L12.4918791,23.2987469 L12.4767152,23.2950439 L12.4056548,23.2595131 C12.3958229,23.2563662 12.3870493,23.2590235 12.3821421,23.2649074 L12.3780323,23.275831 L12.360941,23.7031097 L12.3658947,23.7234994 L12.3769048,23.7357139 L12.4804777,23.8096931 L12.4953491,23.8136134 L12.4953491,23.8136134 L12.5071152,23.8096931 L12.6106902,23.7357139 L12.6232938,23.7196733 L12.6232938,23.7196733 L12.6266527,23.7031097 L12.609561,23.275831 C12.6075724,23.2657013 12.6010112,23.2592993 12.5934901,23.257841 L12.5934901,23.257841 Z M12.8583906,23.1452862 L12.8445485,23.1473072 L12.6598443,23.2396597 L12.6498822,23.2499052 L12.6498822,23.2499052 L12.6471943,23.2611114 L12.6650943,23.6906389 L12.6699349,23.7034178 L12.6699349,23.7034178 L12.678386,23.7104931 L12.8793402,23.8032389 C12.8914285,23.8068999 12.9022333,23.8029875 12.9078286,23.7952264 L12.9118235,23.7811639 L12.8776777,23.1665331 C12.8752882,23.1545897 12.8674102,23.1470016 12.8583906,23.1452862 L12.8583906,23.1452862 Z M12.1430473,23.1473072 C12.1332178,23.1423925 12.1221763,23.1452606 12.1156365,23.1525954 L12.1099173,23.1665331 L12.0757714,23.7811639 C12.0751323,23.7926639 12.0828099,23.8018602 12.0926481,23.8045676 L12.108256,23.8032389 L12.3092106,23.7104931 L12.3186497,23.7024347 L12.3186497,23.7024347 L12.3225043,23.6906389 L12.340401,23.2611114 L12.337245,23.2485176 L12.337245,23.2485176 L12.3277531,23.2396597 L12.1430473,23.1473072 Z"
+                                                            id="MingCute" fill-rule="nonzero">
+
+                                                        </path>
+                                                        <path
+                                                            d="M15,6 C15,7.30622 14.1652,8.41746 13,8.82929 L13,11 L16,11 C17.6569,11 19,12.3431 19,14 L19,15.1707 C20.1652,15.5825 21,16.6938 21,18 C21,19.6569 19.6569,21 18,21 C16.3431,21 15,19.6569 15,18 C15,16.6938 15.8348,15.5825 17,15.1707 L17,14 C17,13.4477 16.5523,13 16,13 L8,13 C7.44772,13 7,13.4477 7,14 L7,15.1707 C8.16519,15.5825 9,16.6938 9,18 C9,19.6569 7.65685,21 6,21 C4.34315,21 3,19.6569 3,18 C3,16.6938 3.83481,15.5825 5,15.1707 L5,14 C5,12.3431 6.34315,11 8,11 L11,11 L11,8.82929 C9.83481,8.41746 9,7.30622 9,6 C9,4.34315 10.3431,3 12,3 C13.6569,3 15,4.34315 15,6 Z M12,5 C11.4477,5 11,5.44772 11,6 C11,6.55228 11.4477,7 12,7 C12.5523,7 13,6.55228 13,6 C13,5.44772 12.5523,5 12,5 Z M6,17 C5.44772,17 5,17.4477 5,18 C5,18.5523 5.44772,19 6,19 C6.55228,19 7,18.5523 7,18 C7,17.4477 6.55228,17 6,17 Z M18,17 C17.4477,17 17,17.4477 17,18 C17,18.5523 17.4477,19 18,19 C18.5523,19 19,18.5523 19,18 C19,17.4477 18.5523,17 18,17 Z"
+                                                            id="形状" fill="#09244B">
+
+                                                        </path>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </svg> Departments
+                                    </a></li>
+                                <li class="nav-title">User Management</li>
                                 <li class="nav-item"><a class="nav-link"
-                                        href="https://coreui.io/demos/bootstrap/4.2/free/charts.html">
-                                        <svg class="nav-icon">
-                                            <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-chart-pie"></use>
-                                        </svg> Charts</a></li>
-                                <li class="nav-group"><a class="nav-link nav-group-toggle"
-                                        href="https://coreui.io/demos/bootstrap/4.2/free/#">
-                                        <svg class="nav-icon">
-                                            <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-notes"></use>
-                                        </svg> Forms</a>
-                                    <ul class="nav-group-items">
-                                        <li class="nav-item"><a class="nav-link"
-                                                href="https://coreui.io/demos/bootstrap/4.2/free/forms/form-control.html">
-                                                Form Control</a></li>
-                                        <li class="nav-item"><a class="nav-link"
-                                                href="https://coreui.io/demos/bootstrap/4.2/free/forms/select.html">
-                                                Select</a></li>
-                                        <li class="nav-item"><a class="nav-link"
-                                                href="https://coreui.io/demos/bootstrap/4.2/free/forms/checks-radios.html">
-                                                Checks and radios</a></li>
-                                        <li class="nav-item"><a class="nav-link"
-                                                href="https://coreui.io/demos/bootstrap/4.2/free/forms/range.html">
-                                                Range</a></li>
-                                        <li class="nav-item"><a class="nav-link"
-                                                href="https://coreui.io/demos/bootstrap/4.2/free/forms/input-group.html">
-                                                Input group</a></li>
-                                        <li class="nav-item"><a class="nav-link"
-                                                href="https://coreui.io/demos/bootstrap/4.2/free/forms/floating-labels.html">
-                                                Floating labels</a></li>
-                                        <li class="nav-item"><a class="nav-link"
-                                                href="https://coreui.io/demos/bootstrap/4.2/free/forms/layout.html">
-                                                Layout</a></li>
-                                        <li class="nav-item"><a class="nav-link"
-                                                href="https://coreui.io/demos/bootstrap/4.2/free/forms/validation.html">
-                                                Validation</a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-group"><a class="nav-link nav-group-toggle"
-                                        href="https://coreui.io/demos/bootstrap/4.2/free/#">
-                                        <svg class="nav-icon">
-                                            <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-star"></use>
-                                        </svg> Icons</a>
-                                    <ul class="nav-group-items">
-                                        <li class="nav-item"><a class="nav-link"
-                                                href="https://coreui.io/demos/bootstrap/4.2/free/icons/coreui-icons-free.html">
-                                                CoreUI Icons<span
-                                                    class="badge badge-sm bg-success
-                            ms-auto">Free</span></a>
-                                        </li>
-                                        <li class="nav-item"><a class="nav-link"
-                                                href="https://coreui.io/demos/bootstrap/4.2/free/icons/coreui-icons-brand.html">
-                                                CoreUI Icons - Brand</a></li>
-                                        <li class="nav-item"><a class="nav-link"
-                                                href="https://coreui.io/demos/bootstrap/4.2/free/icons/coreui-icons-flag.html">
-                                                CoreUI Icons - Flag</a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-group"><a class="nav-link nav-group-toggle"
-                                        href="https://coreui.io/demos/bootstrap/4.2/free/#">
-                                        <svg class="nav-icon">
-                                            <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-bell"></use>
-                                        </svg> Notifications</a>
-                                    <ul class="nav-group-items">
-                                        <li class="nav-item"><a class="nav-link"
-                                                href="https://coreui.io/demos/bootstrap/4.2/free/notifications/alerts.html"><span
-                                                    class="nav-icon"></span> Alerts</a></li>
-                                        <li class="nav-item"><a class="nav-link"
-                                                href="https://coreui.io/demos/bootstrap/4.2/free/notifications/badge.html"><span
-                                                    class="nav-icon"></span> Badge</a></li>
-                                        <li class="nav-item"><a class="nav-link"
-                                                href="https://coreui.io/demos/bootstrap/4.2/free/notifications/modals.html"><span
-                                                    class="nav-icon"></span> Modals</a></li>
-                                        <li class="nav-item"><a class="nav-link"
-                                                href="https://coreui.io/demos/bootstrap/4.2/free/notifications/toasts.html"><span
-                                                    class="nav-icon"></span> Toasts</a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item"><a class="nav-link"
-                                        href="https://coreui.io/demos/bootstrap/4.2/free/widgets.html">
-                                        <svg class="nav-icon">
-                                            <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-calculator"></use>
-                                        </svg> Widgets<span
-                                            class="badge badge-sm bg-info
-                        ms-auto">NEW</span></a>
-                                </li>
-                                <li class="nav-divider"></li>
-                                <li class="nav-title">Extras</li>
-                                <li class="nav-group"><a class="nav-link nav-group-toggle"
-                                        href="https://coreui.io/demos/bootstrap/4.2/free/#">
-                                        <svg class="nav-icon">
-                                            <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-star"></use>
-                                        </svg> Pages</a>
-                                    <ul class="nav-group-items">
-                                        <li class="nav-item"><a class="nav-link"
-                                                href="https://coreui.io/demos/bootstrap/4.2/free/login.html"
-                                                target="_top">
-                                                <svg class="nav-icon">
-                                                    <use
-                                                        xlink:href="vendors/@coreui/icons/svg/free.svg#cil-account-logout">
-                                                    </use>
-                                                </svg> Login</a></li>
-                                        <li class="nav-item"><a class="nav-link"
-                                                href="https://coreui.io/demos/bootstrap/4.2/free/register.html"
-                                                target="_top">
-                                                <svg class="nav-icon">
-                                                    <use
-                                                        xlink:href="vendors/@coreui/icons/svg/free.svg#cil-account-logout">
-                                                    </use>
-                                                </svg> Register</a></li>
-                                        <li class="nav-item"><a class="nav-link"
-                                                href="https://coreui.io/demos/bootstrap/4.2/free/404.html"
-                                                target="_top">
-                                                <svg class="nav-icon">
-                                                    <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-bug"></use>
-                                                </svg> Error 404</a></li>
-                                        <li class="nav-item"><a class="nav-link"
-                                                href="https://coreui.io/demos/bootstrap/4.2/free/500.html"
-                                                target="_top">
-                                                <svg class="nav-icon">
-                                                    <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-bug"></use>
-                                                </svg> Error 500</a></li>
-                                    </ul>
-                                </li>
-                                <li class="nav-item mt-auto"><a class="nav-link"
-                                        href="https://coreui.io/docs/templates/installation/" target="_blank">
-                                        <svg class="nav-icon">
-                                            <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-description"></use>
-                                        </svg> Docs</a></li>
-                                <li class="nav-item"><a class="nav-link nav-link-danger"
-                                        href="https://coreui.io/pro/" target="_top">
-                                        <svg class="nav-icon">
-                                            <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-layers"></use>
-                                        </svg> Try CoreUI
-                                        <div class="fw-semibold">PRO</div>
+                                        href="https://coreui.io/demos/bootstrap/4.2/free/colors.html">
+                                        <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="16"
+                                            height="16" fill="#FFFFFF" class="bi bi-people-fill"
+                                            viewBox="0 0 16 16">
+                                            <path
+                                                d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7Zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216ZM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
+                                        </svg> Users
                                     </a></li>
                             </div>
                         </div>
@@ -341,7 +147,6 @@
             display: block;"></div>
             </div>
         </ul>
-        <button class="sidebar-toggler" type="button" data-coreui-toggle="unfoldable"></button>
     </div>
     <div class="wrapper d-flex flex-column min-vh-100 bg-light">
         <header class="header header-sticky mb-4">
@@ -356,12 +161,12 @@
                         <use xlink:href="assets/brand/coreui.svg#full"></use>
                     </svg></a>
                 <ul class="header-nav d-none d-md-flex">
-                    <li class="nav-item"><a class="nav-link"
+                    {{-- <li class="nav-item"><a class="nav-link"
                             href="https://coreui.io/demos/bootstrap/4.2/free/#">Dashboard</a></li>
                     <li class="nav-item"><a class="nav-link"
                             href="https://coreui.io/demos/bootstrap/4.2/free/#">Users</a></li>
                     <li class="nav-item"><a class="nav-link"
-                            href="https://coreui.io/demos/bootstrap/4.2/free/#">Settings</a></li>
+                            href="https://coreui.io/demos/bootstrap/4.2/free/#">Settings</a></li> --}}
                 </ul>
                 <ul class="header-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="https://coreui.io/demos/bootstrap/4.2/free/#">
@@ -386,47 +191,13 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-end pt-0">
                             <div class="dropdown-header bg-light py-2">
-                                <div class="fw-semibold">Account</div>
-                            </div><a class="dropdown-item" href="https://coreui.io/demos/bootstrap/4.2/free/#">
-                                <svg class="icon me-2">
-                                    <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-bell"></use>
-                                </svg> Updates<span class="badge badge-sm bg-info ms-2">42</span></a><a
-                                class="dropdown-item" href="https://coreui.io/demos/bootstrap/4.2/free/#">
-                                <svg class="icon me-2">
-                                    <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-envelope-open"></use>
-                                </svg> Messages<span class="badge badge-sm bg-success ms-2">42</span></a><a
-                                class="dropdown-item" href="https://coreui.io/demos/bootstrap/4.2/free/#">
-                                <svg class="icon me-2">
-                                    <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-task"></use>
-                                </svg> Tasks<span class="badge badge-sm bg-danger ms-2">42</span></a><a
-                                class="dropdown-item" href="https://coreui.io/demos/bootstrap/4.2/free/#">
-                                <svg class="icon me-2">
-                                    <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-comment-square"></use>
-                                </svg> Comments<span class="badge badge-sm bg-warning ms-2">42</span></a>
-                            <div class="dropdown-header bg-light py-2">
                                 <div class="fw-semibold">Settings</div>
-                            </div><a class="dropdown-item" href="https://coreui.io/demos/bootstrap/4.2/free/#">
+                            </div>
+                            <a class="dropdown-item" href="https://coreui.io/demos/bootstrap/4.2/free/#">
                                 <svg class="icon me-2">
                                     <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-user"></use>
-                                </svg> Profile</a><a class="dropdown-item"
-                                href="https://coreui.io/demos/bootstrap/4.2/free/#">
-                                <svg class="icon me-2">
-                                    <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-settings"></use>
-                                </svg> Settings</a><a class="dropdown-item"
-                                href="https://coreui.io/demos/bootstrap/4.2/free/#">
-                                <svg class="icon me-2">
-                                    <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-credit-card"></use>
-                                </svg> Payments<span class="badge badge-sm bg-secondary ms-2">42</span></a><a
-                                class="dropdown-item" href="https://coreui.io/demos/bootstrap/4.2/free/#">
-                                <svg class="icon me-2">
-                                    <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-file"></use>
-                                </svg> Projects<span class="badge badge-sm bg-primary ms-2">42</span></a>
-                            <div class="dropdown-divider"></div><a class="dropdown-item"
-                                href="https://coreui.io/demos/bootstrap/4.2/free/#">
-                                <svg class="icon me-2">
-                                    <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-lock-locked"></use>
-                                </svg> Lock Account</a><a class="dropdown-item"
-                                href="/signout">
+                                </svg> Profile</a>
+                            <a class="dropdown-item" href="/signout">
                                 <svg class="icon me-2">
                                     <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-account-logout"></use>
                                 </svg> Logout</a>
@@ -441,658 +212,33 @@
                         <li class="breadcrumb-item">
                             <span>Home</span>
                         </li>
-                        <li class="breadcrumb-item active"><span>Dashboard</span></li>
+                        <li class="breadcrumb-item active"><span>Admin Dashboard</span></li>
                     </ol>
                 </nav>
             </div>
         </header>
         <div class="body flex-grow-1 px-3">
             <div class="container-lg">
-                <div class="row">
-                    <div class="col-sm-6 col-lg-3">
-                        <div class="card mb-4 text-white bg-primary">
-                            <div
-                                class="card-body pb-0 d-flex justify-content-between
-                  align-items-start">
-                                <div>
-                                    <div class="fs-4 fw-semibold">26K <span
-                                            class="fs-6
-                        fw-normal">(-12.4%
-                                            <svg class="icon">
-                                                <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-arrow-bottom">
-                                                </use>
-                                            </svg>)</span></div>
-                                    <div>Users</div>
-                                </div>
-                                <div class="dropdown">
-                                    <button class="btn btn-transparent text-white p-0" type="button"
-                                        data-coreui-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <svg class="icon">
-                                            <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-options"></use>
-                                        </svg>
-                                    </button>
-                                    <div class="dropdown-menu dropdown-menu-end"><a class="dropdown-item"
-                                            href="https://coreui.io/demos/bootstrap/4.2/free/#">Action</a><a
-                                            class="dropdown-item"
-                                            href="https://coreui.io/demos/bootstrap/4.2/free/#">Another
-                                            action</a><a class="dropdown-item"
-                                            href="https://coreui.io/demos/bootstrap/4.2/free/#">Something
-                                            else here</a></div>
-                                </div>
-                            </div>
-                            <div class="c-chart-wrapper mt-3 mx-3" style="height:70px;">
-                                <canvas class="chart" id="card-chart1" height="70" width="207"
-                                    style="display: block; box-sizing: border-box; height: 70px;
-                    width: 207px;"></canvas>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-6 col-lg-3">
-                        <div class="card mb-4 text-white bg-info">
-                            <div
-                                class="card-body pb-0 d-flex justify-content-between
-                  align-items-start">
-                                <div>
-                                    <div class="fs-4 fw-semibold">$6.200 <span
-                                            class="fs-6
-                        fw-normal">(40.9%
-                                            <svg class="icon">
-                                                <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-arrow-top">
-                                                </use>
-                                            </svg>)</span></div>
-                                    <div>Income</div>
-                                </div>
-                                <div class="dropdown">
-                                    <button class="btn btn-transparent text-white p-0" type="button"
-                                        data-coreui-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <svg class="icon">
-                                            <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-options"></use>
-                                        </svg>
-                                    </button>
-                                    <div class="dropdown-menu dropdown-menu-end"><a class="dropdown-item"
-                                            href="https://coreui.io/demos/bootstrap/4.2/free/#">Action</a><a
-                                            class="dropdown-item"
-                                            href="https://coreui.io/demos/bootstrap/4.2/free/#">Another
-                                            action</a><a class="dropdown-item"
-                                            href="https://coreui.io/demos/bootstrap/4.2/free/#">Something
-                                            else here</a></div>
-                                </div>
-                            </div>
-                            <div class="c-chart-wrapper mt-3 mx-3" style="height:70px;">
-                                <canvas class="chart" id="card-chart2" height="70" width="207"
-                                    style="display: block; box-sizing: border-box; height: 70px;
-                    width: 207px;"></canvas>
-                                <div class="chartjs-tooltip"
-                                    style="opacity: 0; left:
-                    86.6667px; top: 132.625px;">
-                                    <table style="margin: 0px;">
-                                        <thead class="chartjs-tooltip-header">
-                                            <tr class="chartjs-tooltip-header-item" style="border-width: 0px;">
-                                                <th style="border-width:
-                            0px;">March</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody class="chartjs-tooltip-body">
-                                            <tr class="chartjs-tooltip-body-item">
-                                                <td style="border-width: 0px;"><span
-                                                        style="background:
-                              rgb(51, 153, 255); border-color: rgba(255, 255,
-                              255, 0.55); border-width: 2px; margin-right: 10px;
-                              height: 10px; width: 10px; display:
-                              inline-block;"></span>My
-                                                    First dataset: 9</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-6 col-lg-3">
-                        <div class="card mb-4 text-white bg-warning">
-                            <div
-                                class="card-body pb-0 d-flex justify-content-between
-                  align-items-start">
-                                <div>
-                                    <div class="fs-4 fw-semibold">2.49% <span
-                                            class="fs-6
-                        fw-normal">(84.7%
-                                            <svg class="icon">
-                                                <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-arrow-top">
-                                                </use>
-                                            </svg>)</span></div>
-                                    <div>Conversion Rate</div>
-                                </div>
-                                <div class="dropdown">
-                                    <button class="btn btn-transparent text-white p-0" type="button"
-                                        data-coreui-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <svg class="icon">
-                                            <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-options"></use>
-                                        </svg>
-                                    </button>
-                                    <div class="dropdown-menu dropdown-menu-end"><a class="dropdown-item"
-                                            href="https://coreui.io/demos/bootstrap/4.2/free/#">Action</a><a
-                                            class="dropdown-item"
-                                            href="https://coreui.io/demos/bootstrap/4.2/free/#">Another
-                                            action</a><a class="dropdown-item"
-                                            href="https://coreui.io/demos/bootstrap/4.2/free/#">Something
-                                            else here</a></div>
-                                </div>
-                            </div>
-                            <div class="c-chart-wrapper mt-3" style="height:70px;">
-                                <canvas class="chart" id="card-chart3" height="70" width="239"
-                                    style="display: block; box-sizing: border-box; height: 70px;
-                    width: 239px;"></canvas>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-6 col-lg-3">
-                        <div class="card mb-4 text-white bg-danger">
-                            <div
-                                class="card-body pb-0 d-flex justify-content-between
-                  align-items-start">
-                                <div>
-                                    <div class="fs-4 fw-semibold">44K <span
-                                            class="fs-6
-                        fw-normal">(-23.6%
-                                            <svg class="icon">
-                                                <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-arrow-bottom">
-                                                </use>
-                                            </svg>)</span></div>
-                                    <div>Sessions</div>
-                                </div>
-                                <div class="dropdown">
-                                    <button class="btn btn-transparent text-white p-0" type="button"
-                                        data-coreui-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <svg class="icon">
-                                            <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-options"></use>
-                                        </svg>
-                                    </button>
-                                    <div class="dropdown-menu dropdown-menu-end"><a class="dropdown-item"
-                                            href="https://coreui.io/demos/bootstrap/4.2/free/#">Action</a><a
-                                            class="dropdown-item"
-                                            href="https://coreui.io/demos/bootstrap/4.2/free/#">Another
-                                            action</a><a class="dropdown-item"
-                                            href="https://coreui.io/demos/bootstrap/4.2/free/#">Something
-                                            else here</a></div>
-                                </div>
-                            </div>
-                            <div class="c-chart-wrapper mt-3 mx-3" style="height:70px;">
-                                <canvas class="chart" id="card-chart4" height="70" width="207"
-                                    style="display: block; box-sizing: border-box; height: 70px;
-                    width: 207px;"></canvas>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="card mb-4">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between">
-                            <div>
-                                <h4 class="card-title mb-0">Traffic</h4>
-                                <div class="small text-medium-emphasis">January - July 2022</div>
-                            </div>
-                            <div class="btn-toolbar d-none d-md-block" role="toolbar"
-                                aria-label="Toolbar with buttons">
-                                <div class="btn-group btn-group-toggle mx-3" data-coreui-toggle="buttons">
-                                    <input class="btn-check" id="option1" type="radio" name="options"
-                                        autocomplete="off">
-                                    <label class="btn btn-outline-secondary"> Day</label>
-                                    <input class="btn-check" id="option2" type="radio" name="options"
-                                        autocomplete="off" checked="">
-                                    <label class="btn btn-outline-secondary active"> Month</label>
-                                    <input class="btn-check" id="option3" type="radio" name="options"
-                                        autocomplete="off">
-                                    <label class="btn btn-outline-secondary"> Year</label>
-                                </div>
-                                <button class="btn btn-primary" type="button">
-                                    <svg class="icon">
-                                        <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-cloud-download"></use>
-                                    </svg>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="c-chart-wrapper" style="height:300px;margin-top:40px;">
-                            <canvas class="chart" id="main-chart" height="300" width="1003"
-                                style="display: block; box-sizing: border-box; height: 300px;
-                  width: 1003px;"></canvas>
-                        </div>
-                    </div>
-                    <div class="card-footer">
-                        <div class="row row-cols-1 row-cols-md-5 text-center">
-                            <div class="col mb-sm-2 mb-0">
-                                <div class="text-medium-emphasis">Visits</div>
-                                <div class="fw-semibold">29.703 Users (40%)</div>
-                                <div class="progress progress-thin mt-2">
-                                    <div class="progress-bar bg-success" role="progressbar" style="width: 40%"
-                                        aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </div>
-                            <div class="col mb-sm-2 mb-0">
-                                <div class="text-medium-emphasis">Unique</div>
-                                <div class="fw-semibold">24.093 Users (20%)</div>
-                                <div class="progress progress-thin mt-2">
-                                    <div class="progress-bar bg-info" role="progressbar" style="width: 20%"
-                                        aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </div>
-                            <div class="col mb-sm-2 mb-0">
-                                <div class="text-medium-emphasis">Pageviews</div>
-                                <div class="fw-semibold">78.706 Views (60%)</div>
-                                <div class="progress progress-thin mt-2">
-                                    <div class="progress-bar bg-warning" role="progressbar" style="width: 60%"
-                                        aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </div>
-                            <div class="col mb-sm-2 mb-0">
-                                <div class="text-medium-emphasis">New Users</div>
-                                <div class="fw-semibold">22.123 Users (80%)</div>
-                                <div class="progress progress-thin mt-2">
-                                    <div class="progress-bar bg-danger" role="progressbar" style="width: 80%"
-                                        aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                                </div>
-                            </div>
-                            <div class="col mb-sm-2 mb-0">
-                                <div class="text-medium-emphasis">Bounce Rate</div>
-                                <div class="fw-semibold">40.15%</div>
-                                <div class="progress progress-thin mt-2">
-                                    <div class="progress-bar" role="progressbar"
-                                        style="width:
-                      40%" aria-valuenow="40" aria-valuemin="0"
-                                        aria-valuemax="100"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-sm-6 col-lg-4">
-                        <div class="card mb-4" style="--cui-card-cap-bg: #3b5998">
-                            <div
-                                class="card-header position-relative d-flex
-                  justify-content-center align-items-center">
-                                <svg class="icon icon-3xl text-white my-4">
-                                    <use xlink:href="vendors/@coreui/icons/svg/brand.svg#cib-facebook-f"></use>
-                                </svg>
-                                <div
-                                    class="chart-wrapper position-absolute top-0 start-0
-                    w-100 h-100">
-                                    <canvas id="social-box-chart-1" height="90"></canvas>
-                                </div>
-                            </div>
-                            <div class="card-body row text-center">
-                                <div class="col">
-                                    <div class="fs-5 fw-semibold">89k</div>
-                                    <div class="text-uppercase text-medium-emphasis small">friends</div>
-                                </div>
-                                <div class="vr"></div>
-                                <div class="col">
-                                    <div class="fs-5 fw-semibold">459</div>
-                                    <div class="text-uppercase text-medium-emphasis small">feeds</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-6 col-lg-4">
-                        <div class="card mb-4" style="--cui-card-cap-bg: #00aced">
-                            <div
-                                class="card-header position-relative d-flex
-                  justify-content-center align-items-center">
-                                <svg class="icon icon-3xl text-white my-4">
-                                    <use xlink:href="vendors/@coreui/icons/svg/brand.svg#cib-twitter"></use>
-                                </svg>
-                                <div
-                                    class="chart-wrapper position-absolute top-0 start-0
-                    w-100 h-100">
-                                    <canvas id="social-box-chart-2" height="90"></canvas>
-                                </div>
-                            </div>
-                            <div class="card-body row text-center">
-                                <div class="col">
-                                    <div class="fs-5 fw-semibold">973k</div>
-                                    <div class="text-uppercase text-medium-emphasis small">followers</div>
-                                </div>
-                                <div class="vr"></div>
-                                <div class="col">
-                                    <div class="fs-5 fw-semibold">1.792</div>
-                                    <div class="text-uppercase text-medium-emphasis small">tweets</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-6 col-lg-4">
-                        <div class="card mb-4" style="--cui-card-cap-bg: #4875b4">
-                            <div
-                                class="card-header position-relative d-flex
-                  justify-content-center align-items-center">
-                                <svg class="icon icon-3xl text-white my-4">
-                                    <use xlink:href="vendors/@coreui/icons/svg/brand.svg#cib-linkedin"></use>
-                                </svg>
-                                <div
-                                    class="chart-wrapper position-absolute top-0 start-0
-                    w-100 h-100">
-                                    <canvas id="social-box-chart-3" height="90"></canvas>
-                                </div>
-                            </div>
-                            <div class="card-body row text-center">
-                                <div class="col">
-                                    <div class="fs-5 fw-semibold">500+</div>
-                                    <div class="text-uppercase text-medium-emphasis small">contacts</div>
-                                </div>
-                                <div class="vr"></div>
-                                <div class="col">
-                                    <div class="fs-5 fw-semibold">292</div>
-                                    <div class="text-uppercase text-medium-emphasis small">feeds</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
 
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card mb-4">
-                            <div class="card-header">Traffic &amp; Sales</div>
                             <div class="card-body">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <div
-                                                    class="border-start border-start-4
-                            border-start-info px-3 mb-3">
-                                                    <small class="text-medium-emphasis">New Clients</small>
-                                                    <div class="fs-5 fw-semibold">9.123</div>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-6">
-                                                <div
-                                                    class="border-start border-start-4
-                            border-start-danger px-3 mb-3">
-                                                    <small class="text-medium-emphasis">Recuring Clients</small>
-                                                    <div class="fs-5 fw-semibold">22.643</div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-                                        <hr class="mt-0">
-                                        <div class="progress-group mb-4">
-                                            <div class="progress-group-prepend"><span
-                                                    class="text-medium-emphasis small">Monday</span></div>
-                                            <div class="progress-group-bars">
-                                                <div class="progress progress-thin">
-                                                    <div class="progress-bar bg-info" role="progressbar"
-                                                        style="width: 34%" aria-valuenow="34" aria-valuemin="0"
-                                                        aria-valuemax="100"></div>
-                                                </div>
-                                                <div class="progress progress-thin">
-                                                    <div class="progress-bar bg-danger" role="progressbar"
-                                                        style="width: 78%" aria-valuenow="78" aria-valuemin="0"
-                                                        aria-valuemax="100"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="progress-group mb-4">
-                                            <div class="progress-group-prepend"><span
-                                                    class="text-medium-emphasis small">Tuesday</span></div>
-                                            <div class="progress-group-bars">
-                                                <div class="progress progress-thin">
-                                                    <div class="progress-bar bg-info" role="progressbar"
-                                                        style="width: 56%" aria-valuenow="56" aria-valuemin="0"
-                                                        aria-valuemax="100"></div>
-                                                </div>
-                                                <div class="progress progress-thin">
-                                                    <div class="progress-bar bg-danger" role="progressbar"
-                                                        style="width: 94%" aria-valuenow="94" aria-valuemin="0"
-                                                        aria-valuemax="100"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="progress-group mb-4">
-                                            <div class="progress-group-prepend"><span
-                                                    class="text-medium-emphasis small">Wednesday</span></div>
-                                            <div class="progress-group-bars">
-                                                <div class="progress progress-thin">
-                                                    <div class="progress-bar bg-info" role="progressbar"
-                                                        style="width: 12%" aria-valuenow="12" aria-valuemin="0"
-                                                        aria-valuemax="100"></div>
-                                                </div>
-                                                <div class="progress progress-thin">
-                                                    <div class="progress-bar bg-danger" role="progressbar"
-                                                        style="width: 67%" aria-valuenow="67" aria-valuemin="0"
-                                                        aria-valuemax="100"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="progress-group mb-4">
-                                            <div class="progress-group-prepend"><span
-                                                    class="text-medium-emphasis small">Thursday</span></div>
-                                            <div class="progress-group-bars">
-                                                <div class="progress progress-thin">
-                                                    <div class="progress-bar bg-info" role="progressbar"
-                                                        style="width: 43%" aria-valuenow="43" aria-valuemin="0"
-                                                        aria-valuemax="100"></div>
-                                                </div>
-                                                <div class="progress progress-thin">
-                                                    <div class="progress-bar bg-danger" role="progressbar"
-                                                        style="width: 91%" aria-valuenow="91" aria-valuemin="0"
-                                                        aria-valuemax="100"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="progress-group mb-4">
-                                            <div class="progress-group-prepend"><span
-                                                    class="text-medium-emphasis small">Friday</span></div>
-                                            <div class="progress-group-bars">
-                                                <div class="progress progress-thin">
-                                                    <div class="progress-bar bg-info" role="progressbar"
-                                                        style="width: 22%" aria-valuenow="22" aria-valuemin="0"
-                                                        aria-valuemax="100"></div>
-                                                </div>
-                                                <div class="progress progress-thin">
-                                                    <div class="progress-bar bg-danger" role="progressbar"
-                                                        style="width: 73%" aria-valuenow="73" aria-valuemin="0"
-                                                        aria-valuemax="100"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="progress-group mb-4">
-                                            <div class="progress-group-prepend"><span
-                                                    class="text-medium-emphasis small">Saturday</span></div>
-                                            <div class="progress-group-bars">
-                                                <div class="progress progress-thin">
-                                                    <div class="progress-bar bg-info" role="progressbar"
-                                                        style="width: 53%" aria-valuenow="53" aria-valuemin="0"
-                                                        aria-valuemax="100"></div>
-                                                </div>
-                                                <div class="progress progress-thin">
-                                                    <div class="progress-bar bg-danger" role="progressbar"
-                                                        style="width: 82%" aria-valuenow="82" aria-valuemin="0"
-                                                        aria-valuemax="100"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="progress-group mb-4">
-                                            <div class="progress-group-prepend"><span
-                                                    class="text-medium-emphasis small">Sunday</span></div>
-                                            <div class="progress-group-bars">
-                                                <div class="progress progress-thin">
-                                                    <div class="progress-bar bg-info" role="progressbar"
-                                                        style="width: 9%" aria-valuenow="9" aria-valuemin="0"
-                                                        aria-valuemax="100"></div>
-                                                </div>
-                                                <div class="progress progress-thin">
-                                                    <div class="progress-bar bg-danger" role="progressbar"
-                                                        style="width: 69%" aria-valuenow="69" aria-valuemin="0"
-                                                        aria-valuemax="100"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-sm-6">
-                                        <div class="row">
-                                            <div class="col-6">
-                                                <div
-                                                    class="border-start border-start-4
-                            border-start-warning px-3 mb-3">
-                                                    <small class="text-medium-emphasis">Pageviews</small>
-                                                    <div class="fs-5 fw-semibold">78.623</div>
-                                                </div>
-                                            </div>
-
-                                            <div class="col-6">
-                                                <div
-                                                    class="border-start border-start-4
-                            border-start-success px-3 mb-3">
-                                                    <small class="text-medium-emphasis">Organic</small>
-                                                    <div class="fs-5 fw-semibold">49.123</div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-                                        <hr class="mt-0">
-                                        <div class="progress-group">
-                                            <div class="progress-group-header">
-                                                <svg class="icon icon-lg me-2">
-                                                    <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-user">
-                                                    </use>
-                                                </svg>
-                                                <div>Male</div>
-                                                <div class="ms-auto fw-semibold">43%</div>
-                                            </div>
-                                            <div class="progress-group-bars">
-                                                <div class="progress progress-thin">
-                                                    <div class="progress-bar bg-warning" role="progressbar"
-                                                        style="width: 43%" aria-valuenow="43" aria-valuemin="0"
-                                                        aria-valuemax="100"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="progress-group mb-5">
-                                            <div class="progress-group-header">
-                                                <svg class="icon icon-lg me-2">
-                                                    <use
-                                                        xlink:href="vendors/@coreui/icons/svg/free.svg#cil-user-female">
-                                                    </use>
-                                                </svg>
-                                                <div>Female</div>
-                                                <div class="ms-auto fw-semibold">37%</div>
-                                            </div>
-                                            <div class="progress-group-bars">
-                                                <div class="progress progress-thin">
-                                                    <div class="progress-bar bg-warning" role="progressbar"
-                                                        style="width: 43%" aria-valuenow="43" aria-valuemin="0"
-                                                        aria-valuemax="100"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="progress-group">
-                                            <div class="progress-group-header">
-                                                <svg class="icon icon-lg me-2">
-                                                    <use xlink:href="vendors/@coreui/icons/svg/brand.svg#cib-google">
-                                                    </use>
-                                                </svg>
-                                                <div>Organic Search</div>
-                                                <div class="ms-auto fw-semibold me-2">191.235</div>
-                                                <div class="text-medium-emphasis small">(56%)</div>
-                                            </div>
-                                            <div class="progress-group-bars">
-                                                <div class="progress progress-thin">
-                                                    <div class="progress-bar bg-success" role="progressbar"
-                                                        style="width: 56%" aria-valuenow="56" aria-valuemin="0"
-                                                        aria-valuemax="100"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="progress-group">
-                                            <div class="progress-group-header">
-                                                <svg class="icon icon-lg me-2">
-                                                    <use
-                                                        xlink:href="vendors/@coreui/icons/svg/brand.svg#cib-facebook-f">
-                                                    </use>
-                                                </svg>
-                                                <div>Facebook</div>
-                                                <div class="ms-auto fw-semibold me-2">51.223</div>
-                                                <div class="text-medium-emphasis small">(15%)</div>
-                                            </div>
-                                            <div class="progress-group-bars">
-                                                <div class="progress progress-thin">
-                                                    <div class="progress-bar bg-success" role="progressbar"
-                                                        style="width: 15%" aria-valuenow="15" aria-valuemin="0"
-                                                        aria-valuemax="100"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="progress-group">
-                                            <div class="progress-group-header">
-                                                <svg class="icon icon-lg me-2">
-                                                    <use xlink:href="vendors/@coreui/icons/svg/brand.svg#cib-twitter">
-                                                    </use>
-                                                </svg>
-                                                <div>Twitter</div>
-                                                <div class="ms-auto fw-semibold me-2">37.564</div>
-                                                <div class="text-medium-emphasis small">(11%)</div>
-                                            </div>
-                                            <div class="progress-group-bars">
-                                                <div class="progress progress-thin">
-                                                    <div class="progress-bar bg-success" role="progressbar"
-                                                        style="width: 11%" aria-valuenow="11" aria-valuemin="0"
-                                                        aria-valuemax="100"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="progress-group">
-                                            <div class="progress-group-header">
-                                                <svg class="icon icon-lg me-2">
-                                                    <use xlink:href="vendors/@coreui/icons/svg/brand.svg#cib-linkedin">
-                                                    </use>
-                                                </svg>
-                                                <div>LinkedIn</div>
-                                                <div class="ms-auto fw-semibold me-2">27.319</div>
-                                                <div class="text-medium-emphasis small">(8%)</div>
-                                            </div>
-                                            <div class="progress-group-bars">
-                                                <div class="progress progress-thin">
-                                                    <div class="progress-bar bg-success" role="progressbar"
-                                                        style="width: 8%" aria-valuenow="8" aria-valuemin="0"
-                                                        aria-valuemax="100"></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <br>
                                 <div class="table-responsive">
                                     <table class="table border mb-0">
                                         <thead class="table-light fw-semibold">
                                             <tr class="align-middle">
                                                 <th class="text-center">
-                                                    <svg class="icon">
-                                                        <use
-                                                            xlink:href="vendors/@coreui/icons/svg/free.svg#cil-people">
-                                                        </use>
+                                                    <svg class="icon" xmlns="http://www.w3.org/2000/svg"
+                                                        width="16" height="16" fill="#FFFFFF"
+                                                        class="bi bi-people-fill" viewBox="0 0 16 16">
+                                                        <path
+                                                            d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7Zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216ZM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
                                                     </svg>
                                                 </th>
-                                                <th>User</th>
-                                                <th class="text-center">Country</th>
-                                                <th>Usage</th>
-                                                <th class="text-center">Payment Method</th>
-                                                <th>Activity</th>
-                                                <th></th>
+                                                <th>Details</th>
+                                                <th class="text-center">User Type</th>
+                                                <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -1100,8 +246,7 @@
                                                 <td class="text-center">
                                                     <div class="avatar avatar-md"><img class="avatar-img"
                                                             src="./Dashboard_files/1.jpg" alt="user@email.com"><span
-                                                            class="avatar-status
-                                bg-success"></span>
+                                                            class="avatar-status bg-success"></span>
                                                     </div>
                                                 </td>
                                                 <td>
@@ -1116,387 +261,13 @@
                                                     </svg>
                                                 </td>
                                                 <td>
-                                                    <div class="clearfix">
-                                                        <div class="float-start">
-                                                            <div class="fw-semibold">50%</div>
-                                                        </div>
-                                                        <div class="float-end"><small class="text-medium-emphasis">Jun
-                                                                11, 2020 -
-                                                                Jul 10, 2020</small></div>
-                                                    </div>
-                                                    <div class="progress progress-thin">
-                                                        <div class="progress-bar bg-success" role="progressbar"
-                                                            style="width: 50%" aria-valuenow="50" aria-valuemin="0"
-                                                            aria-valuemax="100"></div>
-                                                    </div>
+                                                    <button class="btn btn-success"
+                                                        style="color: white">View/Edit</button>
+                                                    <button class="btn btn-danger"
+                                                        style="color: white">Delete</button>
                                                 </td>
-                                                <td class="text-center">
-                                                    <svg class="icon icon-xl">
-                                                        <use
-                                                            xlink:href="vendors/@coreui/icons/svg/brand.svg#cib-cc-mastercard">
-                                                        </use>
-                                                    </svg>
-                                                </td>
-                                                <td>
-                                                    <div class="small text-medium-emphasis">Last login</div>
-                                                    <div class="fw-semibold">10 sec ago</div>
-                                                </td>
-                                                <td>
-                                                    <div class="dropdown">
-                                                        <button class="btn btn-transparent p-0" type="button"
-                                                            data-coreui-toggle="dropdown" aria-haspopup="true"
-                                                            aria-expanded="false">
-                                                            <svg class="icon">
-                                                                <use
-                                                                    xlink:href="vendors/@coreui/icons/svg/free.svg#cil-options">
-                                                                </use>
-                                                            </svg>
-                                                        </button>
-                                                        <div class="dropdown-menu dropdown-menu-end"><a
-                                                                class="dropdown-item"
-                                                                href="https://coreui.io/demos/bootstrap/4.2/free/#">Info</a><a
-                                                                class="dropdown-item"
-                                                                href="https://coreui.io/demos/bootstrap/4.2/free/#">Edit</a><a
-                                                                class="dropdown-item text-danger"
-                                                                href="https://coreui.io/demos/bootstrap/4.2/free/#">Delete</a>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr class="align-middle">
-                                                <td class="text-center">
-                                                    <div class="avatar avatar-md"><img class="avatar-img"
-                                                            src="./Dashboard_files/2.jpg" alt="user@email.com"><span
-                                                            class="avatar-status
-                                bg-danger"></span>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div>Avram Tarasios</div>
-                                                    <div class="small text-medium-emphasis"><span>Recurring</span>
-                                                        | Registered: Jan 1, 2020</div>
-                                                </td>
-                                                <td class="text-center">
-                                                    <svg class="icon icon-xl">
-                                                        <use xlink:href="vendors/@coreui/icons/svg/flag.svg#cif-br">
-                                                        </use>
-                                                    </svg>
-                                                </td>
-                                                <td>
-                                                    <div class="clearfix">
-                                                        <div class="float-start">
-                                                            <div class="fw-semibold">10%</div>
-                                                        </div>
-                                                        <div class="float-end"><small
-                                                                class="text-medium-emphasis">Jun 11, 2020 -
-                                                                Jul 10, 2020</small></div>
-                                                    </div>
-                                                    <div class="progress progress-thin">
-                                                        <div class="progress-bar bg-info" role="progressbar"
-                                                            style="width: 10%" aria-valuenow="10"
-                                                            aria-valuemin="0" aria-valuemax="100"></div>
-                                                    </div>
-                                                </td>
-                                                <td class="text-center">
-                                                    <svg class="icon icon-xl">
-                                                        <use
-                                                            xlink:href="vendors/@coreui/icons/svg/brand.svg#cib-cc-visa">
-                                                        </use>
-                                                    </svg>
-                                                </td>
-                                                <td>
-                                                    <div class="small text-medium-emphasis">Last login</div>
-                                                    <div class="fw-semibold">5 minutes ago</div>
-                                                </td>
-                                                <td>
-                                                    <div class="dropdown">
-                                                        <button class="btn btn-transparent p-0" type="button"
-                                                            data-coreui-toggle="dropdown" aria-haspopup="true"
-                                                            aria-expanded="false">
-                                                            <svg class="icon">
-                                                                <use
-                                                                    xlink:href="vendors/@coreui/icons/svg/free.svg#cil-options">
-                                                                </use>
-                                                            </svg>
-                                                        </button>
-                                                        <div class="dropdown-menu dropdown-menu-end"><a
-                                                                class="dropdown-item"
-                                                                href="https://coreui.io/demos/bootstrap/4.2/free/#">Info</a><a
-                                                                class="dropdown-item"
-                                                                href="https://coreui.io/demos/bootstrap/4.2/free/#">Edit</a><a
-                                                                class="dropdown-item text-danger"
-                                                                href="https://coreui.io/demos/bootstrap/4.2/free/#">Delete</a>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr class="align-middle">
-                                                <td class="text-center">
-                                                    <div class="avatar avatar-md"><img class="avatar-img"
-                                                            src="./Dashboard_files/3.jpg" alt="user@email.com"><span
-                                                            class="avatar-status
-                                bg-warning"></span>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div>Quintin Ed</div>
-                                                    <div class="small text-medium-emphasis"><span>New</span>
-                                                        | Registered: Jan 1, 2020</div>
-                                                </td>
-                                                <td class="text-center">
-                                                    <svg class="icon icon-xl">
-                                                        <use xlink:href="vendors/@coreui/icons/svg/flag.svg#cif-in">
-                                                        </use>
-                                                    </svg>
-                                                </td>
-                                                <td>
-                                                    <div class="clearfix">
-                                                        <div class="float-start">
-                                                            <div class="fw-semibold">74%</div>
-                                                        </div>
-                                                        <div class="float-end"><small
-                                                                class="text-medium-emphasis">Jun 11, 2020 -
-                                                                Jul 10, 2020</small></div>
-                                                    </div>
-                                                    <div class="progress progress-thin">
-                                                        <div class="progress-bar bg-warning" role="progressbar"
-                                                            style="width: 74%" aria-valuenow="74"
-                                                            aria-valuemin="0" aria-valuemax="100"></div>
-                                                    </div>
-                                                </td>
-                                                <td class="text-center">
-                                                    <svg class="icon icon-xl">
-                                                        <use
-                                                            xlink:href="vendors/@coreui/icons/svg/brand.svg#cib-cc-stripe">
-                                                        </use>
-                                                    </svg>
-                                                </td>
-                                                <td>
-                                                    <div class="small text-medium-emphasis">Last login</div>
-                                                    <div class="fw-semibold">1 hour ago</div>
-                                                </td>
-                                                <td>
-                                                    <div class="dropdown">
-                                                        <button class="btn btn-transparent p-0" type="button"
-                                                            data-coreui-toggle="dropdown" aria-haspopup="true"
-                                                            aria-expanded="false">
-                                                            <svg class="icon">
-                                                                <use
-                                                                    xlink:href="vendors/@coreui/icons/svg/free.svg#cil-options">
-                                                                </use>
-                                                            </svg>
-                                                        </button>
-                                                        <div class="dropdown-menu dropdown-menu-end"><a
-                                                                class="dropdown-item"
-                                                                href="https://coreui.io/demos/bootstrap/4.2/free/#">Info</a><a
-                                                                class="dropdown-item"
-                                                                href="https://coreui.io/demos/bootstrap/4.2/free/#">Edit</a><a
-                                                                class="dropdown-item text-danger"
-                                                                href="https://coreui.io/demos/bootstrap/4.2/free/#">Delete</a>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr class="align-middle">
-                                                <td class="text-center">
-                                                    <div class="avatar avatar-md"><img class="avatar-img"
-                                                            src="./Dashboard_files/4.jpg" alt="user@email.com"><span
-                                                            class="avatar-status
-                                bg-secondary"></span>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div>Enéas Kwadwo</div>
-                                                    <div class="small text-medium-emphasis"><span>New</span>
-                                                        | Registered: Jan 1, 2020</div>
-                                                </td>
-                                                <td class="text-center">
-                                                    <svg class="icon icon-xl">
-                                                        <use xlink:href="vendors/@coreui/icons/svg/flag.svg#cif-fr">
-                                                        </use>
-                                                    </svg>
-                                                </td>
-                                                <td>
-                                                    <div class="clearfix">
-                                                        <div class="float-start">
-                                                            <div class="fw-semibold">98%</div>
-                                                        </div>
-                                                        <div class="float-end"><small
-                                                                class="text-medium-emphasis">Jun 11, 2020 -
-                                                                Jul 10, 2020</small></div>
-                                                    </div>
-                                                    <div class="progress progress-thin">
-                                                        <div class="progress-bar bg-danger" role="progressbar"
-                                                            style="width: 98%" aria-valuenow="98"
-                                                            aria-valuemin="0" aria-valuemax="100"></div>
-                                                    </div>
-                                                </td>
-                                                <td class="text-center">
-                                                    <svg class="icon icon-xl">
-                                                        <use
-                                                            xlink:href="vendors/@coreui/icons/svg/brand.svg#cib-cc-paypal">
-                                                        </use>
-                                                    </svg>
-                                                </td>
-                                                <td>
-                                                    <div class="small text-medium-emphasis">Last login</div>
-                                                    <div class="fw-semibold">Last month</div>
-                                                </td>
-                                                <td>
-                                                    <div class="dropdown">
-                                                        <button class="btn btn-transparent p-0" type="button"
-                                                            data-coreui-toggle="dropdown" aria-haspopup="true"
-                                                            aria-expanded="false">
-                                                            <svg class="icon">
-                                                                <use
-                                                                    xlink:href="vendors/@coreui/icons/svg/free.svg#cil-options">
-                                                                </use>
-                                                            </svg>
-                                                        </button>
-                                                        <div class="dropdown-menu dropdown-menu-end"><a
-                                                                class="dropdown-item"
-                                                                href="https://coreui.io/demos/bootstrap/4.2/free/#">Info</a><a
-                                                                class="dropdown-item"
-                                                                href="https://coreui.io/demos/bootstrap/4.2/free/#">Edit</a><a
-                                                                class="dropdown-item text-danger"
-                                                                href="https://coreui.io/demos/bootstrap/4.2/free/#">Delete</a>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr class="align-middle">
-                                                <td class="text-center">
-                                                    <div class="avatar avatar-md"><img class="avatar-img"
-                                                            src="./Dashboard_files/5.jpg" alt="user@email.com"><span
-                                                            class="avatar-status
-                                bg-success"></span>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div>Agapetus Tadeáš</div>
-                                                    <div class="small text-medium-emphasis"><span>New</span>
-                                                        | Registered: Jan 1, 2020</div>
-                                                </td>
-                                                <td class="text-center">
-                                                    <svg class="icon icon-xl">
-                                                        <use xlink:href="vendors/@coreui/icons/svg/flag.svg#cif-es">
-                                                        </use>
-                                                    </svg>
-                                                </td>
-                                                <td>
-                                                    <div class="clearfix">
-                                                        <div class="float-start">
-                                                            <div class="fw-semibold">22%</div>
-                                                        </div>
-                                                        <div class="float-end"><small
-                                                                class="text-medium-emphasis">Jun 11, 2020 -
-                                                                Jul 10, 2020</small></div>
-                                                    </div>
-                                                    <div class="progress progress-thin">
-                                                        <div class="progress-bar bg-info" role="progressbar"
-                                                            style="width: 22%" aria-valuenow="22"
-                                                            aria-valuemin="0" aria-valuemax="100"></div>
-                                                    </div>
-                                                </td>
-                                                <td class="text-center">
-                                                    <svg class="icon icon-xl">
-                                                        <use
-                                                            xlink:href="vendors/@coreui/icons/svg/brand.svg#cib-cc-apple-pay">
-                                                        </use>
-                                                    </svg>
-                                                </td>
-                                                <td>
-                                                    <div class="small text-medium-emphasis">Last login</div>
-                                                    <div class="fw-semibold">Last week</div>
-                                                </td>
-                                                <td>
-                                                    <div class="dropdown dropup">
-                                                        <button class="btn btn-transparent p-0" type="button"
-                                                            data-coreui-toggle="dropdown" aria-haspopup="true"
-                                                            aria-expanded="false">
-                                                            <svg class="icon">
-                                                                <use
-                                                                    xlink:href="vendors/@coreui/icons/svg/free.svg#cil-options">
-                                                                </use>
-                                                            </svg>
-                                                        </button>
-                                                        <div class="dropdown-menu dropdown-menu-end"><a
-                                                                class="dropdown-item"
-                                                                href="https://coreui.io/demos/bootstrap/4.2/free/#">Info</a><a
-                                                                class="dropdown-item"
-                                                                href="https://coreui.io/demos/bootstrap/4.2/free/#">Edit</a><a
-                                                                class="dropdown-item text-danger"
-                                                                href="https://coreui.io/demos/bootstrap/4.2/free/#">Delete</a>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr class="align-middle">
-                                                <td class="text-center">
-                                                    <div class="avatar avatar-md"><img class="avatar-img"
-                                                            src="./Dashboard_files/6.jpg" alt="user@email.com"><span
-                                                            class="avatar-status
-                                bg-danger"></span>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div>Friderik Dávid</div>
-                                                    <div class="small text-medium-emphasis"><span>New</span>
-                                                        | Registered: Jan 1, 2020</div>
-                                                </td>
-                                                <td class="text-center">
-                                                    <svg class="icon icon-xl">
-                                                        <use xlink:href="vendors/@coreui/icons/svg/flag.svg#cif-pl">
-                                                        </use>
-                                                    </svg>
-                                                </td>
-                                                <td>
-                                                    <div class="clearfix">
-                                                        <div class="float-start">
-                                                            <div class="fw-semibold">43%</div>
-                                                        </div>
-                                                        <div class="float-end"><small
-                                                                class="text-medium-emphasis">Jun 11, 2020 -
-                                                                Jul 10, 2020</small></div>
-                                                    </div>
-                                                    <div class="progress progress-thin">
-                                                        <div class="progress-bar bg-success" role="progressbar"
-                                                            style="width: 43%" aria-valuenow="43"
-                                                            aria-valuemin="0" aria-valuemax="100"></div>
-                                                    </div>
-                                                </td>
-                                                <td class="text-center">
-                                                    <svg class="icon icon-xl">
-                                                        <use
-                                                            xlink:href="vendors/@coreui/icons/svg/brand.svg#cib-cc-amex">
-                                                        </use>
-                                                    </svg>
-                                                </td>
-                                                <td>
-                                                    <div class="small text-medium-emphasis">Last login</div>
-                                                    <div class="fw-semibold">Yesterday</div>
-                                                </td>
-                                                <td>
-                                                    <div class="dropdown dropup">
-                                                        <button class="btn btn-transparent p-0" type="button"
-                                                            data-coreui-toggle="dropdown" aria-haspopup="true"
-                                                            aria-expanded="false">
-                                                            <svg class="icon">
-                                                                <use
-                                                                    xlink:href="vendors/@coreui/icons/svg/free.svg#cil-options">
-                                                                </use>
-                                                            </svg>
-                                                        </button>
-                                                        <div class="dropdown-menu dropdown-menu-end"><a
-                                                                class="dropdown-item"
-                                                                href="https://coreui.io/demos/bootstrap/4.2/free/#">Info</a><a
-                                                                class="dropdown-item"
-                                                                href="https://coreui.io/demos/bootstrap/4.2/free/#">Edit</a><a
-                                                                class="dropdown-item text-danger"
-                                                                href="https://coreui.io/demos/bootstrap/4.2/free/#">Delete</a>
-                                                        </div>
-                                                    </div>
-                                                </td>
+
+
                                             </tr>
                                         </tbody>
                                     </table>
@@ -1504,18 +275,12 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
 
             </div>
+
         </div>
-        <footer class="footer">
-            <div><a href="https://coreui.io/">CoreUI </a><a href="https://coreui.io/">Bootstrap Admin Template</a> ©
-                2022
-                creativeLabs.</div>
-            <div class="ms-auto">Powered by&nbsp;<a href="https://coreui.io/docs/">CoreUI
-                    UI Components</a></div>
-        </footer>
+    </div>
     </div>
 
     <script src="./Dashboard_files/coreui.bundle.min.js.download"></script>
