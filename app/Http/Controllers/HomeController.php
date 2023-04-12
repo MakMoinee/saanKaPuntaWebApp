@@ -2,10 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\Firebase\Firestore\FirestoreRepository;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
+    protected $db;
+
+    public function __construct(FirestoreRepository $repo)
+    {
+        $this->db = $repo;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -13,6 +20,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $this->db->checkIfThereIsAnAdmin(); // check if there's an admin and create a default admin for the system
         if (session()->exists("users")) {
             return redirect("/dashboard");
         } else {

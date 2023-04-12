@@ -308,6 +308,21 @@
         </script>
         {{ session()->forget('errorLogin') }}
     @endif
+
+    @if (session()->pull('errorLoginUnauthorized'))
+        <script>
+            setTimeout(() => {
+                Swal.fire({
+                    position: 'center',
+                    icon: 'warning',
+                    title: 'You are not authorized to login on this site',
+                    showConfirmButton: false,
+                    timer: 800
+                });
+            }, 500);
+        </script>
+        {{ session()->forget('errorLoginUnauthorized') }}
+    @endif
 </body>
 
 </html>

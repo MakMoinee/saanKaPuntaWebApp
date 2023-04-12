@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "saankapuntaapp",
+  "private_key_id": "5950e9fe4f6d15c24937886180125c71bb393938",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCHKJb0jXLIzi50\nmw6etXK22o0VGEcgA3poX9z5yVxhzBD5xiTinHzt88hvkl4B1kByBZFnjBM2G4Ud\nKyLmjQ3ZuqwiMiWY+tPXgTNGJiD4cOQiU3IDdcjSoPtjKX0NrDjSgQjfT13pxRqw\n//L6BGN6BgJo5oZwUf1uquEHcH5BK8KE9TjL/F8i+H6web3yGDeghfEa0SMW6w0j\n60YyYd5pep9eeZ5+VUg71lfOvUuUZlnuMaW6oPuj7aArcI/L5OcUAHK3uwMtPFbX\n4oaf9D2O5keHsc9q3tBVQB+SHTHhgeTQJuBhMr6Fb/ahhNxIyTky1ZPWqLQ1izJL\nHNEPNI9FAgMBAAECggEAAVgBt4uQJIIfm54ECpy+t9CF87un+gqWz7gDnCx97Dn+\nwYulsmbAZjmU2KkhoU6LmaadBWTINx2Vw05lEdo9VO4Xx9zsRfBZJVdzQU4Kk2Bv\nSuO9/935VxYYfGn9RI1zC4K9ahehqnvrce7lhUoAYYZIRVnkuclS5flcdI9lg0ku\npRqBYJAgsevUQlrkWEAwbZHL1u3miXqEmBrlfcNS6HFeWgImIjo5TRC6h2UcKoet\nN5JUm0sKxCafC0CROZMJeRUZkYPeRhUe0gc0Xmh+rvRDowfo2yC+TJqPYSDAg2Js\nTtkOd7kRliLW4vuVTlajSXJVwsXiXb3EPO3a8gU+4QKBgQC6dE+XJpdlixdDqYAn\nnxg4DTMs3gKT3v3BFWPesShSAW+IShM37c5eHpSGR6uwETX088ciTSYu+AAjKHVy\ng609FPmO+BOoZErxs6zVM436BJeG1ny00womZVLATDhnscPXwxlR7yh7f1wBdhFB\no3F7W9msUett8Vp5J1YzAUTo4QKBgQC5kkYqvM1ZcGKNGfh+Zm9HiUgxu3O3keB/\n5wwY9mlABAKHANIgnQZDzv66dlliSsXj0Qu5bx+w/s5XPusUlTgSMiOszBZc/3cU\nvL02/oJzS9vcxB0EtSCeRq4XRIhOon20i2Ml08HIfireBsLSTZ6b2rvps9Q8jvvK\nHu0jGKH+5QKBgBx/pJ6kvmU94jtsT/M+ZPRESDsmX9x8K+r0OwSRrWkDYSnCsLdO\nuMk4AVmY4MwThVzAWgKLKjfpnhPBnln3eGYqq45HqrGFStMwtE0OCThatVJdvEfj\nLdz6hbBwtfpbeGSlJFyaomRl7gknI7IVqkXBnz6wcrymND7qXUmEeyThAoGAQ3y4\n2+4R2EcQ8DPTtVRXf/KjOMLtUINS2/EQ6zsiB8/tg19/C7FPh/WNmg5Ub3S2ByYN\nV4DcS6g/LmeJYtDptWRaqQsHzwZxLi99uLRSiM+7w8vmqcGdfTJDOd8Im2BoyvIu\nOqGKRfnsaRaYX5cu6Ytg75sgwm1VkKoyn6LjtykCgYEAjt2R8+NDoGA2eRo7q+QM\nAYERY74+pSab3pUlOLW1OtxzC0EkE3qqWA0+vfD0V/FWwnxle5JJXKd6WGwlu9fx\nYlS97YTeHrdfN1QfZSvAavOqCMNdbXmyEDUYxSz0/sOxsjvPutb5aU4vwPMRRopU\nVryKLhBGYezioo2prkTK4ms=\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-oks09@saankapuntaapp.iam.gserviceaccount.com",
+  "client_id": "106110189254968120268",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-oks09%40saankapuntaapp.iam.gserviceaccount.com"
+}

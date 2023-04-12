@@ -2,10 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\Firebase\Firestore\FirestoreRepository;
 use Illuminate\Http\Request;
+use Kreait\Laravel\Firebase\Facades\Firebase;
 
 class LoginController extends Controller
 {
+
+    protected $db;
+
+    public function __construct(FirestoreRepository $repo)
+    {
+        $this->db = $repo;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -42,11 +51,15 @@ class LoginController extends Controller
         if (isset($request->btnLogin)) {
             $email = $request->email;
             $password = $request->password;
-
-            if ($email == "admin@demo.com" && $password == "admin123") {
-                session()->put("successLogin", true);
-                $users = ['email' => $email, 'password' => $password];
-                session()->put("users", $users);
+            $data = $this->db->login($email, $password);
+            if (count($data) > 0) {
+                $users = $data[0];
+                if ($users['userType'] == 2) {
+                    session()->put("errorLoginUnauthorized", true);
+                } else {
+                    session()->put("successLogin", true);
+                    session()->put("users", $users);
+                }
             } else {
                 session()->put("errorLogin", true);
             }
