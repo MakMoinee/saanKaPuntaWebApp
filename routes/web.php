@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BuildingsController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
@@ -21,3 +22,4 @@ Route::get('/', [HomeController::class, 'index']);
 Route::resource('/login', LoginController::class);
 Route::resource("/dashboard", DashboardController::class);
 Route::get("/signout", [SignOutController::class, 'index']);
+Route::resource("/buildings", BuildingsController::class);

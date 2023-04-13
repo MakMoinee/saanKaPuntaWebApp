@@ -74,8 +74,8 @@
                             aria-label="scrollable content" style="height: 100%; overflow: hidden scroll;">
                             <div class="simplebar-content" style="padding: 0px;">
                                 <li class="nav-item">
-                                    <a class="nav-link active"
-                                        href="https://coreui.io/demos/bootstrap/4.2/free/index.html">
+                                    <a class="nav-link"
+                                        href="/dashboard">
                                         <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="16"
                                             height="16" fill="currentColor" class="bi bi-speedometer2"
                                             viewBox="0 0 16 16">
@@ -87,7 +87,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-title">Content Management</li>
-                                <li class="nav-item"><a class="nav-link"
+                                <li class="nav-item"><a class="nav-link active"
                                         href="/buildings">
                                         <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="16"
                                             height="16" fill="currentColor" class="bi bi-buildings-fill"
@@ -212,7 +212,7 @@
                         <li class="breadcrumb-item">
                             <span>Home</span>
                         </li>
-                        <li class="breadcrumb-item active"><span>Admin Dashboard</span></li>
+                        <li class="breadcrumb-item active"><span>Buildings</span></li>
                     </ol>
                 </nav>
             </div>
@@ -230,10 +230,10 @@
                                             <tr class="align-middle">
                                                 <th class="text-center">
                                                     <svg class="icon" xmlns="http://www.w3.org/2000/svg"
-                                                        width="16" height="16" fill="#FFFFFF"
-                                                        class="bi bi-people-fill" viewBox="0 0 16 16">
+                                                        width="16" height="16" fill="#000000"
+                                                        class="bi bi-buildings-fill" viewBox="0 0 16 16">
                                                         <path
-                                                            d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7Zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216ZM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
+                                                            d="M15 .5a.5.5 0 0 0-.724-.447l-8 4A.5.5 0 0 0 6 4.5v3.14L.342 9.526A.5.5 0 0 0 0 10v5.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V14h1v1.5a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5V.5ZM2 11h1v1H2v-1Zm2 0h1v1H4v-1Zm-1 2v1H2v-1h1Zm1 0h1v1H4v-1Zm9-10v1h-1V3h1ZM8 5h1v1H8V5Zm1 2v1H8V7h1ZM8 9h1v1H8V9Zm2 0h1v1h-1V9Zm-1 2v1H8v-1h1Zm1 0h1v1h-1v-1Zm3-2v1h-1V9h1Zm-1 2h1v1h-1v-1Zm-2-4h1v1h-1V7Zm3 0v1h-1V7h1Zm-2-2v1h-1V5h1Zm1 0h1v1h-1V5Z" />
                                                     </svg>
                                                 </th>
                                                 <th>Details</th>
@@ -242,34 +242,6 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($users as $item)
-                                                <tr class="align-middle">
-                                                    <td class="text-center">
-                                                        <div class="avatar avatar-md"><img class="avatar-img"
-                                                                src="./Dashboard_files/1.png"
-                                                                alt="user@email.com"><span
-                                                                class="avatar-status bg-success"></span>
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <div>{{ $item['lastName'] }}, {{ $item['firstName'] }}
-                                                            {{ $item['middleName'] }}</div>
-                                                        <div class="small text-medium-emphasis"><span>New</span>
-                                                            | Registered: Jan 1, 2020</div>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        @if ($item['userType'] == 1)
-                                                            Admin
-                                                        @else
-                                                            Student
-                                                        @endif
-                                                    </td>
-                                                    <td>
-                                                        <div class="small text-medium-emphasis">Last login</div>
-                                                        <div class="fw-semibold">10 sec ago</div>
-                                                    </td>
-                                                </tr>
-                                            @endforeach
 
                                         </tbody>
                                     </table>
