@@ -48,6 +48,7 @@
     </script>
     <link href="./Dashboard_files/coreui-chartjs.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="/css/uploadStyle.css">
 </head>
 
 <body>
@@ -74,8 +75,7 @@
                             aria-label="scrollable content" style="height: 100%; overflow: hidden scroll;">
                             <div class="simplebar-content" style="padding: 0px;">
                                 <li class="nav-item">
-                                    <a class="nav-link"
-                                        href="/dashboard">
+                                    <a class="nav-link" href="/dashboard">
                                         <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="16"
                                             height="16" fill="currentColor" class="bi bi-speedometer2"
                                             viewBox="0 0 16 16">
@@ -87,8 +87,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-title">Content Management</li>
-                                <li class="nav-item"><a class="nav-link active"
-                                        href="/buildings">
+                                <li class="nav-item"><a class="nav-link active" href="/buildings">
                                         <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="16"
                                             height="16" fill="currentColor" class="bi bi-buildings-fill"
                                             viewBox="0 0 16 16">
@@ -224,6 +223,15 @@
                     <div class="col-md-12">
                         <div class="card mb-4">
                             <div class="card-body">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="col-lg-4">
+                                            <button data-coreui-toggle="modal" data-coreui-target="#addBuildingModal"
+                                                class="btn btn-info" style="color:white;">Add Building</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
                                 <div class="table-responsive">
                                     <table class="table border mb-0">
                                         <thead class="table-light fw-semibold">
@@ -236,13 +244,72 @@
                                                             d="M15 .5a.5.5 0 0 0-.724-.447l-8 4A.5.5 0 0 0 6 4.5v3.14L.342 9.526A.5.5 0 0 0 0 10v5.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V14h1v1.5a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5V.5ZM2 11h1v1H2v-1Zm2 0h1v1H4v-1Zm-1 2v1H2v-1h1Zm1 0h1v1H4v-1Zm9-10v1h-1V3h1ZM8 5h1v1H8V5Zm1 2v1H8V7h1ZM8 9h1v1H8V9Zm2 0h1v1h-1V9Zm-1 2v1H8v-1h1Zm1 0h1v1h-1v-1Zm3-2v1h-1V9h1Zm-1 2h1v1h-1v-1Zm-2-4h1v1h-1V7Zm3 0v1h-1V7h1Zm-2-2v1h-1V5h1Zm1 0h1v1h-1V5Z" />
                                                     </svg>
                                                 </th>
-                                                <th>Details</th>
-                                                <th class="text-center">User Type</th>
-                                                <th></th>
+                                                <th>Building Name</th>
+                                                <th class="text-center">Poster</th>
+                                                <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-
+                                            @foreach ($buildings as $item)
+                                                <tr class="align-middle">
+                                                    <td class="text-center">
+                                                        <div class="avatar avatar-md"><img class="avatar-img"
+                                                                src="/images/office-building.png"
+                                                                alt="user@email.com"><span
+                                                                class="avatar-status bg-success"></span>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div>{{ $item['buildingName'] }}</div>
+                                                        <div class="small text-medium-emphasis">
+                                                            | Added: {{ $item['createdAt'] }}</div>
+                                                    </td>
+                                                    <td class="text-center">
+                                                        <img src="{{ $item['posterPath'] }}" alt=""
+                                                            srcset="" width="50px" height="50px">
+                                                    </td>
+                                                    <td>
+                                                        <button class="btn btn-success"
+                                                            style="color: white">View/Edit</button>
+                                                        <button class="btn btn-danger" style="color: white"
+                                                            data-coreui-toggle="modal"
+                                                            data-coreui-target="#deleteUserModal{{ $item['docID'] }}">Delete</button>
+                                                        <div class="modal fade"
+                                                            id="deleteUserModal{{ $item['docID'] }}" tabindex="-1"
+                                                            role="dialog"
+                                                            aria-labelledby="deleteUserModalLabel{{ $item['docID'] }}"
+                                                            aria-hidden="true">
+                                                            <div class="modal-dialog" role="document">
+                                                                <div class="modal-content">
+                                                                    <form
+                                                                        action="{{ route('buildings.destroy', ['building' => $item['docID']]) }}"
+                                                                        method="POST">
+                                                                        @method('delete')
+                                                                        @csrf
+                                                                        <div class="modal-body">
+                                                                            <h5 class="modal-title"
+                                                                                id="deleteUserModalLabel{{ $item['docID'] }}">
+                                                                                Do
+                                                                                you want to proceed deleting building ?
+                                                                            </h5>
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button type="submit"
+                                                                                class="btn btn-primary"
+                                                                                name="btnDeleteBuilding"
+                                                                                value="yes">Yes,
+                                                                                Proceed</button>
+                                                                            <button type="button"
+                                                                                class="btn btn-secondary"
+                                                                                data-coreui-dismiss="modal">Close</button>
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>
@@ -259,27 +326,172 @@
 
     <script src="./Dashboard_files/coreui.bundle.min.js.download"></script>
     <script src="./Dashboard_files/simplebar.min.js.download"></script>
-
-    <script src="./Dashboard_files/chart.min.js.download"></script>
-    <script src="./Dashboard_files/coreui-chartjs.js.download"></script>
     <script src="./Dashboard_files/coreui-utils.js.download"></script>
-    <script src="./Dashboard_files/main.js.download"></script>
     <script></script>
+    <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 
+    <div class="modal fade " id="addBuildingModal" tabindex="-1" role="dialog"
+        aria-labelledby="addBuildingModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addBuildingModalLabel">Add Building</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <form action="/buildings" method="POST" enctype="multipart/form-data" autocomplete="off">
+                            @csrf
+                            <center>
+                                <div class="form-group">
+                                    <input class="form-control" required type="text" name="buildingName"
+                                        id="buildingName" placeholder="Building Name">
+                                </div>
+                                <div class="form-group" style="margin-top: 10px;">
+                                    <button class="file-upload-btn" type="button"
+                                        onclick="$('.file-upload-input').trigger( 'click' )">Add Building
+                                        Image</button>
+
+                                    <div class="image-upload-wrap">
+                                        <input required class="file-upload-input" name="files" type='file'
+                                            onchange="readURL(this);" accept="image/*" />
+                                        <div class="drag-text">
+                                            <h3>Drag and drop a file or select add Image</h3>
+                                        </div>
+                                    </div>
+                                    <div class="file-upload-content">
+                                        <img class="file-upload-image" src="#" alt="your image"
+                                            width="100%" height="40%" />
+                                        <div class="image-title-wrap">
+                                            <button type="button" onclick="removeUpload()"
+                                                class="remove-image">Remove <span class="image-title">Uploaded
+                                                    Image</span></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </center>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-coreui-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" style="background-color: #ff589e"
+                        name="btnSaveBuilding" value="yes">Save Building</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    $('.image-upload-wrap').hide();
+
+                    $('.file-upload-image').attr('src', e.target.result);
+                    $('.file-upload-content').show();
+
+                    $('.image-title').html(input.files[0].name);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+
+            } else {
+                removeUpload();
+            }
+        }
+
+        function removeUpload() {
+            $('.file-upload-input').replaceWith($('.file-upload-input').clone());
+            $('.file-upload-content').hide();
+            $('.image-upload-wrap').show();
+        }
+        $('.image-upload-wrap').bind('dragover', function() {
+            $('.image-upload-wrap').addClass('image-dropping');
+        });
+        $('.image-upload-wrap').bind('dragleave', function() {
+            $('.image-upload-wrap').removeClass('image-dropping');
+        });
+    </script>
 </body>
-@if (session()->pull('successLogin'))
+
+@if (session()->pull('errorExistingBuildingName'))
+    <script>
+        setTimeout(() => {
+            Swal.fire({
+                position: 'center',
+                icon: 'warning',
+                title: 'Building Name Already Existing, Please Create With A New Building Name',
+                showConfirmButton: false,
+                timer: 2000
+            });
+        }, 500);
+    </script>
+    {{ session()->forget('errorExistingBuildingName') }}
+@endif
+
+@if (session()->pull('errorDeleteBuilding'))
+    <script>
+        setTimeout(() => {
+            Swal.fire({
+                position: 'center',
+                icon: 'warning',
+                title: 'Failed to Delete Building, Please Try Again Later',
+                showConfirmButton: false,
+                timer: 2000
+            });
+        }, 500);
+    </script>
+    {{ session()->forget('errorDeleteBuilding') }}
+@endif
+
+@if (session()->pull('errorInvalidFile'))
+    <script>
+        setTimeout(() => {
+            Swal.fire({
+                position: 'center',
+                icon: 'warning',
+                title: 'Invalid file, Please Try Again With the following accepted image format: jpg, png, jpeg',
+                showConfirmButton: false,
+                timer: 2000
+            });
+        }, 500);
+    </script>
+    {{ session()->forget('errorInvalidFile') }}
+@endif
+
+
+
+@if (session()->pull('successDeleteBuilding'))
     <script>
         setTimeout(() => {
             Swal.fire({
                 position: 'center',
                 icon: 'success',
-                title: 'Successfully Login',
+                title: 'Successfully Deleted Building',
                 showConfirmButton: false,
                 timer: 800
             });
         }, 500);
     </script>
-    {{ session()->forget('successLogin') }}
+    {{ session()->forget('successDeleteBuilding') }}
+@endif
+
+@if (session()->pull('successAddBuilding'))
+    <script>
+        setTimeout(() => {
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Successfully Added Building',
+                showConfirmButton: false,
+                timer: 800
+            });
+        }, 500);
+    </script>
+    {{ session()->forget('successAddBuilding') }}
 @endif
 
 </html>

@@ -2,10 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Buildings;
+use App\Services\Firebase\Firestore\FirestoreRepository;
+use DateTime;
+use DateTimeZone;
+use Exception;
 use Illuminate\Http\Request;
 
 class BuildingsController extends Controller
 {
+
+    protected $db;
+
+    public function __construct(FirestoreRepository $repo)
+    {
+        $this->db = $repo;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +27,8 @@ class BuildingsController extends Controller
     public function index()
     {
         if (session()->exists("users")) {
-            return view('admin.buildings');
+            $buildings = $this->db->fetchBuilding('buildings');
+            return view('admin.buildings', ['buildings' => $buildings]);
         } else {
             return redirect("/");
         }
@@ -38,7 +52,48 @@ class BuildingsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if (session()->exists("users")) {
+            if (isset($request->btnSaveBuilding)) {
+
+                // check first if building name is already present
+                $arrayValues = $this->db->fetchWithWhere('buildings', 'buildingName', '=', 0, $request->buildingName);
+
+                if (count($arrayValues) > 0) {
+                    session()->put("errorExistingBuildingName", true);
+                    return redirect('/buildings');
+                }
+
+                $file = $request->file('files');
+                $fileName = "";
+                if ($file) {
+                    $mimetype =  $file->getMimeType();
+                    if ($mimetype == "image/jpeg" || $mimetype == "image/png" || $mimetype == "image/JPEG" || $mimetype == "image/JPG" || $mimetype == "image/jpg" || $mimetype == "image/PNG") {
+                        $destinationPath = $_SERVER['DOCUMENT_ROOT'] . '/image/buildings';
+                        $fileName = strtotime(now()) . "." . $file->getClientOriginalExtension();
+                        $isFile = $file->move($destinationPath,  $fileName);
+                        if ($isFile) {
+                            $dt = new DateTime(date('Y-m-d H:i:s', now()->timestamp));
+                            $tz = new DateTimeZone('Asia/Manila'); // or whatever zone you're after
+                            $dt->setTimezone($tz);
+
+                            $newBuildings = new Buildings();
+                            $newBuildings->buildingName = $request->buildingName;
+                            $newBuildings->posterPath =  "/image/buildings/" . $fileName;
+                            $newBuildings->createdAt = $dt->format('Y-m-d H:i:s');
+                            $newBuildings->updatedAt = $dt->format('Y-m-d H:i:s');
+
+                            $result = $this->db->create('buildings', $newBuildings->toArray());
+                            session()->put("successAddBuilding", true);
+                        }
+                    } else {
+                        session()->put("errorInvalidFile", true);
+                    }
+                }
+            }
+            return redirect("/buildings");
+        } else {
+            return redirect("/");
+        }
     }
 
     /**
@@ -83,6 +138,18 @@ class BuildingsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if (session()->exists("users")) {
+
+            try {
+                $this->db->destroy('buildings', $id);
+                session()->put("successDeleteBuilding", true);
+            } catch (Exception $e) {
+                session()->put("errorDeleteBuilding", true);
+            }
+
+            return redirect("/buildings");
+        } else {
+            return redirect("/");
+        }
     }
 }

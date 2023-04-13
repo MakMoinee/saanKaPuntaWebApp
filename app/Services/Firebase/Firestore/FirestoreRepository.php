@@ -2,6 +2,7 @@
 
 namespace App\Services\Firebase\Firestore;
 
+use App\Models\Buildings;
 use App\Models\SKPUsers;
 use App\Services\Firebase\Contracts\FireStore;
 use Illuminate\Support\Arr;
@@ -125,6 +126,29 @@ final class FirestoreRepository implements FireStore
         foreach ($data as $d) {
             $eachData = $d->data();
             array_push($result, $eachData);
+        }
+
+        return $result;
+    }
+
+    public function fetchBuilding(string $collection): array
+    {
+        $data = app('firebase.firestore')
+            ->database()
+            ->collection($collection)
+            ->documents();
+
+        $result = array();
+
+        foreach ($data as $d) {
+            $eachData = $d->data();
+            $newBuildings = new Buildings();
+            $newBuildings->docID = $d->id();
+            $newBuildings->buildingName = $eachData['buildingName'];
+            $newBuildings->posterPath = $eachData['posterPath'];
+            $newBuildings->createdAt = $eachData['createdAt'];
+            $newBuildings->updatedAt = $eachData['updatedAt'];
+            array_push($result, $newBuildings->toArray());
         }
 
         return $result;
