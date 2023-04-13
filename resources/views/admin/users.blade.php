@@ -186,7 +186,7 @@
                     <li class="nav-item dropdown"><a class="nav-link py-0" data-coreui-toggle="dropdown"
                             href="https://coreui.io/demos/bootstrap/4.2/free/#" role="button" aria-haspopup="true"
                             aria-expanded="false">
-                            <div class="avatar avatar-md"><img class="avatar-img" src="./Dashboard_files/8.png"
+                            <div class="avatar avatar-md"><img class="avatar-img" src="./Dashboard_files/8.jpg"
                                     alt="user@email.com"></div>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end pt-0">
@@ -238,39 +238,37 @@
                                                 </th>
                                                 <th>Details</th>
                                                 <th class="text-center">User Type</th>
-                                                <th></th>
+                                                <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($users as $item)
-                                                <tr class="align-middle">
-                                                    <td class="text-center">
-                                                        <div class="avatar avatar-md"><img class="avatar-img"
-                                                                src="./Dashboard_files/1.png"
-                                                                alt="user@email.com"><span
-                                                                class="avatar-status bg-success"></span>
-                                                        </div>
-                                                    </td>
-                                                    <td>
-                                                        <div>{{ $item['lastName'] }}, {{ $item['firstName'] }}
-                                                            {{ $item['middleName'] }}</div>
-                                                        <div class="small text-medium-emphasis"><span>New</span>
-                                                            | Registered: Jan 1, 2020</div>
-                                                    </td>
-                                                    <td class="text-center">
-                                                        @if ($item['userType'] == 1)
-                                                            Admin
-                                                        @else
-                                                            Student
-                                                        @endif
-                                                    </td>
-                                                    <td>
-                                                        <div class="small text-medium-emphasis">Last login</div>
-                                                        <div class="fw-semibold">10 sec ago</div>
-                                                    </td>
-                                                </tr>
-                                            @endforeach
+                                            <tr class="align-middle">
+                                                <td class="text-center">
+                                                    <div class="avatar avatar-md"><img class="avatar-img"
+                                                            src="./Dashboard_files/1.jpg" alt="user@email.com"><span
+                                                            class="avatar-status bg-success"></span>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div>Yiorgos Avraamu</div>
+                                                    <div class="small text-medium-emphasis"><span>New</span>
+                                                        | Registered: Jan 1, 2020</div>
+                                                </td>
+                                                <td class="text-center">
+                                                    <svg class="icon icon-xl">
+                                                        <use xlink:href="vendors/@coreui/icons/svg/flag.svg#cif-us">
+                                                        </use>
+                                                    </svg>
+                                                </td>
+                                                <td>
+                                                    <button class="btn btn-success"
+                                                        style="color: white">View/Edit</button>
+                                                    <button class="btn btn-danger"
+                                                        style="color: white">Delete</button>
+                                                </td>
 
+
+                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>

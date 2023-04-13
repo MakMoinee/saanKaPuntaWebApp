@@ -4,6 +4,7 @@ namespace App\Services\Firebase\Firestore;
 
 use App\Models\SKPUsers;
 use App\Services\Firebase\Contracts\FireStore;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Hash;
 
@@ -101,5 +102,31 @@ final class FirestoreRepository implements FireStore
         }
 
         return true;
+    }
+
+    public function fetchWithWhere(string $collection, string $fieldName, string $whereOperator, int $intValue, string $strValue): array
+    {
+
+        if ($intValue) {
+            $actualValue = $intValue;
+        }
+
+        if ($strValue != "") {
+            $actualValue = $strValue;
+        }
+
+        $data = app('firebase.firestore')
+            ->database()
+            ->collection($collection)
+            ->where($fieldName, $whereOperator, $actualValue)
+            ->documents();
+
+        $result = array();
+        foreach ($data as $d) {
+            $eachData = $d->data();
+            array_push($result, $eachData);
+        }
+
+        return $result;
     }
 }

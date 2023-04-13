@@ -2,10 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\Firebase\Firestore\FirestoreRepository;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
+
+    protected $db;
+
+    public function __construct(FirestoreRepository $repo)
+    {
+        $this->db = $repo;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +22,8 @@ class DashboardController extends Controller
     public function index()
     {
         if (session()->exists("users")) {
-            return view('admin.dashboard');
+            $listOfUsers = $this->db->fetchWithWhere('user', 'userType', '=', 2, '');
+            return view('admin.dashboard', ['users' => $listOfUsers]);
         } else {
             return redirect("/");
         }
