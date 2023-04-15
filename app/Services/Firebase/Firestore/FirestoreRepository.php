@@ -3,6 +3,7 @@
 namespace App\Services\Firebase\Firestore;
 
 use App\Models\Buildings;
+use App\Models\Offices;
 use App\Models\SKPUsers;
 use App\Services\Firebase\Contracts\FireStore;
 use Illuminate\Support\Arr;
@@ -131,11 +132,11 @@ final class FirestoreRepository implements FireStore
         return $result;
     }
 
-    public function fetchBuilding(string $collection): array
+    public function fetchBuilding(): array
     {
         $data = app('firebase.firestore')
             ->database()
-            ->collection($collection)
+            ->collection('buildings')
             ->documents();
 
         $result = array();
@@ -149,6 +150,33 @@ final class FirestoreRepository implements FireStore
             $newBuildings->createdAt = $eachData['createdAt'];
             $newBuildings->updatedAt = $eachData['updatedAt'];
             array_push($result, $newBuildings->toArray());
+        }
+
+        return $result;
+    }
+
+    public function fetchOffice(): array
+    {
+        $data = app('firebase.firestore')
+            ->database()
+            ->collection('offices')
+            ->documents();
+
+        $result = array();
+
+        foreach ($data as $d) {
+            $eachData = $d->data();
+            $newOffice = new Offices();
+            $newOffice->docID = $d->id();
+            $newOffice->officeName = $eachData['officeName'];
+            $newOffice->building = $eachData['building'];
+            $newOffice->directions = $eachData['directions'];
+            $newOffice->floor =  $eachData['floor'];
+            $newOffice->floorMapPath =  $eachData['floorMapPath'];
+            $newOffice->videoURL =  $eachData['videoURL'];
+            $newOffice->createdAt = $eachData['createdAt'];
+            $newOffice->updatedAt = $eachData['updatedAt'];
+            array_push($result, $newOffice->toArray());
         }
 
         return $result;

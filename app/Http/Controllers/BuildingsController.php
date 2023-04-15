@@ -27,7 +27,7 @@ class BuildingsController extends Controller
     public function index()
     {
         if (session()->exists("users")) {
-            $buildings = $this->db->fetchBuilding('buildings');
+            $buildings = $this->db->fetchBuilding();
             return view('admin.buildings', ['buildings' => $buildings]);
         } else {
             return redirect("/");
