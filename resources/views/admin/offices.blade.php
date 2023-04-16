@@ -452,6 +452,17 @@
                                                                                             name="createdAt"
                                                                                             value="{{ $item['createdAt'] }}">
                                                                                     </div>
+                                                                                    @if ($item['videoURL'] != '')
+                                                                                        <br>
+                                                                                        <div class="form-group">
+                                                                                            <a href="{{ $item['videoURL'] }}"
+                                                                                                target="_blank"
+                                                                                                class="btn btn-primary stretched-link">Click
+                                                                                                Here to Preview Original
+                                                                                                Video Stored</a>
+                                                                                        </div>
+                                                                                    @endif
+
                                                                                 </center>
 
                                                                         </div>
