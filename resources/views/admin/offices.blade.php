@@ -54,13 +54,13 @@
 <body>
     <div class="sidebar sidebar-dark sidebar-fixed" id="sidebar">
         <div class="sidebar-brand d-none d-md-flex">
-            <svg class="sidebar-brand-full" width="118" height="46" alt="CoreUI
-          Logo">
-                <use xlink:href="assets/brand/coreui.svg#full"></use>
+            <svg xmlns="http://www.w3.org/2000/svg" width="46" height="46" fill="#d600d6"
+                class="sidebar-brand-full bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
             </svg>
-            <svg class="sidebar-brand-narrow" width="46" height="46" alt="CoreUI
-          Logo">
-                <use xlink:href="assets/brand/coreui.svg#signet"></use>
+            <svg xmlns="http://www.w3.org/2000/svg" width="46" height="46" fill="#d600d6"
+                class="sidebar-brand-narrow bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
             </svg>
         </div>
         <ul class="sidebar-nav" data-coreui="navigation" data-simplebar="init">
@@ -112,7 +112,7 @@
                                             </g>
                                         </svg>Offices
                                     </a></li>
-                                <li class="nav-title">User Management</li>
+                                {{-- <li class="nav-title">User Management</li>
                                 <li class="nav-item"><a class="nav-link"
                                         href="/users">
                                         <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="16"
@@ -121,7 +121,7 @@
                                             <path
                                                 d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7Zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216ZM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
                                         </svg> Users
-                                    </a></li>
+                                    </a></li> --}}
                             </div>
                         </div>
                     </div>
@@ -185,10 +185,11 @@
                             <div class="dropdown-header bg-light py-2">
                                 <div class="fw-semibold">Settings</div>
                             </div>
-                            <a class="dropdown-item" href="https://coreui.io/demos/bootstrap/4.2/free/#">
+                            <a class="dropdown-item" href="#" data-coreui-target="#profileModal"
+                                data-coreui-toggle="modal">
                                 <svg class="icon me-2">
                                     <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-user"></use>
-                                </svg> Profile</a>
+                                </svg> Change Password</a>
                             <a class="dropdown-item" href="/signout">
                                 <svg class="icon me-2">
                                     <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-account-logout"></use>
@@ -642,6 +643,36 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="profileModal" tabindex="-1" role="dialog" aria-labelledby="profileModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <form action="{{ route('dashboard.update', ['dashboard' => $myDocID]) }}" method="POST">
+                    @method('put')
+                    @csrf
+                    <div class="modal-header">
+                        <h5>Change Password</h5>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <input type="password" class="form-control" placeholder="Old Password" name="oldpass">
+                            <br>
+                            <input type="password" class="form-control" placeholder="Password" name="password">
+                            <br>
+                            <input type="password" class="form-control" placeholder="ConfirmPassword"
+                                name="confirmPass">
+                            <input type="hidden" name="originalPage" value="/offices">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary" name="btnUpdateProfile" value="yes">Yes,
+                            Proceed</button>
+                        <button type="button" class="btn btn-secondary" data-coreui-dismiss="modal">Close</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
     <script>
         function readURL(input) {
             if (input.files && input.files[0]) {
@@ -810,7 +841,54 @@
 
         }
     </script>
+
+
 </body>
+
+@if (session()->pull('errorOldPass'))
+    <script>
+        setTimeout(() => {
+            Swal.fire({
+                position: 'center',
+                icon: 'warning',
+                title: "Failed Update Admin Password, Old Password Doesn't Match",
+                showConfirmButton: false,
+                timer: 800
+            });
+        }, 500);
+    </script>
+    {{ session()->forget('errorOldPass') }}
+@endif
+
+@if (session()->pull('errorPassDontMatch'))
+    <script>
+        setTimeout(() => {
+            Swal.fire({
+                position: 'center',
+                icon: 'warning',
+                title: "Failed Update Admin Password, Password Don't Match",
+                showConfirmButton: false,
+                timer: 800
+            });
+        }, 500);
+    </script>
+    {{ session()->forget('errorPassDontMatch') }}
+@endif
+
+@if (session()->pull('successUpdatePass'))
+    <script>
+        setTimeout(() => {
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Successfully Updated Admin Password',
+                showConfirmButton: false,
+                timer: 800
+            });
+        }, 500);
+    </script>
+    {{ session()->forget('successUpdatePass') }}
+@endif
 
 @if (session()->pull('errorFileExceed'))
     <script>

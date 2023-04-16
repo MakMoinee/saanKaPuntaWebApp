@@ -237,39 +237,50 @@
                                                             fill="#000000" />
                                                     </svg>
                                                 </th>
-                                                <th>Details</th>
-                                                <th class="text-center">User Type</th>
-                                                <th>Action</th>
+                                                <th>Full Name</th>
+                                                <th class="text-center">Email</th>
+                                                <th>User Type</th>
+                                                <th class="text-center">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr class="align-middle">
-                                                <td class="text-center">
-                                                    <div class="avatar avatar-md"><img class="avatar-img"
-                                                            src="/images/user.png" alt="user@email.com"><span
-                                                            class="avatar-status bg-success"></span>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <div>Yiorgos Avraamu</div>
-                                                    <div class="small text-medium-emphasis"><span>New</span>
-                                                        | Registered: Jan 1, 2020</div>
-                                                </td>
-                                                <td class="text-center">
-                                                    <svg class="icon icon-xl">
-                                                        <use xlink:href="vendors/@coreui/icons/svg/flag.svg#cif-us">
-                                                        </use>
-                                                    </svg>
-                                                </td>
-                                                <td>
-                                                    <button class="btn btn-success"
-                                                        style="color: white">View/Edit</button>
-                                                    <button class="btn btn-danger"
-                                                        style="color: white">Delete</button>
-                                                </td>
+                                            @foreach ($users as $item)
+                                                <tr class="align-middle">
+                                                    <td class="text-center">
+                                                        <div class="avatar avatar-md"><img class="avatar-img"
+                                                                src="/images/user.png" alt="user@email.com"><span
+                                                                class="avatar-status bg-success"></span>
+                                                        </div>
+                                                    </td>
+                                                    <td>
+                                                        <div>{{ $item['lastName'] }}, {{ $item['firstName'] }}
+                                                            {{ $item['middleName'] }}</div>
+                                                        {{-- <div class="small text-medium-emphasis"><span>New</span>
+                                                            | Registered: Jan 1, 2020</div> --}}
+                                                    </td>
+                                                    <td class="text-center">
+                                                        {{ $item['email'] }}
+                                                    </td>
+                                                    <td>
+                                                        @if ($item['userType'] == 1)
+                                                            Admin
+                                                        @else
+                                                            Student
+                                                        @endif
+                                                        {{-- <div class="small text-medium-emphasis"><span>New</span>
+                                                            | Registered: Jan 1, 2020</div> --}}
+                                                    </td>
+                                                    <td>
+                                                        <button class="btn btn-success"
+                                                            style="color: white">View/Edit</button>
+                                                        <button class="btn btn-danger"
+                                                            style="color: white">Delete</button>
+                                                    </td>
 
 
-                                            </tr>
+                                                </tr>
+                                            @endforeach
+
                                         </tbody>
                                     </table>
                                 </div>

@@ -75,7 +75,16 @@ final class FirestoreRepository implements FireStore
         foreach ($data as $d) {
             $eachData = $d->data();
             if (password_verify($password, $eachData["password"])) {
-                array_push($result, $d->data());
+                $newUser = new SKPUsers();
+                $newUser->docID = $d->id();
+                $newUser->email = $eachData['email'];
+                $newUser->password = $eachData['password'];
+                $newUser->firstName = $eachData['firstName'];
+                $newUser->middleName = $eachData['middleName'];
+                $newUser->lastName = $eachData['lastName'];
+                $newUser->secret = $eachData['secret'];
+                $newUser->userType = $eachData['userType'];
+                array_push($result, $newUser);
             }
         }
         return $result;
@@ -106,7 +115,7 @@ final class FirestoreRepository implements FireStore
         return true;
     }
 
-    
+
 
     public function fetchWithWhere(string $collection, string $fieldName, string $whereOperator, int $intValue, string $strValue): array
     {
@@ -138,7 +147,8 @@ final class FirestoreRepository implements FireStore
     {
         $data = app('firebase.firestore')
             ->database()
-            ->collection('buildings')
+            ->collection('user')
+            ->where('userType', '=', 2)
             ->documents();
 
         $result = array();

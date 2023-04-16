@@ -29,7 +29,9 @@ class OfficeController extends Controller
         if (session()->exists("users")) {
             $buildings = $this->db->fetchBuilding();
             $offices = $this->db->fetchOffice();
-            return view('admin.offices', ['buildings' => $buildings, 'offices' => $offices]);
+            $mUsers = session()->pull('users');
+            session()->put("users", $mUsers);
+            return view('admin.offices', ['buildings' => $buildings, 'offices' => $offices, 'myDocID' => $mUsers['docID']]);
         } else {
             return redirect("/");
         }

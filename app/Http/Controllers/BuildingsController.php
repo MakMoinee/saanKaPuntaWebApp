@@ -29,7 +29,9 @@ class BuildingsController extends Controller
     {
         if (session()->exists("users")) {
             $buildings = $this->db->fetchBuilding();
-            return view('admin.buildings', ['buildings' => $buildings]);
+            $mUsers = session()->pull('users');
+            session()->put("users", $mUsers);
+            return view('admin.buildings', ['buildings' => $buildings, 'myDocID' => $mUsers['docID']]);
         } else {
             return redirect("/");
         }
