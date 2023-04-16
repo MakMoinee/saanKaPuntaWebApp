@@ -79,7 +79,7 @@ class OfficeController extends Controller
                         $isFile = $file->move($destinationPath,  $fileName);
 
                         if ($file2) {
-                            if ($mimetype2 == "video/webm" || $mimetype2 == "video/mp4" || $mimetype2 == "video/mpeg4" || $mimetype2 == "video/3gp" || $mimetype2 == "video/avi") {
+                            if ($mimetype2 == "video/x-matroska" || $mimetype2 == "video/webm" || $mimetype2 == "video/mp4" || $mimetype2 == "video/mpeg4" || $mimetype2 == "video/3gp" || $mimetype2 == "video/avi") {
 
                                 if ($file2->getSize() > 40000000) {
                                     session()->put("errorFileExceed", true);
