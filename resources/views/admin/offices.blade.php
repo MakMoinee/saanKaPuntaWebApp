@@ -350,7 +350,7 @@
                                                                                         style="margin-top: 10px;">
                                                                                         <button class="file-upload-btn"
                                                                                             type="button"
-                                                                                            onclick="$('.file-upload-input3').trigger( 'click' )">Add
+                                                                                            onclick="$('#file-upload-input3{{ $item['docID'] }}').trigger( 'click' )">Add
                                                                                             Floor Map
                                                                                             Image</button>
 
@@ -403,7 +403,7 @@
                                                                                         <button
                                                                                             class="file-upload-btn4"
                                                                                             type="button"
-                                                                                            onclick="$('.file-upload-input4').trigger( 'click' )">Add
+                                                                                            onclick="$('#file-upload-input4{{ $item['docID'] }}').trigger( 'click' )">Add
                                                                                             Virtual Guide
                                                                                             Video</button>
 

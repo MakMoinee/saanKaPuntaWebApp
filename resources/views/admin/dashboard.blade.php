@@ -247,8 +247,8 @@
                                                     <td>
                                                         <div>{{ $item['lastName'] }}, {{ $item['firstName'] }}
                                                             {{ $item['middleName'] }}</div>
-                                                        <div class="small text-medium-emphasis"><span>New</span>
-                                                            | Registered: Jan 1, 2020</div>
+                                                        {{-- <div class="small text-medium-emphasis"><span>New</span>
+                                                            | Registered: Jan 1, 2020</div> --}}
                                                     </td>
                                                     <td class="text-center">
                                                         @if ($item['userType'] == 1)
@@ -258,8 +258,8 @@
                                                         @endif
                                                     </td>
                                                     <td>
-                                                        <div class="small text-medium-emphasis">Last login</div>
-                                                        <div class="fw-semibold">10 sec ago</div>
+                                                        {{-- <div class="small text-medium-emphasis">Last login</div>
+                                                        <div class="fw-semibold">10 sec ago</div> --}}
                                                     </td>
                                                 </tr>
                                             @endforeach

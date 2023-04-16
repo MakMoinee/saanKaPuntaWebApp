@@ -128,7 +128,52 @@ class BuildingsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if (session()->exists("users")) {
+            $file = $request->file('files');
+            $fileName = "";
+            if ($file) {
+                $mimetype =  $file->getMimeType();
+                if ($mimetype == "image/jpeg" || $mimetype == "image/png" || $mimetype == "image/JPEG" || $mimetype == "image/JPG" || $mimetype == "image/jpg" || $mimetype == "image/PNG") {
+                    $destinationPath = $_SERVER['DOCUMENT_ROOT'] . '/image/buildings';
+                    $fileName = strtotime(now()) . "." . $file->getClientOriginalExtension();
+                    $isFile = $file->move($destinationPath,  $fileName);
+                } else {
+                    session()->put("errorInvalidFile", true);
+                    return redirect("/buildings");
+                }
+            }
+
+            if ($fileName != "") {
+                try {
+                    $originalPosterPath = $request->originalPosterPath;
+                    if ($originalPosterPath) {
+                        $destinationPath3 = $_SERVER['DOCUMENT_ROOT'] . $originalPosterPath;
+                        File::delete($destinationPath3);
+                    }
+                } catch (Exception $e1) {
+                }
+
+                $fileName = '/image/buildings' . "/" . $fileName;
+            } else {
+                $fileName = $request->originalPosterPath;
+            }
+
+            $dt = new DateTime(date('Y-m-d H:i:s', now()->timestamp));
+            $tz = new DateTimeZone('Asia/Manila'); // or whatever zone you're after
+            $dt->setTimezone($tz);
+
+            $newBuildings = new Buildings();
+            $newBuildings->buildingName = $request->buildingName;
+            $newBuildings->posterPath = $fileName;
+            $newBuildings->createdAt = $request->createdAt;
+            $newBuildings->updatedAt = $dt->format('Y-m-d H:i:s');
+
+            $result = $this->db->edit('buildings', $id, $newBuildings->toArray());
+            session()->put("successUpdatedBuilding", true);
+            return redirect("/buildings");
+        } else {
+            return redirect("/");
+        }
     }
 
     /**
