@@ -8,6 +8,7 @@ use DateTime;
 use DateTimeZone;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class BuildingsController extends Controller
 {
@@ -136,9 +137,17 @@ class BuildingsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id, Request $request)
     {
         if (session()->exists("users")) {
+            try {
+                $posterPath = $request->posterPath;
+                if ($posterPath) {
+                    $destinationPath = $_SERVER['DOCUMENT_ROOT'] . $posterPath;
+                    File::delete($destinationPath);
+                }
+            } catch (Exception $e1) {
+            }
 
             try {
                 $this->db->destroy('buildings', $id);

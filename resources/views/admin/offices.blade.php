@@ -279,7 +279,48 @@
                                                         {{ $item['floor'] }}
                                                     </td>
                                                     <td class="text-center">
-                                                        <button class="btn btn-success">View</button>
+                                                        <button class="btn btn-success"
+                                                            style="color:white;">View</button>
+                                                        <button class="btn btn-danger" style="color:white;"
+                                                            data-coreui-target="#deleteUserModal{{ $item['docID'] }}"
+                                                            data-coreui-toggle="modal">Delete</button>
+                                                        <div class="modal fade"
+                                                            id="deleteUserModal{{ $item['docID'] }}" tabindex="-1"
+                                                            role="dialog"
+                                                            aria-labelledby="deleteUserModalLabel{{ $item['docID'] }}"
+                                                            aria-hidden="true">
+                                                            <div class="modal-dialog" role="document">
+                                                                <div class="modal-content">
+                                                                    <form
+                                                                        action="{{ route('offices.destroy', ['office' => $item['docID']]) }}"
+                                                                        method="POST">
+                                                                        @method('delete')
+                                                                        @csrf
+                                                                        <div class="modal-body">
+                                                                            <h5 class="modal-title"
+                                                                                id="deleteUserModalLabel{{ $item['docID'] }}">
+                                                                                Do
+                                                                                you want to proceed deleting office ?
+                                                                            </h5>
+                                                                            <input type="hidden" name="floorMap"
+                                                                                value="{{ $item['floorMapPath'] }}">
+                                                                            <input type="hidden" name="videoURL"
+                                                                                value="{{ $item['videoURL'] }}">
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button type="submit"
+                                                                                class="btn btn-primary"
+                                                                                name="btnDeleteOffice"
+                                                                                value="yes">Yes,
+                                                                                Proceed</button>
+                                                                            <button type="button"
+                                                                                class="btn btn-secondary"
+                                                                                data-coreui-dismiss="modal">Close</button>
+                                                                        </div>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </td>
                                                 </tr>
                                             @endforeach
@@ -557,6 +598,36 @@
         }, 500);
     </script>
     {{ session()->forget('successAddOffice') }}
+@endif
+
+@if (session()->pull('successDeleteOffice'))
+    <script>
+        setTimeout(() => {
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Successfully Deleted Office',
+                showConfirmButton: false,
+                timer: 1200
+            });
+        }, 500);
+    </script>
+    {{ session()->forget('successDeleteOffice') }}
+@endif
+
+@if (session()->pull('errorDeleteOffice'))
+    <script>
+        setTimeout(() => {
+            Swal.fire({
+                position: 'center',
+                icon: 'warning',
+                title: 'Failed To Delete Office, Please Try Again Later',
+                showConfirmButton: false,
+                timer: 1200
+            });
+        }, 500);
+    </script>
+    {{ session()->forget('errorDeleteOffice') }}
 @endif
 
 </html>

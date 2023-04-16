@@ -6,7 +6,9 @@ use App\Models\Offices;
 use App\Services\Firebase\Firestore\FirestoreRepository;
 use DateTime;
 use DateTimeZone;
+use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class OfficeController extends Controller
 {
@@ -182,8 +184,43 @@ class OfficeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id, Request $request)
     {
-        //
+
+
+        if (session()->exists("users")) {
+
+            if (isset($request->btnDeleteOffice)) {
+
+                try {
+                    $floorMapPath = $request->floorMapPath;
+                    if ($floorMapPath) {
+                        $destinationPath2 = $_SERVER['DOCUMENT_ROOT'] . $floorMapPath;
+                        File::delete($destinationPath2);
+                    }
+                } catch (Exception $e1) {
+                }
+
+                try {
+                    $video = $request->videoURL;
+                    if ($video) {
+                        $destinationPath = $_SERVER['DOCUMENT_ROOT'] . $video;
+                        File::delete($destinationPath);
+                    }
+                } catch (Exception $e2) {
+                }
+
+                try {
+                    $this->db->destroy('offices', $id);
+                    session()->put("successDeleteOffice", true);
+                } catch (Exception $e) {
+                    session()->put("errorDeleteOffice", true);
+                }
+            }
+
+            return redirect("/offices");
+        } else {
+            return redirect("/");
+        }
     }
 }
