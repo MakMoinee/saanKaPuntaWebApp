@@ -279,8 +279,197 @@
                                                         {{ $item['floor'] }}
                                                     </td>
                                                     <td class="text-center">
-                                                        <button class="btn btn-success"
-                                                            style="color:white;">View</button>
+                                                        <button class="btn btn-success" style="color:white;"
+                                                            onclick="clearViewData('{{ $item['docID'] }}','{{ $item['floorMapPath'] }}');"
+                                                            data-coreui-target="#viewOfficeModal{{ $item['docID'] }}"
+                                                            data-coreui-toggle="modal">View</button>
+                                                        <div class="modal fade "
+                                                            id="viewOfficeModal{{ $item['docID'] }}" tabindex="-1"
+                                                            role="dialog"
+                                                            aria-labelledby="viewOfficeModalLabel{{ $item['docID'] }}"
+                                                            aria-hidden="true">
+                                                            <div class="modal-dialog" role="document">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">
+                                                                        <h5 class="modal-title"
+                                                                            id="viewOfficeModalLabel{{ $item['docID'] }}">
+                                                                            View Office</h5>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        <div class="row">
+                                                                            <form
+                                                                                action="{{ route('offices.update', ['office' => $item['docID']]) }}"
+                                                                                method="POST"
+                                                                                enctype="multipart/form-data"
+                                                                                autocomplete="off">
+                                                                                @method('put')
+                                                                                @csrf
+                                                                                <center>
+                                                                                    <div class="form-group">
+                                                                                        <input class="form-control"
+                                                                                            required type="text"
+                                                                                            name="officeName"
+                                                                                            id="officeName"
+                                                                                            placeholder="Office Name"
+                                                                                            value="{{ $item['officeName'] }}">
+                                                                                    </div>
+                                                                                    <br>
+                                                                                    <div class="form-group">
+                                                                                        <label for="building"
+                                                                                            style="float:left;font-size: 14px;margin-bottom: 10px;">Choose
+                                                                                            Building:</label>
+                                                                                        <select class="form-control"
+                                                                                            name="building"
+                                                                                            id="">
+                                                                                            @foreach ($buildings as $b)
+                                                                                                @if ($item['building'] == $b['docID'])
+                                                                                                    <option
+                                                                                                        value="{{ $b['docID'] }}"
+                                                                                                        selected>
+                                                                                                        {{ $b['buildingName'] }}
+                                                                                                    </option>
+                                                                                                @else
+                                                                                                    <option
+                                                                                                        value="{{ $b['docID'] }}">
+                                                                                                        {{ $b['buildingName'] }}
+                                                                                                    </option>
+                                                                                                @endif
+                                                                                            @endforeach
+                                                                                        </select>
+                                                                                    </div>
+                                                                                    <br>
+                                                                                    <div class="form-group">
+                                                                                        <input class="form-control"
+                                                                                            required type="text"
+                                                                                            name="floor"
+                                                                                            id="floor"
+                                                                                            placeholder="Floor"
+                                                                                            value="{{ $item['floor'] }}">
+                                                                                    </div>
+                                                                                    <div class="form-group"
+                                                                                        style="margin-top: 10px;">
+                                                                                        <button class="file-upload-btn"
+                                                                                            type="button"
+                                                                                            onclick="$('.file-upload-input3').trigger( 'click' )">Add
+                                                                                            Floor Map
+                                                                                            Image</button>
+
+                                                                                        <div class="image-upload-wrap3"
+                                                                                            id="image-upload-wrap3{{ $item['docID'] }}">
+                                                                                            <input
+                                                                                                class="file-upload-input3"
+                                                                                                dataid="{{ $item['docID'] }}"
+                                                                                                id="file-upload-input3{{ $item['docID'] }}"
+                                                                                                name="files"
+                                                                                                type='file'
+                                                                                                onchange="readURL3(this,'{{ $item['docID'] }}');"
+                                                                                                accept="image/*" />
+                                                                                            <div class="drag-text">
+                                                                                                <h3>Drag and drop a file
+                                                                                                    or select add Image
+                                                                                                </h3>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="file-upload-content3"
+                                                                                            id="file-upload-content3{{ $item['docID'] }}">
+                                                                                            <img class="file-upload-image3"
+                                                                                                id="file-upload-image3{{ $item['docID'] }}"
+                                                                                                src=""
+                                                                                                alt="your image"
+                                                                                                width="100%"
+                                                                                                height="40%" />
+                                                                                            <div class="image-title-wrap3"
+                                                                                                id="image-title-wrap3{{ $item['docID'] }}">
+                                                                                                <button type="button"
+                                                                                                    onclick="removeUpload3('{{ $item['docID'] }}')"
+                                                                                                    class="remove-image3"
+                                                                                                    id="remove-image3{{ $item['docID'] }}">Remove
+                                                                                                    <span
+                                                                                                        class="image-title3"
+                                                                                                        id="image-title3{{ $item['docID'] }}">Uploaded
+                                                                                                        Image</span></button>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <br>
+                                                                                    <div class="form-group">
+                                                                                        <label for="directions"
+                                                                                            style="float:left;font-size: 14px;margin-bottom: 10px;">Directions</label>
+                                                                                        <textarea class="form-control" required name="directions" id="" cols="10" rows="8">{{ $item['directions'] }}</textarea>
+                                                                                    </div>
+                                                                                    <br>
+                                                                                    <div class="form-group"
+                                                                                        style="margin-top: 10px;">
+                                                                                        <button
+                                                                                            class="file-upload-btn4"
+                                                                                            type="button"
+                                                                                            onclick="$('.file-upload-input4').trigger( 'click' )">Add
+                                                                                            Virtual Guide
+                                                                                            Video</button>
+
+                                                                                        <div class="image-upload-wrap4"
+                                                                                            id="image-upload-wrap4{{ $item['docID'] }}">
+                                                                                            <input
+                                                                                                class="file-upload-input4"
+                                                                                                id="file-upload-input4{{ $item['docID'] }}"
+                                                                                                name="files2"
+                                                                                                type='file'
+                                                                                                onchange="readURL4(this,'{{ $item['docID'] }}');"
+                                                                                                accept="video/*" />
+                                                                                            <div class="drag-text">
+                                                                                                <h3>Drag and drop a file
+                                                                                                    or select video file
+                                                                                                </h3>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="file-upload-content4"
+                                                                                            id="file-upload-content4{{ $item['docID'] }}">
+                                                                                            <img class="file-upload-image4"
+                                                                                                id="file-upload-image4{{ $item['docID'] }}"
+                                                                                                src="#"
+                                                                                                alt="your image"
+                                                                                                width="100%"
+                                                                                                height="40%" />
+                                                                                            <div class="image-title-wrap4"
+                                                                                                id="image-title-wrap4{{ $item['docID'] }}">
+                                                                                                <button type="button"
+                                                                                                    onclick="removeUpload4('{{ $item['docID'] }}')"
+                                                                                                    class="remove-image4"
+                                                                                                    id="remove-image4{{ $item['docID'] }}">Remove
+                                                                                                    <span
+                                                                                                        class="image-title4"
+                                                                                                        id="image-title4{{ $item['docID'] }}">Uploaded
+                                                                                                        Video</span></button>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <input type="hidden"
+                                                                                            name="originalFloorMapPath"
+                                                                                            value="{{ $item['floorMapPath'] }}">
+                                                                                        <input type="hidden"
+                                                                                            name="originalVideoURL"
+                                                                                            value="{{ $item['videoURL'] }}">
+                                                                                        <input type="hidden"
+                                                                                            name="createdAt"
+                                                                                            value="{{ $item['createdAt'] }}">
+                                                                                    </div>
+                                                                                </center>
+
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button"
+                                                                            class="btn btn-secondary"
+                                                                            data-coreui-dismiss="modal">Close</button>
+                                                                        <button type="submit" class="btn btn-primary"
+                                                                            style="background-color: #ff589e"
+                                                                            name="btnUpdateOffice"
+                                                                            value="yes">Update
+                                                                            Office</button>
+                                                                    </div>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                         <button class="btn btn-danger" style="color:white;"
                                                             data-coreui-target="#deleteUserModal{{ $item['docID'] }}"
                                                             data-coreui-toggle="modal">Delete</button>
@@ -520,6 +709,95 @@
         $('.image-upload-wrap2').bind('dragleave', function() {
             $('.image-upload-wrap2').removeClass('image-dropping');
         });
+
+
+        function readURL3(input, id) {
+            console.log(id);
+            if (input.files && input.files[0]) {
+
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    $(`#image-upload-wrap3${id}`).hide();
+
+                    $(`#file-upload-image3${id}`).attr('src', e.target.result);
+                    $(`#file-upload-content3${id}`).show();
+
+                    $(`#image-title3${id}`).html(input.files[0].name);
+                };
+                console.log("Files ===>>", input.files[0]);
+
+                reader.readAsDataURL(input.files[0]);
+
+            } else {
+                removeUpload3(id);
+            }
+
+            $(`#image-upload-wrap3${id}`).bind('dragover', function() {
+                $(`#image-upload-wrap3${id}`).addClass('image-dropping');
+            });
+            $(`#image-upload-wrap3${id}`).bind('dragleave', function() {
+                $(`#image-upload-wrap3${id}`).removeClass('image-dropping');
+            });
+        }
+
+        function removeUpload3(id) {
+            $(`#file-upload-input3${id}`).replaceWith($(`#file-upload-input3${id}`).clone());
+            $(`#file-upload-content3${id}`).hide();
+            $(`#image-upload-wrap3${id}`).show();
+
+            // $(`#image-upload-wrap3${id}`).bind('dragover', function() {
+            //     $(`#image-upload-wrap3${id}`).addClass('image-dropping');
+            // });
+            // $(`#image-upload-wrap3${id}`).bind('dragleave', function() {
+            //     $(`#image-upload-wrap3${id}`).removeClass('image-dropping');
+            // });
+        }
+
+        function readURL4(input, id) {
+            if (input.files && input.files[0]) {
+
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    $(`#image-upload-wrap4${id}`).hide();
+
+                    $(`#file-upload-image4${id}`).attr('src', '/images/videocam.png');
+                    $(`#file-upload-content4${id}`).show();
+
+                    $(`#image-title4${id}`).html(input.files[0].name);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+
+            } else {
+                removeUpload4(id);
+            }
+
+            $(`#image-upload-wrap4${id}`).bind('dragover', function() {
+                $(`#image-upload-wrap4${id}`).addClass('image-dropping');
+            });
+            $(`#image-upload-wrap4${id}`).bind('dragleave', function() {
+                $(`#image-upload-wrap4${id}`).removeClass('image-dropping');
+            });
+        }
+
+        function removeUpload4(id) {
+            $(`#file-upload-input4${id}`).replaceWith($(`#file-upload-input4${id}`).clone());
+            $(`#file-upload-content4${id}`).hide();
+            $(`#image-upload-wrap4${id}`).show();
+        }
+
+        function clearViewData(id, floorMapPath) {
+            $(`#image-upload-wrap3${id}`).hide();
+            $(`#image-upload-wrap4${id}`).hide();
+            $(`#file-upload-content3${id}`).show();
+            $(`#file-upload-content4${id}`).show();
+            $(`#file-upload-image3${id}`).attr('src', floorMapPath);
+            $(`#file-upload-image4${id}`).attr('src', '/images/videocam.png');
+
+
+        }
     </script>
 </body>
 
@@ -613,6 +891,36 @@
         }, 500);
     </script>
     {{ session()->forget('successDeleteOffice') }}
+@endif
+
+@if (session()->pull('successUpdateOffice'))
+    <script>
+        setTimeout(() => {
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Successfully Updated Office Record',
+                showConfirmButton: false,
+                timer: 1200
+            });
+        }, 500);
+    </script>
+    {{ session()->forget('successUpdateOffice') }}
+@endif
+
+@if (session()->pull('errorImageFile'))
+    <script>
+        setTimeout(() => {
+            Swal.fire({
+                position: 'center',
+                icon: 'warning',
+                title: 'Image File Format is not valid, Please try again new format',
+                showConfirmButton: false,
+                timer: 1200
+            });
+        }, 500);
+    </script>
+    {{ session()->forget('errorImageFile') }}
 @endif
 
 @if (session()->pull('errorDeleteOffice'))

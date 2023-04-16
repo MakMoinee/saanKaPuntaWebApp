@@ -71,7 +71,7 @@
             <div class="collapse navbar-collapse" id="ftco-nav">
                 <ul class="navbar-nav m-auto">
                     <li class="nav-item active"><a href="/" class="nav-link">Home</a></li>
-                    <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                    {{-- <li class="nav-item"><a href="about.html" class="nav-link">About</a></li> --}}
                     <li class="nav-item"><a href="#" class="nav-link" data-target="#loginModal"
                             data-toggle="modal" onclick="loginClick()">Login</a></li>
                 </ul>

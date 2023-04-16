@@ -175,7 +175,104 @@ class OfficeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if (session()->exists("users")) {
+            if (isset($request->btnUpdateOffice)) {
+                $files = $request->file('files');
+                $files2 = $request->file('files2');
+                $fileName = "";
+                $fileName2 = "";
+                if ($files) {
+                    $mimetype =  $files->getMimeType();
+                    if ($mimetype == "image/jpeg" || $mimetype == "image/png" || $mimetype == "image/JPEG" || $mimetype == "image/JPG" || $mimetype == "image/jpg" || $mimetype == "image/PNG") {
+                        $destinationPath = $_SERVER['DOCUMENT_ROOT'] . '/image/floors';
+                        $fileName = strtotime(now()) . "." . $files->getClientOriginalExtension();
+                        $isFile = $files->move($destinationPath,  $fileName);
+                    } else {
+                        session()->put("errorImageFile", true);
+                        return redirect("/offices");
+                    }
+                }
+
+                if ($files2) {
+                    $mimetype2 =  $files2->getMimeType();
+                    if ($mimetype2 == "video/webm" || $mimetype2 == "video/mp4" || $mimetype2 == "video/mpeg4" || $mimetype2 == "video/3gp" || $mimetype2 == "video/avi") {
+
+                        if ($files2->getSize() > 40000000) {
+
+                            try {
+                                if ($fileName != "") {
+                                    $destinationPath3 = $_SERVER['DOCUMENT_ROOT'] . "/image/floors" . "/" . $fileName;
+                                    File::delete($destinationPath3);
+                                }
+                            } catch (Exception $e1) {
+                            }
+                            session()->put("errorFileExceed", true);
+                            return redirect("/offices");
+                        }
+
+
+                        $destinationPath = $_SERVER['DOCUMENT_ROOT'] . '/videos';
+                        $fileName2 = strtotime(now()) . "." . $files2->getClientOriginalExtension();
+                        $isFile2 = $files2->move($destinationPath,  $fileName2);
+                    } else {
+                        session()->put("errorVideoFile", true);
+                        return redirect("/offices");
+                    }
+                }
+
+                if ($fileName !=  "") {
+                    try {
+                        $originalFloorMapPath = $request->originalFloorMapPath;
+                        if ($originalFloorMapPath) {
+                            $destinationPath2 = $_SERVER['DOCUMENT_ROOT'] . $originalFloorMapPath;
+                            File::delete($destinationPath2);
+                        }
+                    } catch (Exception $e1) {
+                    }
+                    $fileName = "/image/floors" . "/" . $fileName;
+                } else {
+                    $fileName = $request->originalFloorMapPath;
+                }
+                if ($fileName2 !=  "") {
+                    try {
+                        $originalVideoURL = $request->originalVideoURL;
+                        if ($originalVideoURL) {
+                            $destinationPath3 = $_SERVER['DOCUMENT_ROOT'] . $originalVideoURL;
+                            File::delete($destinationPath3);
+                        }
+                    } catch (Exception $e1) {
+                    }
+                    $fileName2 = "/videos" . "/" . $fileName2;
+                } else {
+                    $fileName2 = $request->originalVideoURL;
+                }
+
+                $officeName = $request->officeName;
+                $building = $request->building;
+                $directions = $request->directions;
+                $floor = $request->floor;
+                $createdAt = $request->createdAt;
+
+                $dt = new DateTime(date('Y-m-d H:i:s', now()->timestamp));
+                $tz = new DateTimeZone('Asia/Manila'); // or whatever zone you're after
+                $dt->setTimezone($tz);
+                $newOffice = new Offices();
+                $newOffice->officeName = $officeName;
+                $newOffice->building = $building;
+                $newOffice->directions = $directions;
+                $newOffice->floor = $floor;
+                $newOffice->createdAt = $createdAt;
+                $newOffice->floorMapPath = $fileName;
+                $newOffice->videoURL = $fileName2;
+                $newOffice->updatedAt = $dt->format('Y-m-d H:i:s');
+
+                $result = $this->db->edit('offices', $id, $newOffice->toArray());
+                session()->put("successUpdateOffice", true);
+            }
+            return redirect("/offices");
+        } else {
+            return redirect("/");
+        }
     }
 
     /**

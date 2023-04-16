@@ -3,7 +3,7 @@
 /public/storage
 /public/image/floors
 /public/image/buildings
-/public/video
+/public/videos
 /storage/*.key
 /vendor
 .env
