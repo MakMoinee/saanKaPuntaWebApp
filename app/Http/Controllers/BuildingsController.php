@@ -206,4 +206,15 @@ class BuildingsController extends Controller
             return redirect("/");
         }
     }
+
+
+    /**
+     * FOR API CONTROLLERS
+     */
+
+    public function apiIndex()
+    {
+        $buildings = $this->db->fetchBuilding();
+        return response($buildings, 200)->header('Content-Type', 'application/json');
+    }
 }

@@ -121,6 +121,7 @@ class OfficeController extends Controller
                                 $newOffice->building = $building;
                                 $newOffice->directions = $directions;
                                 $newOffice->floor = $floor;
+                                $newOffice->videoURL =  "";
                                 $newOffice->floorMapPath =  "/image/floors/" . $fileName;
                                 $newOffice->createdAt = $dt->format('Y-m-d H:i:s');
                                 $newOffice->updatedAt = $dt->format('Y-m-d H:i:s');

@@ -25,3 +25,4 @@ Route::resource("/dashboard", DashboardController::class);
 Route::get("/signout", [SignOutController::class, 'index']);
 Route::resource("/buildings", BuildingsController::class);
 Route::resource("/offices", OfficeController::class);
+Route::get("/api/buildings", [BuildingsController::class, 'apiIndex']);

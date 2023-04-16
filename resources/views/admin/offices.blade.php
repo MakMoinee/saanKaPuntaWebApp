@@ -613,7 +613,7 @@
                                         Video</button>
 
                                     <div class="image-upload-wrap2">
-                                        <input required class="file-upload-input2" name="files2" type='file'
+                                        <input class="file-upload-input2" name="files2" type='file'
                                             onchange="readURL2(this);" accept="video/*" />
                                         <div class="drag-text">
                                             <h3>Drag and drop a file or select video file</h3>

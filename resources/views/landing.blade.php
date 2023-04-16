@@ -36,7 +36,7 @@
                                     <a href="#" class="mr-2"><span class="fa fa-phone mr-1"></span> +00 1234
                                         567</a>
                                     <a href="#"><span class="fa fa-paper-plane mr-1"></span>
-                                        youremail@email.com</a>
+                                        saankapunta@gmail.com</a>
                                 </p>
                             </div>
                             <div class="col-md-6 d-flex justify-content-md-end">
@@ -113,7 +113,7 @@
                     <div class="col-md-8 ftco-animate">
                         <div class="text w-100 text-center">
                             {{-- <h1 class="mb-4"></h1> --}}
-                            <p><a href="#" class="btn btn-white">Create Account Now</a></p>
+                            {{-- <p><a href="#" class="btn btn-white">Create Account Now</a></p> --}}
                         </div>
                     </div>
                 </div>
@@ -133,8 +133,7 @@
                     <div class="row">
                         <div class="col-md-4 mb-md-0 mb-4">
                             <h2 class="footer-heading">About us</h2>
-                            <p>A small river named Duden flows by their place and supplies it with the necessary
-                                regelialia.</p>
+                            <p>Your reliable Virtual Guide</p>
                             <ul class="ftco-footer-social p-0">
                                 <li class="ftco-animate"><a href="#" data-toggle="tooltip"
                                         data-placement="top" title="Twitter"><span class="fa fa-twitter"></span></a>
@@ -181,7 +180,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 py-md-5 py-4 aside-stretch-right pl-lg-5">
+                {{-- <div class="col-md-3 py-md-5 py-4 aside-stretch-right pl-lg-5">
                     <h2 class="footer-heading">Free consultation</h2>
                     <form action="#" class="form-consultation">
                         <div class="form-group">
@@ -200,7 +199,7 @@
                             <button type="submit" class="form-control submit px-3">Send A Message</button>
                         </div>
                     </form>
-                </div>
+                </div> --}}
             </div>
         </div>
     </footer>
