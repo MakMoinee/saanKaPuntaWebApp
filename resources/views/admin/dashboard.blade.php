@@ -53,13 +53,13 @@
 <body>
     <div class="sidebar sidebar-dark sidebar-fixed" id="sidebar">
         <div class="sidebar-brand d-none d-md-flex">
-            <svg class="sidebar-brand-full" width="118" height="46" alt="CoreUI
-          Logo">
-                <use xlink:href="assets/brand/coreui.svg#full"></use>
+            <svg xmlns="http://www.w3.org/2000/svg" width="46" height="46" fill="#d600d6"
+                class="sidebar-brand-full bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
             </svg>
-            <svg class="sidebar-brand-narrow" width="46" height="46" alt="CoreUI
-          Logo">
-                <use xlink:href="assets/brand/coreui.svg#signet"></use>
+            <svg xmlns="http://www.w3.org/2000/svg" width="46" height="46" fill="#d600d6"
+                class="sidebar-brand-narrow bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" />
             </svg>
         </div>
         <ul class="sidebar-nav" data-coreui="navigation" data-simplebar="init">
@@ -94,8 +94,7 @@
                                             <path
                                                 d="M15 .5a.5.5 0 0 0-.724-.447l-8 4A.5.5 0 0 0 6 4.5v3.14L.342 9.526A.5.5 0 0 0 0 10v5.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V14h1v1.5a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5V.5ZM2 11h1v1H2v-1Zm2 0h1v1H4v-1Zm-1 2v1H2v-1h1Zm1 0h1v1H4v-1Zm9-10v1h-1V3h1ZM8 5h1v1H8V5Zm1 2v1H8V7h1ZM8 9h1v1H8V9Zm2 0h1v1h-1V9Zm-1 2v1H8v-1h1Zm1 0h1v1h-1v-1Zm3-2v1h-1V9h1Zm-1 2h1v1h-1v-1Zm-2-4h1v1h-1V7Zm3 0v1h-1V7h1Zm-2-2v1h-1V5h1Zm1 0h1v1h-1V5Z" />
                                         </svg> Buildings</a></li>
-                                <li class="nav-item"><a class="nav-link"
-                                        href="/offices">
+                                <li class="nav-item"><a class="nav-link" href="/offices">
                                         <svg class="nav-icon" fill="#000000" version="1.1" id="Capa_1"
                                             xmlns="http://www.w3.org/2000/svg"
                                             xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16"
@@ -115,7 +114,7 @@
                                     </a></li>
                                 <li class="nav-title">User Management</li>
                                 <li class="nav-item"><a class="nav-link"
-                                        href="https://coreui.io/demos/bootstrap/4.2/free/colors.html">
+                                        href="/users">
                                         <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="16"
                                             height="16" fill="#FFFFFF" class="bi bi-people-fill"
                                             viewBox="0 0 16 16">

@@ -114,7 +114,7 @@
                                     </a></li>
                                 <li class="nav-title">User Management</li>
                                 <li class="nav-item"><a class="nav-link"
-                                        href="https://coreui.io/demos/bootstrap/4.2/free/colors.html">
+                                        href="/users">
                                         <svg class="nav-icon" xmlns="http://www.w3.org/2000/svg" width="16"
                                             height="16" fill="#FFFFFF" class="bi bi-people-fill"
                                             viewBox="0 0 16 16">
@@ -204,7 +204,7 @@
                         <li class="breadcrumb-item">
                             <span>Home</span>
                         </li>
-                        <li class="breadcrumb-item active"><span>Buildings</span></li>
+                        <li class="breadcrumb-item active"><span>Offices</span></li>
                     </ol>
                 </nav>
             </div>

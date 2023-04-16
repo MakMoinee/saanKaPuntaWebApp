@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\OfficeController;
 use App\Http\Controllers\SignOutController;
+use App\Http\Controllers\UsersController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,3 +27,4 @@ Route::get("/signout", [SignOutController::class, 'index']);
 Route::resource("/buildings", BuildingsController::class);
 Route::resource("/offices", OfficeController::class);
 Route::get("/api/buildings", [BuildingsController::class, 'apiIndex']);
+Route::resource("/users", UsersController::class);

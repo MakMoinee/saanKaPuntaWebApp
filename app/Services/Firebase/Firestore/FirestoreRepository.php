@@ -106,6 +106,8 @@ final class FirestoreRepository implements FireStore
         return true;
     }
 
+    
+
     public function fetchWithWhere(string $collection, string $fieldName, string $whereOperator, int $intValue, string $strValue): array
     {
 
@@ -127,6 +129,31 @@ final class FirestoreRepository implements FireStore
         foreach ($data as $d) {
             $eachData = $d->data();
             array_push($result, $eachData);
+        }
+
+        return $result;
+    }
+
+    public function fetchUsers(): array
+    {
+        $data = app('firebase.firestore')
+            ->database()
+            ->collection('buildings')
+            ->documents();
+
+        $result = array();
+
+        foreach ($data as $d) {
+            $eachData = $d->data();
+            $newUser = new SKPUsers();
+            $newUser->email = $eachData['email'];
+            $newUser->password = $eachData['password'];
+            $newUser->firstName = $eachData['firstName'];
+            $newUser->middleName = $eachData['middleName'];
+            $newUser->lastName = $eachData['lastName'];
+            $newUser->secret = $eachData['secret'];
+            $newUser->userType = $eachData['userType'];
+            array_push($result, $newUser->toArray());
         }
 
         return $result;
