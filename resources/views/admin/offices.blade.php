@@ -310,9 +310,10 @@
                                                                                         <input class="form-control"
                                                                                             required type="text"
                                                                                             name="officeName"
-                                                                                            id="officeName"
+                                                                                            id="officeName{{ $item['docID'] }}"
                                                                                             placeholder="Office Name"
-                                                                                            value="{{ $item['officeName'] }}">
+                                                                                            value="{{ $item['officeName'] }}"
+                                                                                            autofocus>
                                                                                     </div>
                                                                                     <br>
                                                                                     <div class="form-group">
@@ -325,6 +326,7 @@
                                                                                             @foreach ($buildings as $b)
                                                                                                 @if ($item['building'] == $b['docID'])
                                                                                                     <option
+                                                                                                        id="{{ $b['docID'] }}"
                                                                                                         value="{{ $b['docID'] }}"
                                                                                                         selected>
                                                                                                         {{ $b['buildingName'] }}
@@ -343,7 +345,7 @@
                                                                                         <input class="form-control"
                                                                                             required type="text"
                                                                                             name="floor"
-                                                                                            id="floor"
+                                                                                            id="floor{{ $item['docID'] }}"
                                                                                             placeholder="Floor"
                                                                                             value="{{ $item['floor'] }}">
                                                                                     </div>
@@ -396,7 +398,8 @@
                                                                                     <div class="form-group">
                                                                                         <label for="directions"
                                                                                             style="float:left;font-size: 14px;margin-bottom: 10px;">Directions</label>
-                                                                                        <textarea class="form-control" required name="directions" id="" cols="10" rows="8">{{ $item['directions'] }}</textarea>
+                                                                                        <textarea class="form-control" required name="directions" id="directions{{ $item['docID'] }}" cols="10"
+                                                                                            rows="8">{{ $item['directions'] }}</textarea>
                                                                                     </div>
                                                                                     <br>
                                                                                     <div class="form-group"
@@ -452,17 +455,19 @@
                                                                                         <input type="hidden"
                                                                                             name="createdAt"
                                                                                             value="{{ $item['createdAt'] }}">
+                                                                                        @if ($item['videoURL'] != '')
+                                                                                            <br>
+                                                                                            <div>
+                                                                                                <a href="{{ $item['videoURL'] }}"
+                                                                                                    target="_blank"
+                                                                                                    class="btn btn-primary">Click
+                                                                                                    Here to Preview
+                                                                                                    Original
+                                                                                                    Video Stored</a>
+                                                                                            </div>
+                                                                                        @endif
                                                                                     </div>
-                                                                                    @if ($item['videoURL'] != '')
-                                                                                        <br>
-                                                                                        <div class="form-group">
-                                                                                            <a href="{{ $item['videoURL'] }}"
-                                                                                                target="_blank"
-                                                                                                class="btn btn-primary stretched-link">Click
-                                                                                                Here to Preview Original
-                                                                                                Video Stored</a>
-                                                                                        </div>
-                                                                                    @endif
+
 
                                                                                 </center>
 
