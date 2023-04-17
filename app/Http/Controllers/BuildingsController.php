@@ -83,8 +83,6 @@ class BuildingsController extends Controller
                 $file3 = $request->file('files3');
                 $fileName = "";
                 $fileName3 = "";
-                $isFile = new File();
-                $isFile3 = new File();
                 if ($file) {
                     $mimetype =  $file->getMimeType();
                     if ($mimetype == "image/jpeg" || $mimetype == "image/png" || $mimetype == "image/JPEG" || $mimetype == "image/JPG" || $mimetype == "image/jpg" || $mimetype == "image/PNG") {
@@ -100,13 +98,13 @@ class BuildingsController extends Controller
                 if ($file3) {
                     $mimetype3 =  $file3->getMimeType();
                     if ($mimetype3 == "image/jpeg" || $mimetype3 == "image/png" || $mimetype3 == "image/JPEG" || $mimetype3 == "image/JPG" || $mimetype3 == "image/jpg" || $mimetype3 == "image/PNG") {
-                        $destinationPath3 = $_SERVER['DOCUMENT_ROOT'] . '/image/buildings';
+                        $destinationPath3 = $_SERVER['DOCUMENT_ROOT'] . '/image/directoryPath';
                         $fileName3 = strtotime(now()) . "." . $file3->getClientOriginalExtension();
-                        $isFile3 = $file->move($destinationPath3,  $fileName3);
+                        $isFile3 = $file3->move($destinationPath3,  $fileName3);
                     } else {
                         try {
                             if ($fileName) {
-                                $destinationPath3 = $_SERVER['DOCUMENT_ROOT'] . "/image/buildings" . "/" . $fileName;
+                                $destinationPath3 = $_SERVER['DOCUMENT_ROOT'] . "/image/directoryPath" . "/" . $fileName;
                                 File::delete($destinationPath3);
                             }
                         } catch (Exception $e1) {
@@ -169,13 +167,27 @@ class BuildingsController extends Controller
     {
         if (session()->exists("users")) {
             $file = $request->file('files');
+            $file4 = $request->file('files4');
             $fileName = "";
+            $fileName4 = "";
             if ($file) {
                 $mimetype =  $file->getMimeType();
                 if ($mimetype == "image/jpeg" || $mimetype == "image/png" || $mimetype == "image/JPEG" || $mimetype == "image/JPG" || $mimetype == "image/jpg" || $mimetype == "image/PNG") {
                     $destinationPath = $_SERVER['DOCUMENT_ROOT'] . '/image/buildings';
                     $fileName = strtotime(now()) . "." . $file->getClientOriginalExtension();
                     $isFile = $file->move($destinationPath,  $fileName);
+                } else {
+                    session()->put("errorInvalidFile", true);
+                    return redirect("/buildings");
+                }
+            }
+
+            if ($file4) {
+                $mimetype4 =  $file4->getMimeType();
+                if ($mimetype4 == "image/jpeg" || $mimetype4 == "image/png" || $mimetype4 == "image/JPEG" || $mimetype4 == "image/JPG" || $mimetype4 == "image/jpg" || $mimetype4 == "image/PNG") {
+                    $destinationPath4 = $_SERVER['DOCUMENT_ROOT'] . '/image/directoryPath';
+                    $fileName4 = strtotime(now()) . "." . $file4->getClientOriginalExtension();
+                    $isFile4 = $file4->move($destinationPath4,  $fileName4);
                 } else {
                     session()->put("errorInvalidFile", true);
                     return redirect("/buildings");
@@ -197,6 +209,22 @@ class BuildingsController extends Controller
                 $fileName = $request->originalPosterPath;
             }
 
+
+            if ($fileName4 != "") {
+                try {
+                    $originalDirectoryPath = $request->originalDirectoryPath;
+                    if ($originalDirectoryPath) {
+                        $destinationPath4 = $_SERVER['DOCUMENT_ROOT'] . $originalDirectoryPath;
+                        File::delete($destinationPath4);
+                    }
+                } catch (Exception $e1) {
+                }
+
+                $fileName4 = '/image/directoryPath' . "/" . $fileName4;
+            } else {
+                $fileName4 = $request->originalPosterPath;
+            }
+
             $dt = new DateTime(date('Y-m-d H:i:s', now()->timestamp));
             $tz = new DateTimeZone('Asia/Manila'); // or whatever zone you're after
             $dt->setTimezone($tz);
@@ -204,6 +232,7 @@ class BuildingsController extends Controller
             $newBuildings = new Buildings();
             $newBuildings->buildingName = $request->buildingName;
             $newBuildings->posterPath = $fileName;
+            $newBuildings->directoryPath = $fileName4;
             $newBuildings->createdAt = $request->createdAt;
             $newBuildings->updatedAt = $dt->format('Y-m-d H:i:s');
 
@@ -228,6 +257,15 @@ class BuildingsController extends Controller
                 $posterPath = $request->posterPath;
                 if ($posterPath) {
                     $destinationPath = $_SERVER['DOCUMENT_ROOT'] . $posterPath;
+                    File::delete($destinationPath);
+                }
+            } catch (Exception $e1) {
+            }
+
+            try {
+                $originalDirectoryPath = $request->originalDirectoryPath;
+                if ($originalDirectoryPath) {
+                    $destinationPath = $_SERVER['DOCUMENT_ROOT'] . $originalDirectoryPath;
                     File::delete($destinationPath);
                 }
             } catch (Exception $e1) {

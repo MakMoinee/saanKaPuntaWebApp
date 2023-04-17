@@ -185,6 +185,12 @@ final class FirestoreRepository implements FireStore
             $newBuildings->docID = $d->id();
             $newBuildings->buildingName = $eachData['buildingName'];
             $newBuildings->posterPath = $eachData['posterPath'];
+            if (isset($eachData['directoryPath'])) {
+                $newBuildings->directoryPath = $eachData['directoryPath'];
+            } else {
+                $newBuildings->directoryPath = "";
+            }
+
             $newBuildings->createdAt = $eachData['createdAt'];
             $newBuildings->updatedAt = $eachData['updatedAt'];
             array_push($result, $newBuildings->toArray());

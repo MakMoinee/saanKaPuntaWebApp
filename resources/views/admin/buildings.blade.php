@@ -247,7 +247,8 @@
                                                 </th>
                                                 <th>Building Name</th>
                                                 <th class="text-center">Poster</th>
-                                                <th>Action</th>
+                                                <th>Directory</th>
+                                                <th class="text-center">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -269,11 +270,17 @@
                                                         <img src="{{ $item['posterPath'] }}" alt=""
                                                             srcset="" width="50px" height="50px">
                                                     </td>
+                                                    <td class="text-center">
+                                                        @if (isset($item['directoryPath']))
+                                                            <img src="{{ $item['directoryPath'] }}" alt=""
+                                                                srcset="" width="50px" height="50px">
+                                                        @endif
+                                                    </td>
                                                     <td>
                                                         <button class="btn btn-success" style="color: white"
                                                             data-coreui-target="#viewBuildingModal{{ $item['docID'] }}"
                                                             data-coreui-toggle="modal"
-                                                            onclick="clearView('{{ $item['docID'] }}','{{ $item['posterPath'] }}')">View/Edit</button>
+                                                            onclick="clearView('{{ $item['docID'] }}','{{ $item['posterPath'] }}','{{ $item['directoryPath'] }}')">View/Edit</button>
                                                         <div class="modal fade "
                                                             id="viewBuildingModal{{ $item['docID'] }}" tabindex="-1"
                                                             role="dialog"
@@ -349,9 +356,61 @@
                                                                                                         Image</span></button>
                                                                                             </div>
                                                                                         </div>
+                                                                                    </div>
+                                                                                    <div class="form-group"
+                                                                                        style="margin-top: 10px;">
+                                                                                        <button
+                                                                                            class="file-upload-btn4"
+                                                                                            type="button"
+                                                                                            onclick="$('#file-upload-input4{{ $item['docID'] }}').trigger( 'click' )">Add
+                                                                                            Building
+                                                                                            Image</button>
+
+                                                                                        <div class="image-upload-wrap4"
+                                                                                            id="image-upload-wrap4{{ $item['docID'] }}">
+                                                                                            <input
+                                                                                                class="file-upload-input4"
+                                                                                                id="file-upload-input4{{ $item['docID'] }}"
+                                                                                                name="files4"
+                                                                                                type='file'
+                                                                                                onchange="readURL4(this,'{{ $item['docID'] }}');"
+                                                                                                accept="image/*" />
+                                                                                            <div class="drag-text">
+                                                                                                <h3>Drag and drop a file
+                                                                                                    or select add Image
+                                                                                                </h3>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="file-upload-content4"
+                                                                                            id="file-upload-content4{{ $item['docID'] }}">
+                                                                                            <img class="file-upload-image4"
+                                                                                                id="file-upload-image4{{ $item['docID'] }}"
+                                                                                                src="#"
+                                                                                                alt="your image"
+                                                                                                width="100%"
+                                                                                                height="40%" />
+                                                                                            <div class="image-title-wrap4"
+                                                                                                id="image-title-wrap4{{ $item['docID'] }}">
+                                                                                                <button type="button"
+                                                                                                    onclick="removeUpload4('{{ $item['docID'] }}')"
+                                                                                                    class="remove-image4"
+                                                                                                    id="remove-image4{{ $item['docID'] }}">Remove
+                                                                                                    <span
+                                                                                                        class="image-title4"
+                                                                                                        id="image-title4{{ $item['docID'] }}">Uploaded
+                                                                                                        Image</span></button>
+                                                                                            </div>
+                                                                                        </div>
                                                                                         <input type="hidden"
                                                                                             name="originalPosterPath"
                                                                                             value="{{ $item['posterPath'] }}">
+
+                                                                                        @if (isset($item['directoryPath']))
+                                                                                            <input type="hidden"
+                                                                                                name="originalDirectoryPath"
+                                                                                                value="{{ $item['directoryPath'] }}">
+                                                                                        @endif
+
                                                                                         <input type="hidden"
                                                                                             name="createdAt"
                                                                                             value="{{ $item['createdAt'] }}">
@@ -397,6 +456,12 @@
                                                                             </h5>
                                                                             <input type="hidden" name="posterPath"
                                                                                 value="{{ $item['posterPath'] }}">
+                                                                            @if (isset($item['directoryPath']))
+                                                                                <input id="d{{ $item['docID'] }}"
+                                                                                    type="hidden"
+                                                                                    name="originalDirectoryPath"
+                                                                                    value="{{ $item['directoryPath'] }}">
+                                                                            @endif
                                                                         </div>
                                                                         <div class="modal-footer">
                                                                             <button type="submit"
@@ -645,10 +710,48 @@
 
         }
 
-        function clearView(id, posterPath) {
+        function readURL4(input, id) {
+            if (input.files && input.files[0]) {
+
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    $(`#image-upload-wrap4${id}`).hide();
+
+                    $(`#file-upload-image4${id}`).attr('src', e.target.result);
+                    $(`#file-upload-content4${id}`).show();
+
+                    $(`#image-title4${id}`).html(input.files[0].name);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+
+            } else {
+                removeUpload4(id);
+            }
+
+            $(`#image-upload-wrap4${id}`).bind('dragover', function() {
+                $(`#image-upload-wrap4${id}`).addClass('image-dropping');
+            });
+            $(`#image-upload-wrap4${id}`).bind('dragleave', function() {
+                $(`#image-upload-wrap4${id}`).removeClass('image-dropping');
+            });
+        }
+
+        function removeUpload4(id) {
+            $(`#file-upload-input4${id}`).replaceWith($(`#file-upload-input4${id}`).clone());
+            $(`#file-upload-content4${id}`).hide();
+            $(`#image-upload-wrap4${id}`).show();
+
+        }
+
+        function clearView(id, posterPath, directoryPath) {
             $(`#image-upload-wrap2${id}`).hide();
+            $(`#image-upload-wrap4${id}`).hide();
             $(`#file-upload-content2${id}`).show();
+            $(`#file-upload-content4${id}`).show();
             $(`#file-upload-image2${id}`).attr('src', posterPath);
+            $(`#file-upload-image4${id}`).attr('src', directoryPath);
         }
     </script>
 </body>
