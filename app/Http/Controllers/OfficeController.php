@@ -71,7 +71,6 @@ class OfficeController extends Controller
                 $fileName2 = "";
                 if ($file) {
                     $mimetype =  $file->getMimeType();
-                    $mimetype2 =  $file2->getMimeType();
                     if ($mimetype == "image/jpeg" || $mimetype == "image/png" || $mimetype == "image/JPEG" || $mimetype == "image/JPG" || $mimetype == "image/jpg" || $mimetype == "image/PNG") {
 
                         $destinationPath = $_SERVER['DOCUMENT_ROOT'] . '/image/floors';
@@ -79,6 +78,8 @@ class OfficeController extends Controller
                         $isFile = $file->move($destinationPath,  $fileName);
 
                         if ($file2) {
+
+                            $mimetype2 =  $file2->getMimeType();
                             if ($mimetype2 == "video/x-matroska" || $mimetype2 == "video/webm" || $mimetype2 == "video/mp4" || $mimetype2 == "video/mpeg4" || $mimetype2 == "video/3gp" || $mimetype2 == "video/avi") {
 
                                 if ($file2->getSize() > 40000000) {

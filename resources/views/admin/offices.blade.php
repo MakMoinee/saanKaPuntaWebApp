@@ -579,7 +579,7 @@
                                 </div>
                                 <br>
                                 <div class="form-group">
-                                    <input class="form-control" required type="text" name="floor"
+                                    <input class="form-control" type="text" name="floor"
                                         id="floor" placeholder="Floor">
                                 </div>
                                 <div class="form-group" style="margin-top: 10px;">
