@@ -174,6 +174,7 @@ final class FirestoreRepository implements FireStore
         $data = app('firebase.firestore')
             ->database()
             ->collection('buildings')
+            ->orderBy("buildingName")
             ->documents();
 
         $result = array();
@@ -197,6 +198,7 @@ final class FirestoreRepository implements FireStore
         $data = app('firebase.firestore')
             ->database()
             ->collection('offices')
+            ->orderBy('officeName')
             ->documents();
 
         $result = array();
