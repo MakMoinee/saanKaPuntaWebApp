@@ -71,7 +71,6 @@ class BuildingsController extends Controller
     {
         if (session()->exists("users")) {
             if (isset($request->btnSaveBuilding)) {
-
                 // check first if building name is already present
                 $arrayValues = $this->db->fetchWithWhere('buildings', 'buildingName', '=', 0, $request->buildingName);
 
@@ -81,31 +80,55 @@ class BuildingsController extends Controller
                 }
 
                 $file = $request->file('files');
+                $file3 = $request->file('files3');
                 $fileName = "";
+                $fileName3 = "";
+                $isFile = new File();
+                $isFile3 = new File();
                 if ($file) {
                     $mimetype =  $file->getMimeType();
                     if ($mimetype == "image/jpeg" || $mimetype == "image/png" || $mimetype == "image/JPEG" || $mimetype == "image/JPG" || $mimetype == "image/jpg" || $mimetype == "image/PNG") {
                         $destinationPath = $_SERVER['DOCUMENT_ROOT'] . '/image/buildings';
                         $fileName = strtotime(now()) . "." . $file->getClientOriginalExtension();
                         $isFile = $file->move($destinationPath,  $fileName);
-                        if ($isFile) {
-                            $dt = new DateTime(date('Y-m-d H:i:s', now()->timestamp));
-                            $tz = new DateTimeZone('Asia/Manila'); // or whatever zone you're after
-                            $dt->setTimezone($tz);
-
-                            $newBuildings = new Buildings();
-                            $newBuildings->buildingName = $request->buildingName;
-                            $newBuildings->posterPath =  "/image/buildings/" . $fileName;
-                            $newBuildings->createdAt = $dt->format('Y-m-d H:i:s');
-                            $newBuildings->updatedAt = $dt->format('Y-m-d H:i:s');
-
-                            $result = $this->db->create('buildings', $newBuildings->toArray());
-                            session()->put("successAddBuilding", true);
-                        }
                     } else {
                         session()->put("errorInvalidFile", true);
+                        return redirect("/buildings");
                     }
                 }
+
+                if ($file3) {
+                    $mimetype3 =  $file3->getMimeType();
+                    if ($mimetype3 == "image/jpeg" || $mimetype3 == "image/png" || $mimetype3 == "image/JPEG" || $mimetype3 == "image/JPG" || $mimetype3 == "image/jpg" || $mimetype3 == "image/PNG") {
+                        $destinationPath3 = $_SERVER['DOCUMENT_ROOT'] . '/image/buildings';
+                        $fileName3 = strtotime(now()) . "." . $file3->getClientOriginalExtension();
+                        $isFile3 = $file->move($destinationPath3,  $fileName3);
+                    } else {
+                        try {
+                            if ($fileName) {
+                                $destinationPath3 = $_SERVER['DOCUMENT_ROOT'] . "/image/buildings" . "/" . $fileName;
+                                File::delete($destinationPath3);
+                            }
+                        } catch (Exception $e1) {
+                        }
+                        session()->put("errorInvalidFile", true);
+                        return redirect("/buildings");
+                    }
+                }
+
+
+                $dt = new DateTime(date('Y-m-d H:i:s', now()->timestamp));
+                $tz = new DateTimeZone('Asia/Manila'); // or whatever zone you're after
+                $dt->setTimezone($tz);
+                $newBuildings = new Buildings();
+                $newBuildings->buildingName = $request->buildingName;
+                $newBuildings->posterPath =  "/image/buildings/" . $fileName;
+                $newBuildings->directoryPath =  "/image/directoryPath/" . $fileName3;
+                $newBuildings->createdAt = $dt->format('Y-m-d H:i:s');
+                $newBuildings->updatedAt = $dt->format('Y-m-d H:i:s');
+
+                $result = $this->db->create('buildings', $newBuildings->toArray());
+                session()->put("successAddBuilding", true);
             }
             return redirect("/buildings");
         } else {

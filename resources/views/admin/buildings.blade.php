@@ -477,6 +477,29 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="form-group" style="margin-top: 10px;">
+                                    <button class="file-upload-btn3" type="button"
+                                        onclick="$('.file-upload-input3').trigger( 'click' )">Add Building
+                                        Map Image</button>
+
+                                    <div class="image-upload-wrap3">
+                                        <input required class="file-upload-input3" name="files3" type='file'
+                                            onchange="readURL3(this);" accept="image/*" />
+                                        <div class="drag-text">
+                                            <h3>Drag and drop a file or select add Image</h3>
+                                        </div>
+                                    </div>
+                                    <div class="file-upload-content3">
+                                        <img class="file-upload-image3" src="#" alt="your image"
+                                            width="100%" height="40%" />
+                                        <div class="image-title-wrap3">
+                                            <button type="button" onclick="removeUpload3()"
+                                                class="remove-image3">Remove <span class="image-title3">Uploaded
+                                                    Image</span></button>
+                                        </div>
+                                    </div>
+                                </div>
                             </center>
 
                     </div>
@@ -552,6 +575,39 @@
         });
         $('.image-upload-wrap').bind('dragleave', function() {
             $('.image-upload-wrap').removeClass('image-dropping');
+        });
+
+        function readURL3(input) {
+            if (input.files && input.files[0]) {
+
+                var reader = new FileReader();
+
+                reader.onload = function(e) {
+                    $('.image-upload-wrap3').hide();
+
+                    $('.file-upload-image3').attr('src', e.target.result);
+                    $('.file-upload-content3').show();
+
+                    $('.image-title3').html(input.files[0].name);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+
+            } else {
+                removeUpload3();
+            }
+        }
+
+        function removeUpload3() {
+            $('.file-upload-input3').replaceWith($('.file-upload-input3').clone());
+            $('.file-upload-content3').hide();
+            $('.image-upload-wrap3').show();
+        }
+        $('.image-upload-wrap3').bind('dragover', function() {
+            $('.image-upload-wrap3').addClass('image-dropping');
+        });
+        $('.image-upload-wrap3').bind('dragleave', function() {
+            $('.image-upload-wrap3').removeClass('image-dropping');
         });
 
         function readURL2(input, id) {

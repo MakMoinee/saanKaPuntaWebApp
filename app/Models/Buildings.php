@@ -15,6 +15,7 @@ class Buildings extends Model
         'docID',
         'buildingName',
         "posterPath",
+        "directoryPath",
         "createdAt",
         "updatedAt"
     ];

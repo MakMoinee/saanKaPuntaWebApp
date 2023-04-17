@@ -3,6 +3,7 @@
 /public/storage
 /public/image/floors
 /public/image/buildings
+/public/image/directoryPath
 /public/videos
 /storage/*.key
 /vendor
