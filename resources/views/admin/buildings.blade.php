@@ -176,8 +176,7 @@
                 </ul>
                 <ul class="header-nav ms-3">
                     <li class="nav-item dropdown"><a class="nav-link py-0" data-coreui-toggle="dropdown"
-                            href="#" role="button" aria-haspopup="true"
-                            aria-expanded="false">
+                            href="#" role="button" aria-haspopup="true" aria-expanded="false">
                             <div class="avatar avatar-md"><img class="avatar-img" src="./Dashboard_files/8.png"
                                     alt="user@email.com"></div>
                         </a>
@@ -227,7 +226,7 @@
                                 </div>
                                 <br>
                                 <div class="table-responsive">
-                                    <table class="table border mb-0">
+                                    <table class="table border mb-0" id="sortTable">
                                         <thead class="table-light fw-semibold">
                                             <tr class="align-middle">
                                                 <th class="text-center">
@@ -408,6 +407,10 @@
                                                     </td>
                                                 </tr>
                                             @endforeach
+                                            <script>
+                                                let sortTable = document.getElementsById('sortTable');
+                                                sortTable.DataTable();
+                                            </script>
                                         </tbody>
                                     </table>
                                 </div>

@@ -254,7 +254,7 @@ class OfficeController extends Controller
 
                 if ($files2) {
                     $mimetype2 =  $files2->getMimeType();
-                    if ($mimetype2 == "video/webm" || $mimetype2 == "video/mp4" || $mimetype2 == "video/mpeg4" || $mimetype2 == "video/3gp" || $mimetype2 == "video/avi") {
+                    if ($mimetype2 == "video/x-matroska" || $mimetype2 == "video/webm" || $mimetype2 == "video/mp4" || $mimetype2 == "video/mpeg4" || $mimetype2 == "video/3gp" || $mimetype2 == "video/avi") {
 
                         if ($files2->getSize() > 40000000) {
 

@@ -925,6 +925,20 @@
     {{ session()->forget('errorDeleteBuilding') }}
 @endif
 
+@if (session()->pull('errorVideoFile'))
+    <script>
+        setTimeout(() => {
+            Swal.fire({
+                position: 'center',
+                icon: 'warning',
+                title: 'Invalid file, Please Try Again With the following accepted video format: x-matroska, webm, mp4, 3gp, avi',
+                showConfirmButton: false,
+                timer: 2000
+            });
+        }, 500);
+    </script>
+    {{ session()->forget('errorVideoFile') }}
+@endif
 @if (session()->pull('errorInvalidFile'))
     <script>
         setTimeout(() => {
