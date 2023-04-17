@@ -138,6 +138,61 @@ class OfficeController extends Controller
                     } else {
                         session()->put("errorInvalidFile", true);
                     }
+                } else {
+                    if ($file2) {
+
+                        $mimetype2 =  $file2->getMimeType();
+                        if ($mimetype2 == "video/x-matroska" || $mimetype2 == "video/webm" || $mimetype2 == "video/mp4" || $mimetype2 == "video/mpeg4" || $mimetype2 == "video/3gp" || $mimetype2 == "video/avi") {
+
+                            if ($file2->getSize() > 40000000) {
+                                session()->put("errorFileExceed", true);
+                                return redirect("/offices");
+                            }
+
+                            $destinationPath2 = $_SERVER['DOCUMENT_ROOT'] . '/videos';
+                            $fileName2 = strtotime(now()) . "." . $file2->getClientOriginalExtension();
+                            $isFile2 = $file2->move($destinationPath2,  $fileName2);
+
+                            if ($isFile2) {
+                                $dt = new DateTime(date('Y-m-d H:i:s', now()->timestamp));
+                                $tz = new DateTimeZone('Asia/Manila'); // or whatever zone you're after
+                                $dt->setTimezone($tz);
+
+                                $newOffice = new Offices();
+                                $newOffice->officeName = $officeName;
+                                $newOffice->building = $building;
+                                $newOffice->directions = $directions;
+                                $newOffice->floor = $floor;
+                                $newOffice->floorMapPath =  "/image/floors/" . $fileName;
+                                $newOffice->videoURL =  "/videos" . "/" . $fileName2;
+                                $newOffice->createdAt = $dt->format('Y-m-d H:i:s');
+                                $newOffice->updatedAt = $dt->format('Y-m-d H:i:s');
+
+                                $result = $this->db->create('offices', $newOffice->toArray());
+                                session()->put("successAddOffice", true);
+                            } else {
+                                session()->put("errorAddOffice", true);
+                            }
+                        } else {
+                            session()->put("errorInvalidFile", true);
+                        }
+                    } else {
+                        $dt = new DateTime(date('Y-m-d H:i:s', now()->timestamp));
+                        $tz = new DateTimeZone('Asia/Manila'); // or whatever zone you're after
+                        $dt->setTimezone($tz);
+                        $newOffice = new Offices();
+                        $newOffice->officeName = $officeName;
+                        $newOffice->building = $building;
+                        $newOffice->directions = $directions;
+                        $newOffice->floor = $floor;
+                        $newOffice->videoURL =  "";
+                        $newOffice->floorMapPath =  "";
+                        $newOffice->createdAt = $dt->format('Y-m-d H:i:s');
+                        $newOffice->updatedAt = $dt->format('Y-m-d H:i:s');
+
+                        $result = $this->db->create('offices', $newOffice->toArray());
+                        session()->put("successAddOffice", true);
+                    }
                 }
                 return redirect("/offices");
             } else {

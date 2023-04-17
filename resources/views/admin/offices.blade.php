@@ -148,35 +148,35 @@
                     <svg class="icon icon-lg">
                         <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-menu"></use>
                     </svg>
-                </button><a class="header-brand d-md-none" href="https://coreui.io/demos/bootstrap/4.2/free/#">
+                </button><a class="header-brand d-md-none" href="#">
                     <svg width="118" height="46" alt="CoreUI Logo">
                         <use xlink:href="assets/brand/coreui.svg#full"></use>
                     </svg></a>
                 <ul class="header-nav d-none d-md-flex">
                     {{-- <li class="nav-item"><a class="nav-link"
-                            href="https://coreui.io/demos/bootstrap/4.2/free/#">Dashboard</a></li>
+                            href="#">Dashboard</a></li>
                     <li class="nav-item"><a class="nav-link"
-                            href="https://coreui.io/demos/bootstrap/4.2/free/#">Users</a></li>
+                            href="#">Users</a></li>
                     <li class="nav-item"><a class="nav-link"
-                            href="https://coreui.io/demos/bootstrap/4.2/free/#">Settings</a></li> --}}
+                            href="#">Settings</a></li> --}}
                 </ul>
                 <ul class="header-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="https://coreui.io/demos/bootstrap/4.2/free/#">
+                    <li class="nav-item"><a class="nav-link" href="#">
                             <svg class="icon icon-lg">
                                 <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-bell"></use>
                             </svg></a></li>
-                    <li class="nav-item"><a class="nav-link" href="https://coreui.io/demos/bootstrap/4.2/free/#">
+                    <li class="nav-item"><a class="nav-link" href="#">
                             <svg class="icon icon-lg">
                                 <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-list-rich"></use>
                             </svg></a></li>
-                    <li class="nav-item"><a class="nav-link" href="https://coreui.io/demos/bootstrap/4.2/free/#">
+                    <li class="nav-item"><a class="nav-link" href="#">
                             <svg class="icon icon-lg">
                                 <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-envelope-open"></use>
                             </svg></a></li>
                 </ul>
                 <ul class="header-nav ms-3">
                     <li class="nav-item dropdown"><a class="nav-link py-0" data-coreui-toggle="dropdown"
-                            href="https://coreui.io/demos/bootstrap/4.2/free/#" role="button" aria-haspopup="true"
+                            href="#" role="button" aria-haspopup="true"
                             aria-expanded="false">
                             <div class="avatar avatar-md"><img class="avatar-img" src="./Dashboard_files/8.png"
                                     alt="user@email.com"></div>
@@ -343,7 +343,7 @@
                                                                                     <br>
                                                                                     <div class="form-group">
                                                                                         <input class="form-control"
-                                                                                            required type="text"
+                                                                                             type="text"
                                                                                             name="floor"
                                                                                             id="floor{{ $item['docID'] }}"
                                                                                             placeholder="Floor"
@@ -398,7 +398,7 @@
                                                                                     <div class="form-group">
                                                                                         <label for="directions"
                                                                                             style="float:left;font-size: 14px;margin-bottom: 10px;">Directions</label>
-                                                                                        <textarea class="form-control" required name="directions" id="directions{{ $item['docID'] }}" cols="10"
+                                                                                        <textarea class="form-control" name="directions" id="directions{{ $item['docID'] }}" cols="10"
                                                                                             rows="8">{{ $item['directions'] }}</textarea>
                                                                                     </div>
                                                                                     <br>
@@ -588,7 +588,7 @@
                                         Image</button>
 
                                     <div class="image-upload-wrap">
-                                        <input required class="file-upload-input" name="files" type='file'
+                                        <input class="file-upload-input" name="files" type='file'
                                             onchange="readURL(this);" accept="image/*" />
                                         <div class="drag-text">
                                             <h3>Drag and drop a file or select add Image</h3>
@@ -608,7 +608,7 @@
                                 <div class="form-group">
                                     <label for="directions"
                                         style="float:left;font-size: 14px;margin-bottom: 10px;">Directions</label>
-                                    <textarea class="form-control" required name="directions" id="" cols="10" rows="8"></textarea>
+                                    <textarea class="form-control" name="directions" id="" cols="10" rows="8"></textarea>
                                     {{-- <input class="form-control" required type="text" name="direction"
                                         id="direction" placeholder="Directions"> --}}
                                 </div>
