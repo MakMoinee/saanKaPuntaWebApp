@@ -363,7 +363,7 @@
                                                                                             class="file-upload-btn4"
                                                                                             type="button"
                                                                                             onclick="$('#file-upload-input4{{ $item['docID'] }}').trigger( 'click' )">Add
-                                                                                            Building
+                                                                                            Building Directory
                                                                                             Image</button>
 
                                                                                         <div class="image-upload-wrap4"
@@ -546,7 +546,7 @@
                                 <div class="form-group" style="margin-top: 10px;">
                                     <button class="file-upload-btn3" type="button"
                                         onclick="$('.file-upload-input3').trigger( 'click' )">Add Building
-                                        Map Image</button>
+                                        Directory Image</button>
 
                                     <div class="image-upload-wrap3">
                                         <input required class="file-upload-input3" name="files3" type='file'
