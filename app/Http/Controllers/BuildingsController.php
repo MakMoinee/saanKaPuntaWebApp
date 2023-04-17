@@ -25,13 +25,27 @@ class BuildingsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         if (session()->exists("users")) {
             $buildings = $this->db->fetchBuilding();
+            $newBuildings = array();
+            $key = $request->searchKey;
+            if (isset($request->searchKey)) {
+
+                foreach ($buildings as $b) {
+                    if ($b['buildingName'] == $request->searchKey || str_contains(strtolower($b['buildingName']), strtolower($request->searchKey))) {
+                        array_push($newBuildings, $b);
+                    }
+                }
+            } else {
+                $newBuildings = $buildings;
+            }
+
+
             $mUsers = session()->pull('users');
             session()->put("users", $mUsers);
-            return view('admin.buildings', ['buildings' => $buildings, 'myDocID' => $mUsers['docID']]);
+            return view('admin.buildings', ['buildings' => $newBuildings, 'myDocID' => $mUsers['docID'], 'key' => $key]);
         } else {
             return redirect("/");
         }

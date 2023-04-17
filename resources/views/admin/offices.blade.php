@@ -223,6 +223,14 @@
                                             <button data-coreui-toggle="modal" data-coreui-target="#addOfficeModal"
                                                 class="btn btn-info" style="color:white;">Add Office</button>
                                         </div>
+                                        <br>
+                                        <div class="col-lg-4">
+                                            <form action="/offices" method="GET">
+                                                <input class="form-control" type="search" name="searchKey"
+                                                    id="" placeholder="Enter Office Name"
+                                                    value="{{ $key }}">
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
                                 <br>

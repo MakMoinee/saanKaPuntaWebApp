@@ -24,14 +24,26 @@ class OfficeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         if (session()->exists("users")) {
             $buildings = $this->db->fetchBuilding();
             $offices = $this->db->fetchOffice();
+            $newOffice = array();
+            $key = $request->searchKey;
+            if (isset($request->searchKey)) {
+
+                foreach ($offices as $b) {
+                    if ($b['officeName'] == $request->searchKey || str_contains(strtolower($b['officeName']), strtolower($request->searchKey))) {
+                        array_push($newOffice, $b);
+                    }
+                }
+            } else {
+                $newOffice = $offices;
+            }
             $mUsers = session()->pull('users');
             session()->put("users", $mUsers);
-            return view('admin.offices', ['buildings' => $buildings, 'offices' => $offices, 'myDocID' => $mUsers['docID']]);
+            return view('admin.offices', ['buildings' => $buildings, 'offices' => $newOffice, 'myDocID' => $mUsers['docID'], 'key' => $key]);
         } else {
             return redirect("/");
         }

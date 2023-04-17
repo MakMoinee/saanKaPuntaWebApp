@@ -222,6 +222,14 @@
                                             <button data-coreui-toggle="modal" data-coreui-target="#addBuildingModal"
                                                 class="btn btn-info" style="color:white;">Add Building</button>
                                         </div>
+                                        <br>
+                                        <div class="col-lg-4">
+                                            <form action="/buildings" method="GET">
+                                                <input class="form-control" type="search" name="searchKey"
+                                                    id="" placeholder="Enter Building Name"
+                                                    value="{{ $key }}">
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
                                 <br>
