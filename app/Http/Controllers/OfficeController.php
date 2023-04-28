@@ -408,7 +408,7 @@ class OfficeController extends Controller
                     session()->put("errorUnarchiveOffice", true);
                 }
             }
-
+            
             if (isset($request->searchKey)) {
                 return redirect("/offices?searchKey=" . $request->searchKey);
             } else {

@@ -352,12 +352,227 @@
                                                                                         </div>
                                                                                         <br>
                                                                                         <div class="form-group">
-                                                                                            <input class="form-control"
-                                                                                                type="text"
-                                                                                                name="floor"
-                                                                                                id="floor{{ $item['docID'] }}"
-                                                                                                placeholder="Floor"
-                                                                                                value="{{ $item['floor'] }}">
+                                                                                            <select name="floor"
+                                                                                                id=""
+                                                                                                class="form-control">
+                                                                                                @if (trim($item['floor'], ' ') == '')
+                                                                                                    <option
+                                                                                                        value="">
+                                                                                                        Select Floor
+                                                                                                    </option>
+                                                                                                    <option
+                                                                                                        value="Ground Floor">
+                                                                                                        Ground Floor
+                                                                                                    </option>
+                                                                                                    <option
+                                                                                                        value="1st Floor">
+                                                                                                        1st Floor
+                                                                                                    </option>
+                                                                                                    <option
+                                                                                                        value="2nd Floor">
+                                                                                                        2nd Floor
+                                                                                                    </option>
+                                                                                                    <option
+                                                                                                        value="3rd Floor">
+                                                                                                        3rd Floor
+                                                                                                    </option>
+                                                                                                    <option
+                                                                                                        value="4th Floor">
+                                                                                                        4th Floor
+                                                                                                    </option>
+                                                                                                    <option
+                                                                                                        value="5th Floor">
+                                                                                                        5th Floor
+                                                                                                    </option>
+                                                                                                @endif
+
+                                                                                                @if ($item['floor'] == 'Ground Floor')
+                                                                                                    <option
+                                                                                                        value="">
+                                                                                                        Select Floor
+                                                                                                    </option>
+                                                                                                    <option
+                                                                                                        value="Ground Floor"
+                                                                                                        selected>Ground
+                                                                                                        Floor</option>
+                                                                                                    <option
+                                                                                                        value="1st Floor">
+                                                                                                        1st Floor
+                                                                                                    </option>
+                                                                                                    <option
+                                                                                                        value="2nd Floor">
+                                                                                                        2nd Floor
+                                                                                                    </option>
+                                                                                                    <option
+                                                                                                        value="3rd Floor">
+                                                                                                        3rd Floor
+                                                                                                    </option>
+                                                                                                    <option
+                                                                                                        value="4th Floor">
+                                                                                                        4th Floor
+                                                                                                    </option>
+                                                                                                    <option
+                                                                                                        value="5th Floor">
+                                                                                                        5th Floor
+                                                                                                    </option>
+                                                                                                @endif
+
+                                                                                                @if (trim($item['floor'], ' ') == '1st Floor' || strtolower(trim($item['floor'], ' ')) == '1st floor')
+                                                                                                    <option
+                                                                                                        value="">
+                                                                                                        Select Floor
+                                                                                                    </option>
+                                                                                                    <option
+                                                                                                        value="Ground Floor">
+                                                                                                        Ground Floor
+                                                                                                    </option>
+                                                                                                    <option
+                                                                                                        value="1st Floor"
+                                                                                                        selected>1st
+                                                                                                        Floor</option>
+                                                                                                    <option
+                                                                                                        value="2nd Floor">
+                                                                                                        2nd Floor
+                                                                                                    </option>
+                                                                                                    <option
+                                                                                                        value="3rd Floor">
+                                                                                                        3rd Floor
+                                                                                                    </option>
+                                                                                                    <option
+                                                                                                        value="4th Floor">
+                                                                                                        4th Floor
+                                                                                                    </option>
+                                                                                                    <option
+                                                                                                        value="5th Floor">
+                                                                                                        5th Floor
+                                                                                                    </option>
+                                                                                                @endif
+
+                                                                                                @if (trim($item['floor'], ' ') == '2nd Floor' || strtolower(trim($item['floor'], ' ')) == '2nd floor')
+                                                                                                    <option
+                                                                                                        value="">
+                                                                                                        Select Floor
+                                                                                                    </option>
+                                                                                                    <option
+                                                                                                        value="Ground Floor">
+                                                                                                        Ground Floor
+                                                                                                    </option>
+                                                                                                    <option
+                                                                                                        value="1st Floor">
+                                                                                                        1st Floor
+                                                                                                    </option>
+                                                                                                    <option
+                                                                                                        value="2nd Floor"
+                                                                                                        selected>2nd
+                                                                                                        Floor</option>
+                                                                                                    <option
+                                                                                                        value="3rd Floor">
+                                                                                                        3rd Floor
+                                                                                                    </option>
+                                                                                                    <option
+                                                                                                        value="4th Floor">
+                                                                                                        4th Floor
+                                                                                                    </option>
+                                                                                                    <option
+                                                                                                        value="5th Floor">
+                                                                                                        5th Floor
+                                                                                                    </option>
+                                                                                                @endif
+
+                                                                                                @if (trim($item['floor'], ' ') == '3rd Floor' || strtolower(trim($item['floor'], ' ')) == '3rd floor')
+                                                                                                    <option
+                                                                                                        value="">
+                                                                                                        Select Floor
+                                                                                                    </option>
+                                                                                                    <option
+                                                                                                        value="Ground Floor">
+                                                                                                        Ground Floor
+                                                                                                    </option>
+                                                                                                    <option
+                                                                                                        value="1st Floor">
+                                                                                                        1st Floor
+                                                                                                    </option>
+                                                                                                    <option
+                                                                                                        value="2nd Floor">
+                                                                                                        2nd Floor
+                                                                                                    </option>
+                                                                                                    <option
+                                                                                                        value="3rd Floor"
+                                                                                                        selected>3rd
+                                                                                                        Floor</option>
+                                                                                                    <option
+                                                                                                        value="4th Floor">
+                                                                                                        4th Floor
+                                                                                                    </option>
+                                                                                                    <option
+                                                                                                        value="5th Floor">
+                                                                                                        5th Floor
+                                                                                                    </option>
+                                                                                                @endif
+
+                                                                                                @if (trim($item['floor'], ' ') == '4th Floor' || strtolower(trim($item['floor'], ' ')) == '4th floor')
+                                                                                                    <option
+                                                                                                        value="">
+                                                                                                        Select Floor
+                                                                                                    </option>
+                                                                                                    <option
+                                                                                                        value="Ground Floor">
+                                                                                                        Ground Floor
+                                                                                                    </option>
+                                                                                                    <option
+                                                                                                        value="1st Floor">
+                                                                                                        1st Floor
+                                                                                                    </option>
+                                                                                                    <option
+                                                                                                        value="2nd Floor">
+                                                                                                        2nd Floor
+                                                                                                    </option>
+                                                                                                    <option
+                                                                                                        value="3rd Floor">
+                                                                                                        3rd Floor
+                                                                                                    </option>
+                                                                                                    <option
+                                                                                                        value="4th Floor"
+                                                                                                        selected>4th
+                                                                                                        Floor</option>
+                                                                                                    <option
+                                                                                                        value="5th Floor">
+                                                                                                        5th Floor
+                                                                                                    </option>
+                                                                                                @endif
+
+                                                                                                @if (trim($item['floor'], ' ') == '5th Floor' || strtolower(trim($item['floor'], ' ')) == '5th floor')
+                                                                                                    <option
+                                                                                                        value="">
+                                                                                                        Select Floor
+                                                                                                    </option>
+                                                                                                    <option
+                                                                                                        value="Ground Floor">
+                                                                                                        Ground Floor
+                                                                                                    </option>
+                                                                                                    <option
+                                                                                                        value="1st Floor">
+                                                                                                        1st Floor
+                                                                                                    </option>
+                                                                                                    <option
+                                                                                                        value="2nd Floor">
+                                                                                                        2nd Floor
+                                                                                                    </option>
+                                                                                                    <option
+                                                                                                        value="3rd Floor">
+                                                                                                        3rd Floor
+                                                                                                    </option>
+                                                                                                    <option
+                                                                                                        value="4th Floor">
+                                                                                                        4th Floor
+                                                                                                    </option>
+                                                                                                    <option
+                                                                                                        value="5th Floor"
+                                                                                                        selected>5th
+                                                                                                        Floor</option>
+                                                                                                @endif
+
+                                                                                            </select>
                                                                                         </div>
                                                                                         <div class="form-group"
                                                                                             style="margin-top: 10px;">
@@ -684,8 +899,15 @@
                                 </div>
                                 <br>
                                 <div class="form-group">
-                                    <input class="form-control" type="text" name="floor" id="floor"
-                                        placeholder="Floor">
+                                    <select name="floor" id="" class="form-control">
+                                        <option value="">Select Floor</option>
+                                        <option value="Ground Floor">Ground Floor</option>
+                                        <option value="1st Floor">1st Floor</option>
+                                        <option value="2nd Floor">2nd Floor</option>
+                                        <option value="3rd Floor">3rd Floor</option>
+                                        <option value="4th Floor">4th Floor</option>
+                                        <option value="5th Floor">5th Floor</option>
+                                    </select>
                                 </div>
                                 <div class="form-group" style="margin-top: 10px;">
                                     <button class="file-upload-btn" type="button"
