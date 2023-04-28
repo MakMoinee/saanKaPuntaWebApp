@@ -85,7 +85,7 @@ class OfficeController extends Controller
                     $mimetype =  $file->getMimeType();
                     if ($mimetype == "image/jpeg" || $mimetype == "image/png" || $mimetype == "image/JPEG" || $mimetype == "image/JPG" || $mimetype == "image/jpg" || $mimetype == "image/PNG") {
 
-                        $destinationPath = $_SERVER['DOCUMENT_ROOT'] . '/image/floors';
+                        $destinationPath = $_SERVER['DOCUMENT_ROOT'] . "/public" . '/storage/image/floors';
                         $fileName = strtotime(now()) . "." . $file->getClientOriginalExtension();
                         $isFile = $file->move($destinationPath,  $fileName);
 
@@ -99,7 +99,7 @@ class OfficeController extends Controller
                                     return redirect("/offices");
                                 }
 
-                                $destinationPath2 = $_SERVER['DOCUMENT_ROOT'] . '/videos';
+                                $destinationPath2 = $_SERVER['DOCUMENT_ROOT'] . "/public" . '/storage/videos';
                                 $fileName2 = strtotime(now()) . "." . $file2->getClientOriginalExtension();
                                 $isFile2 = $file2->move($destinationPath2,  $fileName2);
 
@@ -113,8 +113,8 @@ class OfficeController extends Controller
                                     $newOffice->building = $building;
                                     $newOffice->directions = $directions;
                                     $newOffice->floor = $floor;
-                                    $newOffice->floorMapPath =  "/image/floors/" . $fileName;
-                                    $newOffice->videoURL =  "/videos" . "/" . $fileName2;
+                                    $newOffice->floorMapPath =  "/storage/image/floors/" . $fileName;
+                                    $newOffice->videoURL =  "/storage/videos" . "/" . $fileName2;
                                     $newOffice->createdAt = $dt->format('Y-m-d H:i:s');
                                     $newOffice->updatedAt = $dt->format('Y-m-d H:i:s');
 
@@ -137,7 +137,7 @@ class OfficeController extends Controller
                                 $newOffice->directions = $directions;
                                 $newOffice->floor = $floor;
                                 $newOffice->videoURL =  "";
-                                $newOffice->floorMapPath =  "/image/floors/" . $fileName;
+                                $newOffice->floorMapPath =  "/storage/image/floors/" . $fileName;
                                 $newOffice->createdAt = $dt->format('Y-m-d H:i:s');
                                 $newOffice->updatedAt = $dt->format('Y-m-d H:i:s');
 
@@ -161,7 +161,7 @@ class OfficeController extends Controller
                                 return redirect("/offices");
                             }
 
-                            $destinationPath2 = $_SERVER['DOCUMENT_ROOT'] . '/videos';
+                            $destinationPath2 = $_SERVER['DOCUMENT_ROOT'] . "/public" . '/storage/videos';
                             $fileName2 = strtotime(now()) . "." . $file2->getClientOriginalExtension();
                             $isFile2 = $file2->move($destinationPath2,  $fileName2);
 
@@ -175,8 +175,8 @@ class OfficeController extends Controller
                                 $newOffice->building = $building;
                                 $newOffice->directions = $directions;
                                 $newOffice->floor = $floor;
-                                $newOffice->floorMapPath =  "/image/floors/" . $fileName;
-                                $newOffice->videoURL =  "/videos" . "/" . $fileName2;
+                                $newOffice->floorMapPath =  "/storage/image/floors/" . $fileName;
+                                $newOffice->videoURL =  "/storage/videos" . "/" . $fileName2;
                                 $newOffice->createdAt = $dt->format('Y-m-d H:i:s');
                                 $newOffice->updatedAt = $dt->format('Y-m-d H:i:s');
 
@@ -255,9 +255,10 @@ class OfficeController extends Controller
                 if ($files) {
                     $mimetype =  $files->getMimeType();
                     if ($mimetype == "image/jpeg" || $mimetype == "image/png" || $mimetype == "image/JPEG" || $mimetype == "image/JPG" || $mimetype == "image/jpg" || $mimetype == "image/PNG") {
-                        $destinationPath = $_SERVER['DOCUMENT_ROOT'] . '/image/floors';
+                        $destinationPath = $_SERVER['DOCUMENT_ROOT'] . "/public" . '/storage/image/floors';
                         $fileName = strtotime(now()) . "." . $files->getClientOriginalExtension();
                         $isFile = $files->move($destinationPath,  $fileName);
+                        chmod($destinationPath,0755);
                     } else {
                         session()->put("errorImageFile", true);
                         return redirect("/offices");
@@ -272,7 +273,7 @@ class OfficeController extends Controller
 
                             try {
                                 if ($fileName != "") {
-                                    $destinationPath3 = $_SERVER['DOCUMENT_ROOT'] . "/image/floors" . "/" . $fileName;
+                                    $destinationPath3 = $_SERVER['DOCUMENT_ROOT'] . "/public" . "/storage/image/floors" . "/" . $fileName;
                                     File::delete($destinationPath3);
                                 }
                             } catch (Exception $e1) {
@@ -282,9 +283,10 @@ class OfficeController extends Controller
                         }
 
 
-                        $destinationPath = $_SERVER['DOCUMENT_ROOT'] . '/videos';
+                        $destinationPath = $_SERVER['DOCUMENT_ROOT'] . "/public" . '/storage/videos';
                         $fileName2 = strtotime(now()) . "." . $files2->getClientOriginalExtension();
                         $isFile2 = $files2->move($destinationPath,  $fileName2);
+                        chmod($destinationPath,0755);
                     } else {
                         session()->put("errorVideoFile", true);
                         return redirect("/offices");
@@ -295,12 +297,12 @@ class OfficeController extends Controller
                     try {
                         $originalFloorMapPath = $request->originalFloorMapPath;
                         if ($originalFloorMapPath) {
-                            $destinationPath2 = $_SERVER['DOCUMENT_ROOT'] . $originalFloorMapPath;
+                            $destinationPath2 = $_SERVER['DOCUMENT_ROOT'] . "/public" . $originalFloorMapPath;
                             File::delete($destinationPath2);
                         }
                     } catch (Exception $e1) {
                     }
-                    $fileName = "/image/floors" . "/" . $fileName;
+                    $fileName = "/storage/image/floors" . "/" . $fileName;
                 } else {
                     $fileName = $request->originalFloorMapPath;
                 }
@@ -308,12 +310,12 @@ class OfficeController extends Controller
                     try {
                         $originalVideoURL = $request->originalVideoURL;
                         if ($originalVideoURL) {
-                            $destinationPath3 = $_SERVER['DOCUMENT_ROOT'] . $originalVideoURL;
+                            $destinationPath3 = $_SERVER['DOCUMENT_ROOT'] . "/public" . $originalVideoURL;
                             File::delete($destinationPath3);
                         }
                     } catch (Exception $e1) {
                     }
-                    $fileName2 = "/videos" . "/" . $fileName2;
+                    $fileName2 = "/storage/videos" . "/" . $fileName2;
                 } else {
                     $fileName2 = $request->originalVideoURL;
                 }
@@ -363,7 +365,7 @@ class OfficeController extends Controller
                 try {
                     $floorMapPath = $request->floorMapPath;
                     if ($floorMapPath) {
-                        $destinationPath2 = $_SERVER['DOCUMENT_ROOT'] . $floorMapPath;
+                        $destinationPath2 = $_SERVER['DOCUMENT_ROOT'] . "/public" . $floorMapPath;
                         File::delete($destinationPath2);
                     }
                 } catch (Exception $e1) {
@@ -372,7 +374,7 @@ class OfficeController extends Controller
                 try {
                     $video = $request->videoURL;
                     if ($video) {
-                        $destinationPath = $_SERVER['DOCUMENT_ROOT'] . $video;
+                        $destinationPath = $_SERVER['DOCUMENT_ROOT'] . "/public" . $video;
                         File::delete($destinationPath);
                     }
                 } catch (Exception $e2) {
