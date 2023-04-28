@@ -89,7 +89,7 @@ class BuildingsController extends Controller
                         $destinationPath = $_SERVER['DOCUMENT_ROOT'] . "/public" . '/storage/image/buildings';
                         $fileName = strtotime(now()) . "." . $file->getClientOriginalExtension();
                         $isFile = $file->move($destinationPath,  $fileName);
-                        chmod($destinationPath,0755);
+                        chmod($destinationPath, 0755);
                     } else {
                         session()->put("errorInvalidFile", true);
                         return redirect("/buildings");
@@ -102,7 +102,7 @@ class BuildingsController extends Controller
                         $destinationPath3 = $_SERVER['DOCUMENT_ROOT'] . "/public" . '/storage/image/directoryPath';
                         $fileName3 = strtotime(now()) . "." . $file3->getClientOriginalExtension();
                         $isFile3 = $file3->move($destinationPath3,  $fileName3);
-                        chmod($destinationPath3,0755);
+                        chmod($destinationPath3, 0755);
                     } else {
                         try {
                             if ($fileName) {
@@ -178,7 +178,7 @@ class BuildingsController extends Controller
                     $destinationPath = $_SERVER['DOCUMENT_ROOT'] . "/public" . '/storage/image/buildings';
                     $fileName = strtotime(now()) . "." . $file->getClientOriginalExtension();
                     $isFile = $file->move($destinationPath,  $fileName);
-                    chmod($destinationPath,0755);
+                    chmod($destinationPath, 0755);
                 } else {
                     session()->put("errorInvalidFile", true);
                     return redirect("/buildings");
@@ -191,7 +191,7 @@ class BuildingsController extends Controller
                     $destinationPath4 = $_SERVER['DOCUMENT_ROOT'] . "/public" . '/storage/image/directoryPath';
                     $fileName4 = strtotime(now()) . "." . $file4->getClientOriginalExtension();
                     $isFile4 = $file4->move($destinationPath4,  $fileName4);
-                    chmod($destinationPath4,0755);
+                    chmod($destinationPath4, 0755);
                 } else {
                     session()->put("errorInvalidFile", true);
                     return redirect("/buildings");
@@ -257,32 +257,57 @@ class BuildingsController extends Controller
     public function destroy($id, Request $request)
     {
         if (session()->exists("users")) {
-            try {
-                $posterPath = $request->posterPath;
-                if ($posterPath) {
-                    $destinationPath = $_SERVER['DOCUMENT_ROOT'] . "/public" . $posterPath;
-                    File::delete($destinationPath);
+            if (isset($request->btnDeleteBuilding)) {
+                try {
+                    $posterPath = $request->posterPath;
+                    if ($posterPath) {
+                        $destinationPath = $_SERVER['DOCUMENT_ROOT'] . "/public" . $posterPath;
+                        File::delete($destinationPath);
+                    }
+                } catch (Exception $e1) {
                 }
-            } catch (Exception $e1) {
-            }
 
-            try {
-                $originalDirectoryPath = $request->originalDirectoryPath;
-                if ($originalDirectoryPath) {
-                    $destinationPath = $_SERVER['DOCUMENT_ROOT'] . "/public" . $originalDirectoryPath;
-                    File::delete($destinationPath);
+                try {
+                    $originalDirectoryPath = $request->originalDirectoryPath;
+                    if ($originalDirectoryPath) {
+                        $destinationPath = $_SERVER['DOCUMENT_ROOT'] . "/public" . $originalDirectoryPath;
+                        File::delete($destinationPath);
+                    }
+                } catch (Exception $e1) {
                 }
-            } catch (Exception $e1) {
-            }
 
-            try {
-                $this->db->destroy('buildings', $id);
-                session()->put("successDeleteBuilding", true);
-            } catch (Exception $e) {
-                session()->put("errorDeleteBuilding", true);
-            }
+                try {
+                    $this->db->destroy('buildings', $id);
+                    session()->put("successDeleteBuilding", true);
+                } catch (Exception $e) {
+                    session()->put("errorDeleteBuilding", true);
+                }
 
-            return redirect("/buildings");
+                return redirect("/buildings");
+            } else if ($request->btnArchiveBuilding) {
+                $building = $this->db->fetchOneBuilding($id);
+                if ($building) {
+                    $building->status = "archive";
+                    $this->db->edit('buildings', $id, $building->toArray());
+                    session()->put("successArchiveBuilding", true);
+                } else {
+                    session()->put("errorArchiveBuilding", true);
+                }
+            } else if ($request->btnUnarchiveBuilding) {
+                $building = $this->db->fetchOneBuilding($id);
+                if ($building) {
+                    $building->status = "active";
+                    $this->db->edit('buildings', $id, $building->toArray());
+                    session()->put("successUnarchiveBuilding", true);
+                } else {
+                    session()->put("errorUnarchiveBuilding", true);
+                }
+            }
+            if (isset($request->searchKey)) {
+                return redirect("/buildings?searchKey=" . $request->searchKey);
+            } else {
+                return redirect("/buildings");
+            }
         } else {
             return redirect("/");
         }

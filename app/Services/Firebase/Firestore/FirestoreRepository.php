@@ -190,6 +190,11 @@ final class FirestoreRepository implements FireStore
             } else {
                 $newBuildings->directoryPath = "";
             }
+            if (isset($eachData['status'])) {
+                $newBuildings->status = $eachData['status'];
+            } else {
+                $newBuildings->status = "active";
+            }
 
             $newBuildings->createdAt = $eachData['createdAt'];
             $newBuildings->updatedAt = $eachData['updatedAt'];
@@ -230,6 +235,41 @@ final class FirestoreRepository implements FireStore
         }
 
         return $result;
+    }
+
+    public function fetchOneBuilding(string $id): Buildings
+    {
+        $fs = app('firebase.firestore')
+            ->database()
+            ->collection('buildings')
+            ->document($id);
+        $data = $fs->snapshot();
+
+        $newBuildings = new Buildings();
+        if ($data->exists()) {
+            $eachData = $data->data();
+            $newBuildings = new Buildings();
+            $newBuildings->docID = $data->id();
+            $newBuildings->buildingName = $eachData['buildingName'];
+            $newBuildings->posterPath = $eachData['posterPath'];
+            if (isset($eachData['directoryPath'])) {
+                $newBuildings->directoryPath = $eachData['directoryPath'];
+            } else {
+                $newBuildings->directoryPath = "";
+            }
+            if (isset($eachData['status'])) {
+                $newBuildings->status = $eachData['status'];
+            } else {
+                $newBuildings->status = "active";
+            }
+
+            $newBuildings->createdAt = $eachData['createdAt'];
+            $newBuildings->updatedAt = $eachData['updatedAt'];
+        }
+
+
+
+        return $newBuildings;
     }
 
     public function fetchOneOffice(string $id): Offices

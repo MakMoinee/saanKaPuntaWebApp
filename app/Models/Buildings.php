@@ -16,6 +16,7 @@ class Buildings extends Model
         'buildingName',
         "posterPath",
         "directoryPath",
+        "status",
         "createdAt",
         "updatedAt"
     ];
