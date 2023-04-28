@@ -18,6 +18,7 @@ class Offices extends Model
         "directions",
         "floor",
         "floorMapPath",
+        "status",
         "videoURL",
         "createdAt",
         "updatedAt"

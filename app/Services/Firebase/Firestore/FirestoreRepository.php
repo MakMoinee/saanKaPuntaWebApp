@@ -221,9 +221,46 @@ final class FirestoreRepository implements FireStore
             $newOffice->videoURL =  $eachData['videoURL'];
             $newOffice->createdAt = $eachData['createdAt'];
             $newOffice->updatedAt = $eachData['updatedAt'];
+            if (isset($eachData['status'])) {
+                $newOffice->status = $eachData['status'];
+            } else {
+                $newOffice->status = "active";
+            }
             array_push($result, $newOffice->toArray());
         }
 
         return $result;
+    }
+
+    public function fetchOneOffice(string $id): Offices
+    {
+        $fs = app('firebase.firestore')
+            ->database()
+            ->collection('offices')
+            ->document($id);
+        $data = $fs->snapshot();
+
+        $newOffice = new Offices();
+        if ($data->exists()) {
+            $eachData = $data->data();
+            $newOffice->docID = $data->id();
+            $newOffice->officeName = $eachData['officeName'];
+            $newOffice->building = $eachData['building'];
+            $newOffice->directions = $eachData['directions'];
+            $newOffice->floor =  $eachData['floor'];
+            $newOffice->floorMapPath =  $eachData['floorMapPath'];
+            $newOffice->videoURL =  $eachData['videoURL'];
+            $newOffice->createdAt = $eachData['createdAt'];
+            $newOffice->updatedAt = $eachData['updatedAt'];
+            if (isset($eachData['status'])) {
+                $newOffice->status = $eachData['status'];
+            } else {
+                $newOffice->status = "active";
+            }
+        }
+
+
+
+        return $newOffice;
     }
 }

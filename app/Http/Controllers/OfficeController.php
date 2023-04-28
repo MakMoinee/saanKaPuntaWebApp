@@ -137,6 +137,7 @@ class OfficeController extends Controller
                                 $newOffice->directions = $directions;
                                 $newOffice->floor = $floor;
                                 $newOffice->videoURL =  "";
+                                $newOffice->status =  "active";
                                 $newOffice->floorMapPath =  "/storage/image/floors/" . $fileName;
                                 $newOffice->createdAt = $dt->format('Y-m-d H:i:s');
                                 $newOffice->updatedAt = $dt->format('Y-m-d H:i:s');
@@ -199,6 +200,7 @@ class OfficeController extends Controller
                         $newOffice->floor = $floor;
                         $newOffice->videoURL =  "";
                         $newOffice->floorMapPath =  "";
+                        $newOffice->status =  "active";
                         $newOffice->createdAt = $dt->format('Y-m-d H:i:s');
                         $newOffice->updatedAt = $dt->format('Y-m-d H:i:s');
 
@@ -258,7 +260,7 @@ class OfficeController extends Controller
                         $destinationPath = $_SERVER['DOCUMENT_ROOT'] . "/public" . '/storage/image/floors';
                         $fileName = strtotime(now()) . "." . $files->getClientOriginalExtension();
                         $isFile = $files->move($destinationPath,  $fileName);
-                        chmod($destinationPath,0755);
+                        chmod($destinationPath, 0755);
                     } else {
                         session()->put("errorImageFile", true);
                         return redirect("/offices");
@@ -286,7 +288,7 @@ class OfficeController extends Controller
                         $destinationPath = $_SERVER['DOCUMENT_ROOT'] . "/public" . '/storage/videos';
                         $fileName2 = strtotime(now()) . "." . $files2->getClientOriginalExtension();
                         $isFile2 = $files2->move($destinationPath,  $fileName2);
-                        chmod($destinationPath,0755);
+                        chmod($destinationPath, 0755);
                     } else {
                         session()->put("errorVideoFile", true);
                         return redirect("/offices");
@@ -336,6 +338,7 @@ class OfficeController extends Controller
                 $newOffice->floor = $floor;
                 $newOffice->createdAt = $createdAt;
                 $newOffice->floorMapPath = $fileName;
+                $newOffice->status = "active";
                 $newOffice->videoURL = $fileName2;
                 $newOffice->updatedAt = $dt->format('Y-m-d H:i:s');
 
@@ -386,9 +389,31 @@ class OfficeController extends Controller
                 } catch (Exception $e) {
                     session()->put("errorDeleteOffice", true);
                 }
+            } else if (isset($request->btnArchive)) {
+                $office = $this->db->fetchOneOffice($id);
+                if ($office) {
+                    $office->status = "archive";
+                    $this->db->edit('offices', $id, $office->toArray());
+                    session()->put("successArchiveOffice", true);
+                } else {
+                    session()->put("errorArchiveOffice", true);
+                }
+            } else if (isset($request->btnUnarchiveOffice)) {
+                $office = $this->db->fetchOneOffice($id);
+                if ($office) {
+                    $office->status = "active";
+                    $this->db->edit('offices', $id, $office->toArray());
+                    session()->put("successUnarchiveOffice", true);
+                } else {
+                    session()->put("errorUnarchiveOffice", true);
+                }
             }
 
-            return redirect("/offices");
+            if (isset($request->searchKey)) {
+                return redirect("/offices?searchKey=" . $request->searchKey);
+            } else {
+                return redirect("/offices");
+            }
         } else {
             return redirect("/");
         }

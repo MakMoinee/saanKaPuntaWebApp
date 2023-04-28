@@ -176,8 +176,7 @@
                 </ul>
                 <ul class="header-nav ms-3">
                     <li class="nav-item dropdown"><a class="nav-link py-0" data-coreui-toggle="dropdown"
-                            href="#" role="button" aria-haspopup="true"
-                            aria-expanded="false">
+                            href="#" role="button" aria-haspopup="true" aria-expanded="false">
                             <div class="avatar avatar-md"><img class="avatar-img" src="./Dashboard_files/8.png"
                                     alt="user@email.com"></div>
                         </a>
@@ -288,253 +287,351 @@
                                                         {{ $item['floor'] }}
                                                     </td>
                                                     <td class="text-center">
-                                                        <button class="btn btn-success" style="color:white;"
-                                                            onclick="clearViewData('{{ $item['docID'] }}','{{ $item['floorMapPath'] }}');"
-                                                            data-coreui-target="#viewOfficeModal{{ $item['docID'] }}"
-                                                            data-coreui-toggle="modal">View</button>
-                                                        <div class="modal fade "
-                                                            id="viewOfficeModal{{ $item['docID'] }}" tabindex="-1"
-                                                            role="dialog"
-                                                            aria-labelledby="viewOfficeModalLabel{{ $item['docID'] }}"
-                                                            aria-hidden="true">
-                                                            <div class="modal-dialog" role="document">
-                                                                <div class="modal-content">
-                                                                    <div class="modal-header">
-                                                                        <h5 class="modal-title"
-                                                                            id="viewOfficeModalLabel{{ $item['docID'] }}">
-                                                                            View Office</h5>
-                                                                    </div>
-                                                                    <div class="modal-body">
-                                                                        <div class="row">
-                                                                            <form
-                                                                                action="{{ route('offices.update', ['office' => $item['docID']]) }}"
-                                                                                method="POST"
-                                                                                enctype="multipart/form-data"
-                                                                                autocomplete="off">
-                                                                                @method('put')
-                                                                                @csrf
-                                                                                <center>
-                                                                                    <div class="form-group">
-                                                                                        <input class="form-control"
-                                                                                            required type="text"
-                                                                                            name="officeName"
-                                                                                            id="officeName{{ $item['docID'] }}"
-                                                                                            placeholder="Office Name"
-                                                                                            value="{{ $item['officeName'] }}"
-                                                                                            autofocus>
-                                                                                    </div>
-                                                                                    <br>
-                                                                                    <div class="form-group">
-                                                                                        <label for="building"
-                                                                                            style="float:left;font-size: 14px;margin-bottom: 10px;">Choose
-                                                                                            Building:</label>
-                                                                                        <select class="form-control"
-                                                                                            name="building"
-                                                                                            id="">
-                                                                                            @foreach ($buildings as $b)
-                                                                                                @if ($item['building'] == $b['docID'])
-                                                                                                    <option
-                                                                                                        id="{{ $b['docID'] }}"
-                                                                                                        value="{{ $b['docID'] }}"
-                                                                                                        selected>
-                                                                                                        {{ $b['buildingName'] }}
-                                                                                                    </option>
-                                                                                                @else
-                                                                                                    <option
-                                                                                                        value="{{ $b['docID'] }}">
-                                                                                                        {{ $b['buildingName'] }}
-                                                                                                    </option>
-                                                                                                @endif
-                                                                                            @endforeach
-                                                                                        </select>
-                                                                                    </div>
-                                                                                    <br>
-                                                                                    <div class="form-group">
-                                                                                        <input class="form-control"
-                                                                                             type="text"
-                                                                                            name="floor"
-                                                                                            id="floor{{ $item['docID'] }}"
-                                                                                            placeholder="Floor"
-                                                                                            value="{{ $item['floor'] }}">
-                                                                                    </div>
-                                                                                    <div class="form-group"
-                                                                                        style="margin-top: 10px;">
-                                                                                        <button class="file-upload-btn"
-                                                                                            type="button"
-                                                                                            onclick="$('#file-upload-input3{{ $item['docID'] }}').trigger( 'click' )">Add
-                                                                                            Floor Map
-                                                                                            Image</button>
 
-                                                                                        <div class="image-upload-wrap3"
-                                                                                            id="image-upload-wrap3{{ $item['docID'] }}">
-                                                                                            <input
-                                                                                                class="file-upload-input3"
-                                                                                                dataid="{{ $item['docID'] }}"
-                                                                                                id="file-upload-input3{{ $item['docID'] }}"
-                                                                                                name="files"
-                                                                                                type='file'
-                                                                                                onchange="readURL3(this,'{{ $item['docID'] }}');"
-                                                                                                accept="image/*" />
-                                                                                            <div class="drag-text">
-                                                                                                <h3>Drag and drop a file
-                                                                                                    or select add Image
-                                                                                                </h3>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div class="file-upload-content3"
-                                                                                            id="file-upload-content3{{ $item['docID'] }}">
-                                                                                            <img class="file-upload-image3"
-                                                                                                id="file-upload-image3{{ $item['docID'] }}"
-                                                                                                src=""
-                                                                                                alt="your image"
-                                                                                                width="100%"
-                                                                                                height="40%" />
-                                                                                            <div class="image-title-wrap3"
-                                                                                                id="image-title-wrap3{{ $item['docID'] }}">
-                                                                                                <button type="button"
-                                                                                                    onclick="removeUpload3('{{ $item['docID'] }}')"
-                                                                                                    class="remove-image3"
-                                                                                                    id="remove-image3{{ $item['docID'] }}">Remove
-                                                                                                    <span
-                                                                                                        class="image-title3"
-                                                                                                        id="image-title3{{ $item['docID'] }}">Uploaded
-                                                                                                        Image</span></button>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <br>
-                                                                                    <div class="form-group">
-                                                                                        <label for="directions"
-                                                                                            style="float:left;font-size: 14px;margin-bottom: 10px;">Directions</label>
-                                                                                        <textarea class="form-control" name="directions" id="directions{{ $item['docID'] }}" cols="10"
-                                                                                            rows="8">{{ $item['directions'] }}</textarea>
-                                                                                    </div>
-                                                                                    <br>
-                                                                                    <div class="form-group"
-                                                                                        style="margin-top: 10px;">
-                                                                                        <button
-                                                                                            class="file-upload-btn4"
-                                                                                            type="button"
-                                                                                            onclick="$('#file-upload-input4{{ $item['docID'] }}').trigger( 'click' )">Add
-                                                                                            Virtual Guide
-                                                                                            Video</button>
-
-                                                                                        <div class="image-upload-wrap4"
-                                                                                            id="image-upload-wrap4{{ $item['docID'] }}">
-                                                                                            <input
-                                                                                                class="file-upload-input4"
-                                                                                                id="file-upload-input4{{ $item['docID'] }}"
-                                                                                                name="files2"
-                                                                                                type='file'
-                                                                                                onchange="readURL4(this,'{{ $item['docID'] }}');"
-                                                                                                accept="video/*" />
-                                                                                            <div class="drag-text">
-                                                                                                <h3>Drag and drop a file
-                                                                                                    or select video file
-                                                                                                </h3>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <div class="file-upload-content4"
-                                                                                            id="file-upload-content4{{ $item['docID'] }}">
-                                                                                            <img class="file-upload-image4"
-                                                                                                id="file-upload-image4{{ $item['docID'] }}"
-                                                                                                src="#"
-                                                                                                alt="your image"
-                                                                                                width="100%"
-                                                                                                height="40%" />
-                                                                                            <div class="image-title-wrap4"
-                                                                                                id="image-title-wrap4{{ $item['docID'] }}">
-                                                                                                <button type="button"
-                                                                                                    onclick="removeUpload4('{{ $item['docID'] }}')"
-                                                                                                    class="remove-image4"
-                                                                                                    id="remove-image4{{ $item['docID'] }}">Remove
-                                                                                                    <span
-                                                                                                        class="image-title4"
-                                                                                                        id="image-title4{{ $item['docID'] }}">Uploaded
-                                                                                                        Video</span></button>
-                                                                                            </div>
-                                                                                        </div>
-                                                                                        <input type="hidden"
-                                                                                            name="originalFloorMapPath"
-                                                                                            value="{{ $item['floorMapPath'] }}">
-                                                                                        <input type="hidden"
-                                                                                            name="originalVideoURL"
-                                                                                            value="{{ $item['videoURL'] }}">
-                                                                                        <input type="hidden"
-                                                                                            name="createdAt"
-                                                                                            value="{{ $item['createdAt'] }}">
-                                                                                        @if ($item['videoURL'] != '')
-                                                                                            <br>
-                                                                                            <div>
-                                                                                                <a href="{{ $item['videoURL'] }}"
-                                                                                                    target="_blank"
-                                                                                                    class="btn btn-primary">Click
-                                                                                                    Here to Preview
-                                                                                                    Original
-                                                                                                    Video Stored</a>
-                                                                                            </div>
-                                                                                        @endif
-                                                                                    </div>
-
-
-                                                                                </center>
-
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="modal-footer">
-                                                                        <button type="button"
-                                                                            class="btn btn-secondary"
-                                                                            data-coreui-dismiss="modal">Close</button>
-                                                                        <button type="submit" class="btn btn-primary"
-                                                                            style="background-color: #ff589e"
-                                                                            name="btnUpdateOffice"
-                                                                            value="yes">Update
-                                                                            Office</button>
-                                                                    </div>
-                                                                    </form>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <button class="btn btn-danger" style="color:white;"
-                                                            data-coreui-target="#deleteUserModal{{ $item['docID'] }}"
-                                                            data-coreui-toggle="modal">Delete</button>
-                                                        <div class="modal fade"
-                                                            id="deleteUserModal{{ $item['docID'] }}" tabindex="-1"
-                                                            role="dialog"
-                                                            aria-labelledby="deleteUserModalLabel{{ $item['docID'] }}"
-                                                            aria-hidden="true">
-                                                            <div class="modal-dialog" role="document">
-                                                                <div class="modal-content">
-                                                                    <form
-                                                                        action="{{ route('offices.destroy', ['office' => $item['docID']]) }}"
-                                                                        method="POST">
-                                                                        @method('delete')
-                                                                        @csrf
-                                                                        <div class="modal-body">
+                                                        @if ($item['status'] == 'active')
+                                                            <button class="btn btn-success" style="color:white;"
+                                                                onclick="clearViewData('{{ $item['docID'] }}','{{ $item['floorMapPath'] }}');"
+                                                                data-coreui-target="#viewOfficeModal{{ $item['docID'] }}"
+                                                                data-coreui-toggle="modal">View</button>
+                                                            <div class="modal fade "
+                                                                id="viewOfficeModal{{ $item['docID'] }}"
+                                                                tabindex="-1" role="dialog"
+                                                                aria-labelledby="viewOfficeModalLabel{{ $item['docID'] }}"
+                                                                aria-hidden="true">
+                                                                <div class="modal-dialog" role="document">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
                                                                             <h5 class="modal-title"
-                                                                                id="deleteUserModalLabel{{ $item['docID'] }}">
-                                                                                Do
-                                                                                you want to proceed deleting office ?
-                                                                            </h5>
-                                                                            <input type="hidden" name="floorMap"
-                                                                                value="{{ $item['floorMapPath'] }}">
-                                                                            <input type="hidden" name="videoURL"
-                                                                                value="{{ $item['videoURL'] }}">
+                                                                                id="viewOfficeModalLabel{{ $item['docID'] }}">
+                                                                                View Office</h5>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <div class="row">
+                                                                                <form
+                                                                                    action="{{ route('offices.update', ['office' => $item['docID']]) }}"
+                                                                                    method="POST"
+                                                                                    enctype="multipart/form-data"
+                                                                                    autocomplete="off">
+                                                                                    @method('put')
+                                                                                    @csrf
+                                                                                    <center>
+                                                                                        <div class="form-group">
+                                                                                            <input class="form-control"
+                                                                                                required type="text"
+                                                                                                name="officeName"
+                                                                                                id="officeName{{ $item['docID'] }}"
+                                                                                                placeholder="Office Name"
+                                                                                                value="{{ $item['officeName'] }}"
+                                                                                                autofocus>
+                                                                                        </div>
+                                                                                        <br>
+                                                                                        <div class="form-group">
+                                                                                            <label for="building"
+                                                                                                style="float:left;font-size: 14px;margin-bottom: 10px;">Choose
+                                                                                                Building:</label>
+                                                                                            <select
+                                                                                                class="form-control"
+                                                                                                name="building"
+                                                                                                id="">
+                                                                                                @foreach ($buildings as $b)
+                                                                                                    @if ($item['building'] == $b['docID'])
+                                                                                                        <option
+                                                                                                            id="{{ $b['docID'] }}"
+                                                                                                            value="{{ $b['docID'] }}"
+                                                                                                            selected>
+                                                                                                            {{ $b['buildingName'] }}
+                                                                                                        </option>
+                                                                                                    @else
+                                                                                                        <option
+                                                                                                            value="{{ $b['docID'] }}">
+                                                                                                            {{ $b['buildingName'] }}
+                                                                                                        </option>
+                                                                                                    @endif
+                                                                                                @endforeach
+                                                                                            </select>
+                                                                                        </div>
+                                                                                        <br>
+                                                                                        <div class="form-group">
+                                                                                            <input class="form-control"
+                                                                                                type="text"
+                                                                                                name="floor"
+                                                                                                id="floor{{ $item['docID'] }}"
+                                                                                                placeholder="Floor"
+                                                                                                value="{{ $item['floor'] }}">
+                                                                                        </div>
+                                                                                        <div class="form-group"
+                                                                                            style="margin-top: 10px;">
+                                                                                            <button
+                                                                                                class="file-upload-btn"
+                                                                                                type="button"
+                                                                                                onclick="$('#file-upload-input3{{ $item['docID'] }}').trigger( 'click' )">Add
+                                                                                                Floor Map
+                                                                                                Image</button>
+
+                                                                                            <div class="image-upload-wrap3"
+                                                                                                id="image-upload-wrap3{{ $item['docID'] }}">
+                                                                                                <input
+                                                                                                    class="file-upload-input3"
+                                                                                                    dataid="{{ $item['docID'] }}"
+                                                                                                    id="file-upload-input3{{ $item['docID'] }}"
+                                                                                                    name="files"
+                                                                                                    type='file'
+                                                                                                    onchange="readURL3(this,'{{ $item['docID'] }}');"
+                                                                                                    accept="image/*" />
+                                                                                                <div class="drag-text">
+                                                                                                    <h3>Drag and drop a
+                                                                                                        file
+                                                                                                        or select add
+                                                                                                        Image
+                                                                                                    </h3>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="file-upload-content3"
+                                                                                                id="file-upload-content3{{ $item['docID'] }}">
+                                                                                                <img class="file-upload-image3"
+                                                                                                    id="file-upload-image3{{ $item['docID'] }}"
+                                                                                                    src=""
+                                                                                                    alt="your image"
+                                                                                                    width="100%"
+                                                                                                    height="40%" />
+                                                                                                <div class="image-title-wrap3"
+                                                                                                    id="image-title-wrap3{{ $item['docID'] }}">
+                                                                                                    <button
+                                                                                                        type="button"
+                                                                                                        onclick="removeUpload3('{{ $item['docID'] }}')"
+                                                                                                        class="remove-image3"
+                                                                                                        id="remove-image3{{ $item['docID'] }}">Remove
+                                                                                                        <span
+                                                                                                            class="image-title3"
+                                                                                                            id="image-title3{{ $item['docID'] }}">Uploaded
+                                                                                                            Image</span></button>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <br>
+                                                                                        <div class="form-group">
+                                                                                            <label for="directions"
+                                                                                                style="float:left;font-size: 14px;margin-bottom: 10px;">Directions</label>
+                                                                                            <textarea class="form-control" name="directions" id="directions{{ $item['docID'] }}" cols="10"
+                                                                                                rows="8">{{ $item['directions'] }}</textarea>
+                                                                                        </div>
+                                                                                        <br>
+                                                                                        <div class="form-group"
+                                                                                            style="margin-top: 10px;">
+                                                                                            <button
+                                                                                                class="file-upload-btn4"
+                                                                                                type="button"
+                                                                                                onclick="$('#file-upload-input4{{ $item['docID'] }}').trigger( 'click' )">Add
+                                                                                                Virtual Guide
+                                                                                                Video</button>
+
+                                                                                            <div class="image-upload-wrap4"
+                                                                                                id="image-upload-wrap4{{ $item['docID'] }}">
+                                                                                                <input
+                                                                                                    class="file-upload-input4"
+                                                                                                    id="file-upload-input4{{ $item['docID'] }}"
+                                                                                                    name="files2"
+                                                                                                    type='file'
+                                                                                                    onchange="readURL4(this,'{{ $item['docID'] }}');"
+                                                                                                    accept="video/*" />
+                                                                                                <div class="drag-text">
+                                                                                                    <h3>Drag and drop a
+                                                                                                        file
+                                                                                                        or select video
+                                                                                                        file
+                                                                                                    </h3>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div class="file-upload-content4"
+                                                                                                id="file-upload-content4{{ $item['docID'] }}">
+                                                                                                <img class="file-upload-image4"
+                                                                                                    id="file-upload-image4{{ $item['docID'] }}"
+                                                                                                    src="#"
+                                                                                                    alt="your image"
+                                                                                                    width="100%"
+                                                                                                    height="40%" />
+                                                                                                <div class="image-title-wrap4"
+                                                                                                    id="image-title-wrap4{{ $item['docID'] }}">
+                                                                                                    <button
+                                                                                                        type="button"
+                                                                                                        onclick="removeUpload4('{{ $item['docID'] }}')"
+                                                                                                        class="remove-image4"
+                                                                                                        id="remove-image4{{ $item['docID'] }}">Remove
+                                                                                                        <span
+                                                                                                            class="image-title4"
+                                                                                                            id="image-title4{{ $item['docID'] }}">Uploaded
+                                                                                                            Video</span></button>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <input type="hidden"
+                                                                                                name="originalFloorMapPath"
+                                                                                                value="{{ $item['floorMapPath'] }}">
+                                                                                            <input type="hidden"
+                                                                                                name="originalVideoURL"
+                                                                                                value="{{ $item['videoURL'] }}">
+                                                                                            <input type="hidden"
+                                                                                                name="createdAt"
+                                                                                                value="{{ $item['createdAt'] }}">
+                                                                                            @if ($item['videoURL'] != '')
+                                                                                                <br>
+                                                                                                <div>
+                                                                                                    <a href="{{ $item['videoURL'] }}"
+                                                                                                        target="_blank"
+                                                                                                        class="btn btn-primary">Click
+                                                                                                        Here to Preview
+                                                                                                        Original
+                                                                                                        Video Stored</a>
+                                                                                                </div>
+                                                                                            @endif
+                                                                                        </div>
+
+
+                                                                                    </center>
+
+                                                                            </div>
                                                                         </div>
                                                                         <div class="modal-footer">
-                                                                            <button type="submit"
-                                                                                class="btn btn-primary"
-                                                                                name="btnDeleteOffice"
-                                                                                value="yes">Yes,
-                                                                                Proceed</button>
                                                                             <button type="button"
                                                                                 class="btn btn-secondary"
                                                                                 data-coreui-dismiss="modal">Close</button>
+                                                                            <button type="submit"
+                                                                                class="btn btn-primary"
+                                                                                style="background-color: #ff589e"
+                                                                                name="btnUpdateOffice"
+                                                                                value="yes">Update
+                                                                                Office</button>
                                                                         </div>
-                                                                    </form>
+                                                                        </form>
+                                                                    </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
+                                                            <button class="btn btn-danger" style="color:white;"
+                                                                data-coreui-target="#deleteUserModal{{ $item['docID'] }}"
+                                                                data-coreui-toggle="modal">Archive</button>
+                                                            <div class="modal fade"
+                                                                id="deleteUserModal{{ $item['docID'] }}"
+                                                                tabindex="-1" role="dialog"
+                                                                aria-labelledby="deleteUserModalLabel{{ $item['docID'] }}"
+                                                                aria-hidden="true">
+                                                                <div class="modal-dialog" role="document">
+                                                                    <div class="modal-content">
+                                                                        <form
+                                                                            action="{{ route('offices.destroy', ['office' => $item['docID']]) }}"
+                                                                            method="POST">
+                                                                            @method('delete')
+                                                                            @csrf
+                                                                            <div class="modal-body">
+                                                                                <h5 class="modal-title"
+                                                                                    id="deleteUserModalLabel{{ $item['docID'] }}">
+                                                                                    Do
+                                                                                    you want to proceed archiving this
+                                                                                    office
+                                                                                    ?
+                                                                                </h5>
+                                                                                <input type="hidden" name="searchKey"
+                                                                                    value="{{ $key }}">
+                                                                            </div>
+                                                                            <div class="modal-footer">
+                                                                                <button type="submit"
+                                                                                    class="btn btn-primary"
+                                                                                    name="btnArchive"
+                                                                                    value="yes">Yes,
+                                                                                    Proceed</button>
+                                                                                <button type="button"
+                                                                                    class="btn btn-secondary"
+                                                                                    data-coreui-dismiss="modal">Close</button>
+                                                                            </div>
+                                                                        </form>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        @else
+                                                            <button class="btn btn-success disabled"
+                                                                style="color:white; cursor:not-allowed;"
+                                                                disabled>View</button>
+                                                            <button class="btn btn-warning" style="color:white;"
+                                                                data-coreui-target="#unarchiveUserModal{{ $item['docID'] }}"
+                                                                data-coreui-toggle="modal">Unarchive</button>
+                                                            <div class="modal fade"
+                                                                id="unarchiveUserModal{{ $item['docID'] }}"
+                                                                tabindex="-1" role="dialog"
+                                                                aria-labelledby="unarchiveUserModalLabel{{ $item['docID'] }}"
+                                                                aria-hidden="true">
+                                                                <div class="modal-dialog" role="document">
+                                                                    <div class="modal-content">
+                                                                        <form
+                                                                            action="{{ route('offices.destroy', ['office' => $item['docID']]) }}"
+                                                                            method="POST">
+                                                                            @method('delete')
+                                                                            @csrf
+                                                                            <div class="modal-body">
+                                                                                <h5 class="modal-title"
+                                                                                    id="deleteUserModalLabel{{ $item['docID'] }}">
+                                                                                    Do
+                                                                                    you want to proceed Unarchiving This
+                                                                                    Office Record
+                                                                                    ?
+                                                                                </h5>
+                                                                                <input type="hidden" name="searchKey"
+                                                                                    value="{{ $key }}">
+                                                                            </div>
+                                                                            <div class="modal-footer">
+                                                                                <button type="submit"
+                                                                                    class="btn btn-primary"
+                                                                                    name="btnUnarchiveOffice"
+                                                                                    value="yes">Yes,
+                                                                                    Proceed</button>
+                                                                                <button type="button"
+                                                                                    class="btn btn-secondary"
+                                                                                    data-coreui-dismiss="modal">Close</button>
+                                                                            </div>
+                                                                        </form>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <button class="btn btn-danger" style="color:white;"
+                                                                data-coreui-target="#deleteUserModal{{ $item['docID'] }}"
+                                                                data-coreui-toggle="modal">Delete</button>
+                                                            <div class="modal fade"
+                                                                id="deleteUserModal{{ $item['docID'] }}"
+                                                                tabindex="-1" role="dialog"
+                                                                aria-labelledby="deleteUserModalLabel{{ $item['docID'] }}"
+                                                                aria-hidden="true">
+                                                                <div class="modal-dialog" role="document">
+                                                                    <div class="modal-content">
+                                                                        <form
+                                                                            action="{{ route('offices.destroy', ['office' => $item['docID']]) }}"
+                                                                            method="POST">
+                                                                            @method('delete')
+                                                                            @csrf
+                                                                            <div class="modal-body">
+                                                                                <h5 class="modal-title"
+                                                                                    id="deleteUserModalLabel{{ $item['docID'] }}">
+                                                                                    Do
+                                                                                    you want to proceed deleting office
+                                                                                    ?
+                                                                                </h5>
+                                                                                <input type="hidden" name="floorMap"
+                                                                                    value="{{ $item['floorMapPath'] }}">
+                                                                                <input type="hidden" name="videoURL"
+                                                                                    value="{{ $item['videoURL'] }}">
+                                                                            </div>
+                                                                            <div class="modal-footer">
+                                                                                <button type="submit"
+                                                                                    class="btn btn-primary"
+                                                                                    name="btnDeleteOffice"
+                                                                                    value="yes">Yes,
+                                                                                    Proceed</button>
+                                                                                <button type="button"
+                                                                                    class="btn btn-secondary"
+                                                                                    data-coreui-dismiss="modal">Close</button>
+                                                                            </div>
+                                                                        </form>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        @endif
+
                                                     </td>
                                                 </tr>
                                             @endforeach
@@ -587,8 +684,8 @@
                                 </div>
                                 <br>
                                 <div class="form-group">
-                                    <input class="form-control" type="text" name="floor"
-                                        id="floor" placeholder="Floor">
+                                    <input class="form-control" type="text" name="floor" id="floor"
+                                        placeholder="Floor">
                                 </div>
                                 <div class="form-group" style="margin-top: 10px;">
                                     <button class="file-upload-btn" type="button"
@@ -1039,6 +1136,37 @@
     {{ session()->forget('errorImageFile') }}
 @endif
 
+
+@if (session()->pull('successArchiveOffice'))
+    <script>
+        setTimeout(() => {
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Successfully Archive Office Record',
+                showConfirmButton: false,
+                timer: 1200
+            });
+        }, 500);
+    </script>
+    {{ session()->forget('successArchiveOffice') }}
+@endif
+
+@if (session()->pull('errorArchiveOffice'))
+    <script>
+        setTimeout(() => {
+            Swal.fire({
+                position: 'center',
+                icon: 'warning',
+                title: 'Failed To Archive Office, Please Try Again Later',
+                showConfirmButton: false,
+                timer: 1200
+            });
+        }, 500);
+    </script>
+    {{ session()->forget('errorArchiveOffice') }}
+@endif
+
 @if (session()->pull('errorDeleteOffice'))
     <script>
         setTimeout(() => {
@@ -1052,6 +1180,36 @@
         }, 500);
     </script>
     {{ session()->forget('errorDeleteOffice') }}
+@endif
+
+@if (session()->pull('successUnarchiveOffice'))
+    <script>
+        setTimeout(() => {
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Successfully Unarchiving Office Record',
+                showConfirmButton: false,
+                timer: 1200
+            });
+        }, 500);
+    </script>
+    {{ session()->forget('successUnarchiveOffice') }}
+@endif
+
+@if (session()->pull('errorUnarchiveOffice'))
+    <script>
+        setTimeout(() => {
+            Swal.fire({
+                position: 'center',
+                icon: 'warning',
+                title: 'Failed To Unarchive Office, Please Try Again Later',
+                showConfirmButton: false,
+                timer: 1200
+            });
+        }, 500);
+    </script>
+    {{ session()->forget('errorUnarchiveOffice') }}
 @endif
 
 </html>
