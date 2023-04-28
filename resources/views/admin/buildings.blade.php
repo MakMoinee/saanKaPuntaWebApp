@@ -503,7 +503,7 @@
                                                                                 <h5 class="modal-title"
                                                                                     id="deleteUserModalLabel{{ $item['docID'] }}">
                                                                                     Do
-                                                                                    you want to proceed unarchivinh
+                                                                                    you want to proceed unarchiving
                                                                                     building ?
                                                                                 </h5>
                                                                                 <input type="hidden" name="searchKey"

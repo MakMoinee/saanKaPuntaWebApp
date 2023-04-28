@@ -278,8 +278,10 @@
                                                     </td>
                                                     <td class="text-center">
                                                         @foreach ($buildings as $b)
-                                                            @if ($b['docID'] == $item['building'])
-                                                                {{ $b['buildingName'] }}
+                                                            @if ($b['status'] == 'active')
+                                                                @if ($b['docID'] == $item['building'])
+                                                                    {{ $b['buildingName'] }}
+                                                                @endif
                                                             @endif
                                                         @endforeach
                                                     </td>
@@ -334,18 +336,20 @@
                                                                                                 name="building"
                                                                                                 id="">
                                                                                                 @foreach ($buildings as $b)
-                                                                                                    @if ($item['building'] == $b['docID'])
-                                                                                                        <option
-                                                                                                            id="{{ $b['docID'] }}"
-                                                                                                            value="{{ $b['docID'] }}"
-                                                                                                            selected>
-                                                                                                            {{ $b['buildingName'] }}
-                                                                                                        </option>
-                                                                                                    @else
-                                                                                                        <option
-                                                                                                            value="{{ $b['docID'] }}">
-                                                                                                            {{ $b['buildingName'] }}
-                                                                                                        </option>
+                                                                                                    @if ($b['status'] == 'active')
+                                                                                                        @if ($item['building'] == $b['docID'])
+                                                                                                            <option
+                                                                                                                id="{{ $b['docID'] }}"
+                                                                                                                value="{{ $b['docID'] }}"
+                                                                                                                selected>
+                                                                                                                {{ $b['buildingName'] }}
+                                                                                                            </option>
+                                                                                                        @else
+                                                                                                            <option
+                                                                                                                value="{{ $b['docID'] }}">
+                                                                                                                {{ $b['buildingName'] }}
+                                                                                                            </option>
+                                                                                                        @endif
                                                                                                     @endif
                                                                                                 @endforeach
                                                                                             </select>
@@ -1292,7 +1296,10 @@
                                         Building:</label>
                                     <select class="form-control" name="building" id="">
                                         @foreach ($buildings as $item)
-                                            <option value="{{ $item['docID'] }}">{{ $item['buildingName'] }}</option>
+                                            @if ($item['status'] == 'active')
+                                                <option value="{{ $item['docID'] }}">{{ $item['buildingName'] }}
+                                                </option>
+                                            @endif
                                         @endforeach
                                     </select>
                                 </div>
